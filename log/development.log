@@ -1,0 +1,745 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (25.4ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateQuestions (20130905151719)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "class_id" integer, "question" text, "answer" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130905151719')[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/questions" for 127.0.0.1 at 2013-09-05 09:31:51 -0600
+Connecting to database specified by database.yml
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  Rendered questions/index.html.erb within layouts/application (5.5ms)
+Compiled questions.css  (37ms)  (pid 94270)
+Compiled scaffolds.css  (10ms)  (pid 94270)
+Compiled application.css  (63ms)  (pid 94270)
+Compiled jquery.js  (2ms)  (pid 94270)
+Compiled jquery_ujs.js  (0ms)  (pid 94270)
+Compiled questions.js  (204ms)  (pid 94270)
+Compiled application.js  (292ms)  (pid 94270)
+Completed 200 OK in 634ms (Views: 547.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-05 09:31:52 -0600
+Served asset /application.css - 200 OK (6ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-05 09:31:52 -0600
+Served asset /questions.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-05 09:31:52 -0600
+Served asset /jquery.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-05 09:31:52 -0600
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-05 09:31:52 -0600
+Served asset /questions.js - 200 OK (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-05 09:31:52 -0600
+Served asset /scaffolds.css - 200 OK (21ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-05 09:31:52 -0600
+Served asset /application.js - 200 OK (4ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2013-09-05 09:31:54 -0600
+Processing by QuestionsController#new as HTML
+  Rendered questions/_form.html.erb (41.6ms)
+  Rendered questions/new.html.erb within layouts/application (86.4ms)
+Completed 200 OK in 97ms (Views: 91.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2013-09-05 09:32:27 -0600
+Processing by QuestionsController#new as HTML
+  Rendered questions/_form.html.erb (1.9ms)
+  Rendered questions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-05 09:32:28 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-05 09:32:28 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:28 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-05 09:32:28 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:28 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:28 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:28 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/questions" for 127.0.0.1 at 2013-09-05 09:32:43 -0600
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "question"=>{"question"=>"What is the circumference of the earth?", "answer"=>"42"}, "commit"=>"Create Question"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (46.8ms)[0m  [1mINSERT INTO "questions" ("answer", "class_id", "created_at", "question", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["answer", "42"], ["class_id", nil], ["created_at", Thu, 05 Sep 2013 15:32:43 UTC +00:00], ["question", "What is the circumference of the earth?"], ["updated_at", Thu, 05 Sep 2013 15:32:43 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/questions/1
+Completed 302 Found in 54ms (ActiveRecord: 48.3ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2013-09-05 09:32:43 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered questions/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-05 09:32:43 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-05 09:32:43 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-05 09:32:43 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:43 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:43 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:43 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:43 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2013-09-05 09:32:47 -0600
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" 
+  Rendered questions/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-05 09:32:47 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-05 09:32:47 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-05 09:32:47 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:47 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:47 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:47 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:47 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2013-09-05 09:32:49 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered questions/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-05 09:32:49 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-05 09:32:49 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-05 09:32:49 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:49 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:49 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:49 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-05 09:32:49 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2013-09-05 09:33:38 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered questions/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-05 09:33:38 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-05 09:33:38 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-05 09:33:38 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-05 09:33:38 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-05 09:33:38 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-05 09:33:38 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-05 09:33:38 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2013-09-05 09:33:57 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered questions/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-05 09:33:57 -0600
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-05 09:33:57 -0600
+Served asset /questions.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-05 09:33:57 -0600
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-05 09:33:57 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-05 09:33:57 -0600
+Served asset /questions.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-05 09:33:57 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-05 09:33:57 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2013-09-05 09:34:01 -0600
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" 
+  Rendered questions/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.2ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "answers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "submitted_answer" text, "time_answered" datetime, "question_id" integer, "correct" integer, "in_time" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130905153519')[0m
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "altered_questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "class_id" integer, "question" text, "correct_answer" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "questions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "altered_questions" ("id","class_id","question","correct_answer","created_at","updated_at") VALUES (1, NULL, 'What is the circumference of the earth?', '42', '2013-09-05 15:32:43.727329', '2013-09-05 15:32:43.727329')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "questions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "class_id" integer, "question" text, "correct_answer" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "altered_questions"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "questions" ("id","class_id","question","correct_answer","created_at","updated_at") VALUES (1, NULL, 'What is the circumference of the earth?', '42', '2013-09-05 15:32:43.727329', '2013-09-05 15:32:43.727329')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "altered_questions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130905160003')
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+
+
+Started GET "/questions" for 127.0.0.1 at 2013-09-05 14:19:28 -0600
+Connecting to database specified by database.yml
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  Rendered questions/index.html.erb within layouts/application (16.6ms)
+Completed 500 Internal Server Error in 198ms
+
+ActionView::Template::Error (undefined method `answer' for #<Question:0x007fa0bc08da68>):
+    11: <% @questions.each do |question| %>
+    12:   <tr>
+    13:     <td><%= question.question %></td>
+    14:     <td><%= question.answer %></td>
+    15:     <td><%= question.class %></td>
+    16:     <td>
+    17:       <%= link_to 'Show', question %> | 
+  app/views/questions/index.html.erb:14:in `block in _app_views_questions_index_html_erb___3049355876929511417_70164191197080'
+  app/views/questions/index.html.erb:11:in `each'
+  app/views/questions/index.html.erb:11:in `_app_views_questions_index_html_erb___3049355876929511417_70164191197080'
+  app/controllers/questions_controller.rb:5:in `index'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (22.3ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2013-09-05 14:19:46 -0600
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" 
+  Rendered questions/index.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 3ms
+
+ActionView::Template::Error (undefined method `answer' for #<Question:0x007fa0bf330290>):
+    11: <% @questions.each do |question| %>
+    12:   <tr>
+    13:     <td><%= question.question %></td>
+    14:     <td><%= question.answer %></td>
+    15:     <td><%= question.class %></td>
+    16:     <td>
+    17:       <%= link_to 'Show', question %> | 
+  app/views/questions/index.html.erb:14:in `block in _app_views_questions_index_html_erb___3049355876929511417_70164191197080'
+  app/views/questions/index.html.erb:11:in `each'
+  app/views/questions/index.html.erb:11:in `_app_views_questions_index_html_erb___3049355876929511417_70164191197080'
+  app/controllers/questions_controller.rb:5:in `index'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.4ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2013-09-05 14:20:05 -0600
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  Rendered questions/index.html.erb within layouts/application (2.8ms)
+Compiled answers.css  (42ms)  (pid 97578)
+Compiled application.css  (84ms)  (pid 97578)
+Compiled answers.js  (375ms)  (pid 97578)
+Compiled application.js  (397ms)  (pid 97578)
+Completed 200 OK in 774ms (Views: 772.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-05 14:20:06 -0600
+Served asset /application.css - 200 OK (8ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-05 14:20:06 -0600
+Served asset /questions.css - 200 OK (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-05 14:20:06 -0600
+Served asset /scaffolds.css - 200 OK (1ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-05 14:20:06 -0600
+Served asset /answers.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:06 -0600
+Served asset /jquery.js - 200 OK (2ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:06 -0600
+Served asset /answers.js - 200 OK (3ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:06 -0600
+Served asset /questions.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:06 -0600
+Served asset /application.js - 200 OK (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:06 -0600
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2013-09-05 14:20:10 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.3ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered questions/show.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 9ms
+
+ActionView::Template::Error (undefined local variable or method `each' for #<#<Class:0x007fa0bf6680c0>:0x007fa0bf305a40>):
+    4: <p><strong>A: </strong><%= @question.correct_answer %></p>
+    5: <h3>Your Submitted Answers</h3>
+    6: <table>
+    7: <% @question.answers each do |answer| %>
+    8: 	<tr>
+    9: 		<td><%= answer.submitted_answer %></td>
+    10: 		<td><%= answer.correct %></td>
+  app/views/questions/show.html.erb:7:in `_app_views_questions_show_html_erb__1936778387657102461_70164189553400'
+  app/controllers/questions_controller.rb:13:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.8ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2013-09-05 14:20:24 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAnswer Load (0.1ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 1
+  Rendered questions/show.html.erb within layouts/application (127.1ms)
+Completed 200 OK in 133ms (Views: 131.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-05 14:20:24 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-05 14:20:24 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-05 14:20:24 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-05 14:20:24 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:24 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:24 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:24 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:24 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:24 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2013-09-05 14:20:34 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 1
+  Rendered questions/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-05 14:20:34 -0600
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-05 14:20:34 -0600
+Served asset /answers.css - 200 OK (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-05 14:20:34 -0600
+Served asset /questions.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-05 14:20:34 -0600
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:34 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:34 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:34 -0600
+Served asset /answers.js - 200 OK (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:34 -0600
+Served asset /questions.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-05 14:20:34 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2013-09-05 14:21:07 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 1
+  Rendered questions/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-05 14:21:07 -0600
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-05 14:21:07 -0600
+Served asset /answers.css - 200 OK (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-05 14:21:07 -0600
+Served asset /questions.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-05 14:21:07 -0600
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:07 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:07 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:07 -0600
+Served asset /answers.js - 200 OK (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:07 -0600
+Served asset /questions.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:07 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2013-09-05 14:21:09 -0600
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  Rendered questions/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2013-09-05 14:21:22 -0600
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" 
+  Rendered questions/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-05 14:21:22 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-05 14:21:22 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-05 14:21:22 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-05 14:21:22 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:22 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:22 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:22 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:22 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:22 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2013-09-05 14:21:29 -0600
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  Rendered questions/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-05 14:21:29 -0600
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-05 14:21:29 -0600
+Served asset /answers.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-05 14:21:29 -0600
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-05 14:21:29 -0600
+Served asset /questions.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:29 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:29 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:29 -0600
+Served asset /answers.js - 200 OK (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:29 -0600
+Served asset /questions.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-05 14:21:29 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2013-09-05 14:21:32 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mAnswer Load (0.1ms)[0m  [1mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 1[0m
+  Rendered questions/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2013-09-05 17:46:23 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (394.6ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mEXPLAIN (129.8ms)[0m  [1mEXPLAIN QUERY PLAN SELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1[0m  [["id", "1"]]
+EXPLAIN for: SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = ? LIMIT 1 [["id", "1"]]
+0|0|0|SEARCH TABLE questions USING INTEGER PRIMARY KEY (rowid=?) (~1 rows)
+
+  [1m[35mAnswer Load (17.3ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 1
+  Rendered questions/show.html.erb within layouts/application (1793.7ms)
+Completed 200 OK in 6857ms (Views: 2940.6ms | ActiveRecord: 541.8ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2013-09-05 17:46:44 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAnswer Load (5.6ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 1
+  Rendered questions/show.html.erb within layouts/application (34.8ms)
+Completed 200 OK in 310ms (Views: 267.8ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-05 17:46:49 -0600
+Served asset /answers.css - 304 Not Modified (50ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-05 17:46:54 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-05 17:46:54 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-05 17:46:54 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-05 17:46:54 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-05 17:46:54 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-05 17:46:54 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-05 17:46:54 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-05 17:46:54 -0600
+Served asset /answers.js - 304 Not Modified (0ms)

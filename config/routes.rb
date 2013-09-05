@@ -1,4 +1,10 @@
 TextTests::Application.routes.draw do
+  resources :answers
+
+
+  resources :questions
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
