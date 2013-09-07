@@ -15,6 +15,9 @@
 
   <p>Answer</p>
   <%= f.text_area :correct_answer %>
+
+  <p>Course</p>
+  <%= f.collection_select :course_id, Course.all, :id, :description %>
   <div class="actions">
     <%= f.submit %>
   </div>

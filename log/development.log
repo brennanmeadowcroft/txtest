@@ -747,3 +747,1220 @@ Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+Migrating to CreateCourses (20130907153558)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130907153558')[0m
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+Migrating to CreateCourses (20130907153558)
+Migrating to RenameClassIdToCourseIdOnCourses (20130907154302)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (1.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+Migrating to CreateCourses (20130907153558)
+Migrating to RenameClassIdToCourseIdOnQuestions (20130907154302)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "altered_questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "question" text, "correct_answer" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "questions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "altered_questions" ("id","course_id","question","correct_answer","created_at","updated_at") VALUES (1, NULL, 'What is the circumference of the earth?', '42', '2013-09-05 15:32:43.727329', '2013-09-05 15:32:43.727329')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "questions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "question" text, "correct_answer" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "altered_questions"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "questions" ("id","course_id","question","correct_answer","created_at","updated_at") VALUES (1, NULL, 'What is the circumference of the earth?', '42', '2013-09-05 15:32:43.727329', '2013-09-05 15:32:43.727329')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "altered_questions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130907154302')
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-07 10:00:14 -0600
+Connecting to database specified by database.yml
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+  Rendered courses/index.html.erb within layouts/application (5.8ms)
+Compiled courses.css  (55ms)  (pid 6330)
+Compiled application.css  (74ms)  (pid 6330)
+Compiled courses.js  (484ms)  (pid 6330)
+Compiled application.js  (516ms)  (pid 6330)
+Completed 200 OK in 966ms (Views: 923.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:00:15 -0600
+Served asset /application.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:00:15 -0600
+Served asset /answers.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:00:15 -0600
+Served asset /courses.css - 200 OK (1ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:00:15 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:00:15 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:00:15 -0600
+Served asset /jquery.js - 304 Not Modified (21ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:00:15 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:00:15 -0600
+Served asset /courses.js - 200 OK (1ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:00:15 -0600
+Served asset /answers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:00:15 -0600
+Served asset /questions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:00:15 -0600
+Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-07 10:01:06 -0600
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" 
+  Rendered courses/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:06 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:06 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:06 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:06 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:06 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:06 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:06 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:06 -0600
+Served asset /answers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:06 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:06 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:06 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-07 10:01:23 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+  Rendered courses/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:24 -0600
+Served asset /application.css - 200 OK (9ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:24 -0600
+Served asset /answers.css - 200 OK (2ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:24 -0600
+Served asset /questions.css - 200 OK (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:24 -0600
+Served asset /courses.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:24 -0600
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:24 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:24 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:24 -0600
+Served asset /answers.js - 200 OK (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:24 -0600
+Served asset /courses.js - 200 OK (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:24 -0600
+Served asset /questions.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:24 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-07 10:01:26 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 1[0m
+  Rendered courses/show.html.erb within layouts/application (35.5ms)
+Completed 200 OK in 45ms (Views: 42.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-07 10:01:38 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 1[0m
+  Rendered courses/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:39 -0600
+Served asset /answers.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:39 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:39 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:39 -0600
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:39 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:39 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:39 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:39 -0600
+Served asset /answers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:39 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:39 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:39 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2013-09-07 10:01:40 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mAnswer Load (0.1ms)[0m  [1mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 1[0m
+  Rendered questions/show.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 61ms (Views: 59.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:40 -0600
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:40 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:40 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:40 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:40 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:40 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:40 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:40 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:40 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:40 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:40 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2013-09-07 10:01:49 -0600
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" 
+  Rendered questions/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:49 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:49 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:49 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:49 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:49 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:49 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:49 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:49 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:49 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:49 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:49 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-07 10:01:53 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+  Rendered courses/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 35ms (Views: 34.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:54 -0600
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:54 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:54 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:54 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:54 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:01:54 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:54 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:54 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:54 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:54 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:01:54 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-07 10:02:19 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 1[0m
+  Rendered courses/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:02:19 -0600
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:02:19 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:02:19 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:02:19 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:02:19 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:02:19 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:02:19 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:02:19 -0600
+Served asset /answers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:02:19 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:02:19 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:02:19 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2013-09-07 10:03:26 -0600
+Processing by CoursesController#new as HTML
+  Rendered courses/_form.html.erb (45.6ms)
+  Rendered courses/new.html.erb within layouts/application (65.5ms)
+Completed 200 OK in 111ms (Views: 110.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:03:26 -0600
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:03:26 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:03:26 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:03:26 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:03:26 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:03:26 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:03:26 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:03:26 -0600
+Served asset /answers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:03:26 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:03:26 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:03:26 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2013-09-07 10:03:34 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"Puff's Course"}, "commit"=>"Create Course"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (31.8ms)[0m  [1mINSERT INTO "courses" ("created_at", "description", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 07 Sep 2013 16:03:34 UTC +00:00], ["description", "Puff's Course"], ["updated_at", Sat, 07 Sep 2013 16:03:34 UTC +00:00], ["user_id", nil]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/courses/2
+Completed 302 Found in 61ms (ActiveRecord: 33.4ms)
+
+
+Started GET "/courses/2" for 127.0.0.1 at 2013-09-07 10:03:34 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 2
+  Rendered courses/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:03:34 -0600
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:03:34 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:03:34 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:03:34 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:03:34 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:03:34 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:03:34 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:03:34 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:03:34 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:03:34 -0600
+Served asset /questions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:03:34 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-07 10:05:12 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+  Rendered courses/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2013-09-07 10:05:16 -0600
+Processing by QuestionsController#new as HTML
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+  Rendered questions/_form.html.erb (45.0ms)
+  Rendered questions/new.html.erb within layouts/application (46.1ms)
+Completed 500 Internal Server Error in 48ms
+
+ActionView::Template::Error (wrong number of arguments (2 for 4)):
+    17:   <%= f.text_area :correct_answer %>
+    18: 
+    19:   <p>Course</p>
+    20:   <%= f.collection_select :course_id, Course.all %>
+    21:   <div class="actions">
+    22:     <%= f.submit %>
+    23:   </div>
+  app/views/questions/_form.html.erb:20:in `block in _app_views_questions__form_html_erb__2360951987830261866_70364281245300'
+  app/views/questions/_form.html.erb:1:in `_app_views_questions__form_html_erb__2360951987830261866_70364281245300'
+  app/views/questions/new.html.erb:3:in `_app_views_questions_new_html_erb__3104877037319301874_70364281241180'
+  app/controllers/questions_controller.rb:21:in `new'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (21.2ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2013-09-07 10:05:51 -0600
+Processing by QuestionsController#new as HTML
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+  Rendered questions/_form.html.erb (2.8ms)
+  Rendered questions/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:05:51 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:05:51 -0600
+Served asset /answers.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:05:51 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:05:51 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:05:51 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:05:51 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:05:51 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:05:51 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:05:51 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:05:51 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:05:51 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/questions" for 127.0.0.1 at 2013-09-07 10:06:11 -0600
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "question"=>{"question"=>"What is the meaning of life?", "correct_answer"=>"42", "course_id"=>"2"}, "commit"=>"Create Question"}
+Completed 500 Internal Server Error in 1ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: correct_answer):
+  app/controllers/questions_controller.rb:31:in `new'
+  app/controllers/questions_controller.rb:31:in `create'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (32.3ms)
+
+
+Started POST "/questions" for 127.0.0.1 at 2013-09-07 10:06:35 -0600
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "question"=>{"question"=>"What is the meaning of life?", "correct_answer"=>"42", "course_id"=>"2"}, "commit"=>"Create Question"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "questions" ("correct_answer", "course_id", "created_at", "question", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["correct_answer", "42"], ["course_id", 2], ["created_at", Sat, 07 Sep 2013 16:06:35 UTC +00:00], ["question", "What is the meaning of life?"], ["updated_at", Sat, 07 Sep 2013 16:06:35 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/questions/2
+Completed 302 Found in 11ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/questions/2" for 127.0.0.1 at 2013-09-07 10:06:35 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mAnswer Load (0.1ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 2
+  Rendered questions/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:35 -0600
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:35 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:35 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:35 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:35 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:35 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:35 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:35 -0600
+Served asset /answers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:35 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:35 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:35 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2013-09-07 10:06:39 -0600
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  Rendered questions/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:39 -0600
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:39 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:39 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:39 -0600
+Served asset /questions.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:39 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:39 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:39 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:39 -0600
+Served asset /answers.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:39 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:39 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:39 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-07 10:06:42 -0600
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+  Rendered courses/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 17ms (Views: 9.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:42 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:42 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:42 -0600
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:42 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:42 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:42 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:42 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:42 -0600
+Served asset /answers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:42 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:42 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:42 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/2" for 127.0.0.1 at 2013-09-07 10:06:44 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 2
+  Rendered courses/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:44 -0600
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:44 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:44 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:44 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:44 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:44 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:44 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:44 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:44 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:44 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:44 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/questions/2" for 127.0.0.1 at 2013-09-07 10:06:46 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mAnswer Load (0.1ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 2
+  Rendered questions/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 31ms (Views: 29.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:46 -0600
+Served asset /application.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:46 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:46 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:46 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:06:46 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:46 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:46 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:46 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:46 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:46 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:06:46 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2013-09-07 10:07:57 -0600
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  Rendered questions/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:07:57 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:07:57 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:07:57 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:07:57 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:07:57 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:07:57 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:07:57 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:07:57 -0600
+Served asset /answers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:07:57 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:07:57 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:07:57 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-07 10:07:59 -0600
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" 
+  Rendered courses/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:07:59 -0600
+Served asset /application.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:07:59 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:07:59 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:07:59 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:07:59 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:07:59 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:07:59 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:07:59 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:07:59 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:07:59 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:07:59 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/2" for 127.0.0.1 at 2013-09-07 10:08:02 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 2
+  Rendered courses/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:02 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:02 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:02 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:02 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:02 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:02 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:02 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:02 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:02 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:02 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:02 -0600
+Served asset /application.js - 304 Not Modified (25ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2013-09-07 10:08:11 -0600
+Processing by QuestionsController#new as HTML
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+  Rendered questions/_form.html.erb (2.3ms)
+  Rendered questions/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:11 -0600
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:11 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:11 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:11 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:11 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:11 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:11 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:11 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:11 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:11 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:11 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2013-09-07 10:08:15 -0600
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" 
+  Rendered questions/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:15 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:15 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:15 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:15 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:15 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 10:08:15 -0600
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:15 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:15 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:15 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:15 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:15 -0600
+Served asset /application.js - 304 Not Modified (0ms)

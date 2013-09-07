@@ -1,4 +1,7 @@
 TextTests::Application.routes.draw do
+  resources :courses
+
+
   resources :answers
 
 

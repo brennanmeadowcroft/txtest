@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p><%= @course.description %></p>
+
+<h3>Questions</h3>
+<ul>
+<% @course.questions.each do |question| %>
+	<li><%= link_to question.question, question %></li>
+<% end %>
+	<li><%= link_to "New Question", new_question_path %></li>
+</ul>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>
