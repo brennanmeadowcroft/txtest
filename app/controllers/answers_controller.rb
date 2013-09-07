@@ -23,6 +23,34 @@ class AnswersController < ApplicationController
     end
   end
 
+  def send_question
+    question = Class.randomly_select(params[:class])
+
+    @answer = Answer.new()
+
+    respond_to do |format|
+      if @answer.save
+        format.html { redirect_to @answer }
+      else
+        format.html { redirect_to @answer }
+      end
+    end
+  end
+
+  def answer_question
+    @answer = Answer.find(params[:id])
+
+    @answer.answer_question(params[:answer])
+
+    respond_to do |format|
+      if @answer.save
+        format.html { redirect_to @answer }
+      else
+        format.html { redirect_to @answer }
+      end
+    end
+  end
+
   def edit
     @answer = Answer.find(params[:id])
   end

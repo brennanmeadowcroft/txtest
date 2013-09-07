@@ -743,3 +743,7 @@ Served asset /application.js - 304 Not Modified (0ms)
 
 Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-05 17:46:54 -0600
 Served asset /answers.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
