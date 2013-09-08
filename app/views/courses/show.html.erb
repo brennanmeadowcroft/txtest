@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p><%= @course.description %></p>
+<h1><%= @course.description %></h1>
+<%= render 'settings/display_settings', :settings => @course.settings %>
+<%= link_to 'Edit Settings', edit_setting_path(@course.settings) %>
 
 <h3>Questions</h3>
 <ul>

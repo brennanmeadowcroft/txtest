@@ -1964,3 +1964,866 @@ Served asset /questions.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 10:08:15 -0600
 Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+Migrating to CreateCourses (20130907153558)
+Migrating to RenameClassIdToCourseIdOnQuestions (20130907154302)
+Migrating to CreateSettings (20130907192120)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "paused_flag" blob, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130907192120')[0m
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-07 21:21:59 -0600
+Connecting to database specified by database.yml
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+  Rendered courses/index.html.erb within layouts/application (6.8ms)
+Compiled settings.css  (36ms)  (pid 9654)
+Compiled application.css  (48ms)  (pid 9654)
+Compiled settings.js  (336ms)  (pid 9654)
+Compiled application.js  (346ms)  (pid 9654)
+Completed 200 OK in 867ms (Views: 827.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 21:22:00 -0600
+Served asset /answers.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-07 21:22:00 -0600
+Served asset /settings.css - 200 OK (4ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 21:22:00 -0600
+Served asset /courses.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 21:22:00 -0600
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 21:22:00 -0600
+Served asset /questions.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 21:22:00 -0600
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 21:22:00 -0600
+Served asset /jquery.js - 304 Not Modified (25ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 21:22:00 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 21:22:00 -0600
+Served asset /answers.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 21:22:00 -0600
+Served asset /courses.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 21:22:00 -0600
+Served asset /questions.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-07 21:22:00 -0600
+Served asset /settings.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 21:22:00 -0600
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-07 21:22:02 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 1 LIMIT 1[0m
+  Rendered settings/_display_settings.html.erb (24.6ms)
+  Rendered courses/show.html.erb within layouts/application (72.0ms)
+Completed 500 Internal Server Error in 77ms
+
+ActionView::Template::Error (undefined method `paused' for #<Settings:0x007fafd5c986a0>):
+    2: <p><strong>Start Time:</strong> <%= settings.start_time %>:00</p>
+    3: <p><strong>End Time:</strong> <%= settings.end_time %>:00</p>
+    4: <p><strong>Response Time:</strong> <%= settings.response_time %> minutes</p>
+    5: <p><strong>Paused:</strong> <%= settings.paused == 1 ? 'Yes' : 'No' %></p>
+    6: 
+    7: 
+    8: <%= link_to 'Edit', edit_setting_path(settings) %>
+  app/views/settings/_display_settings.html.erb:5:in `_app_views_settings__display_settings_html_erb__2475966861713406002_70196592040060'
+  app/views/courses/show.html.erb:4:in `_app_views_courses_show_html_erb__668405885293966649_70196592121560'
+  app/controllers/courses_controller.rb:13:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.0ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-07 21:22:28 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mSettings Load (0.2ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 1 LIMIT 1[0m
+  Rendered settings/_display_settings.html.erb (1.3ms)
+  Rendered courses/show.html.erb within layouts/application (9.4ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `edit_settings_path' for #<#<Class:0x007fafd59000b0>:0x007fafd5eb70a8>):
+    2: 
+    3: <h1><%= @course.description %></h1>
+    4: <%= render 'settings/display_settings', :settings => @course.settings %>
+    5: <%= link_to 'Edit Settings', edit_settings_path(@course.settings) %>
+    6: 
+    7: <h3>Questions</h3>
+    8: <ul>
+  app/views/courses/show.html.erb:5:in `_app_views_courses_show_html_erb__668405885293966649_70196592121560'
+  app/controllers/courses_controller.rb:13:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.0ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-07 21:24:28 -0600
+Connecting to database specified by database.yml
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSettings Load (0.1ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 1 LIMIT 1
+  Rendered settings/_display_settings.html.erb (25.9ms)
+  Rendered courses/show.html.erb within layouts/application (54.9ms)
+Completed 500 Internal Server Error in 140ms
+
+ActionView::Template::Error (undefined method `edit_settings_path' for #<#<Class:0x007f9202496920>:0x007f92032016c8>):
+    5: <p><strong>Paused:</strong> <%= settings.paused_flag == 1 ? 'Yes' : 'No' %></p>
+    6: 
+    7: 
+    8: <%= link_to 'Edit', edit_settings_path(settings) %>
+  app/views/settings/_display_settings.html.erb:8:in `_app_views_settings__display_settings_html_erb___3195895990823022358_70132548193580'
+  app/views/courses/show.html.erb:4:in `_app_views_courses_show_html_erb___345782974383598327_70132547605480'
+  app/controllers/courses_controller.rb:13:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.2ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-07 21:24:41 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSettings Load (0.2ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 1 LIMIT 1
+  Rendered settings/_display_settings.html.erb (0.6ms)
+  Rendered courses/show.html.erb within layouts/application (10.1ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `edit_settings_path' for #<#<Class:0x007f9202496920>:0x007f9203367b20>):
+    2: 
+    3: <h1><%= @course.description %></h1>
+    4: <%= render 'settings/display_settings', :settings => @course.settings %>
+    5: <%= link_to 'Edit Settings', edit_settings_path(@course.settings) %>
+    6: 
+    7: <h3>Questions</h3>
+    8: <ul>
+  app/views/courses/show.html.erb:5:in `_app_views_courses_show_html_erb___345782974383598327_70132547605480'
+  app/controllers/courses_controller.rb:13:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.0ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-07 21:25:00 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSettings Load (0.2ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 1 LIMIT 1
+  Rendered settings/_display_settings.html.erb (0.1ms)
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 1[0m
+  Rendered courses/show.html.erb within layouts/application (133.7ms)
+Completed 200 OK in 225ms (Views: 223.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 21:25:00 -0600
+Served asset /application.css - 200 OK (14ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 21:25:01 -0600
+Served asset /answers.css - 200 OK (2ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 21:25:01 -0600
+Served asset /courses.css - 200 OK (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 21:25:01 -0600
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 21:25:01 -0600
+Served asset /questions.css - 200 OK (2ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-07 21:25:01 -0600
+Served asset /settings.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 21:25:01 -0600
+Served asset /jquery_ujs.js - 200 OK (27ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 21:25:01 -0600
+Served asset /jquery.js - 200 OK (2ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 21:25:01 -0600
+Served asset /answers.js - 200 OK (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 21:25:01 -0600
+Served asset /courses.js - 200 OK (1ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 21:25:01 -0600
+Served asset /questions.js - 200 OK (1ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-07 21:25:01 -0600
+Served asset /settings.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 21:25:01 -0600
+Served asset /application.js - 200 OK (7ms)
+
+
+Started GET "/settings/1/edit" for 127.0.0.1 at 2013-09-07 21:25:08 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSettings Load (0.2ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered settings/_form.html.erb (39.4ms)
+  Rendered settings/edit.html.erb within layouts/application (54.5ms)
+Completed 500 Internal Server Error in 59ms
+
+ActionView::Template::Error (undefined method `checkbox' for #<ActionView::Helpers::FormBuilder:0x007f92037b7a68>):
+    23:   <%= f.text_field :response_time %>
+    24: 
+    25:   <p><strong>Paused</strong> - Do you want to pause texts for this class?</p>
+    26:   <%= f.checkbox :paused_flag %>
+    27: 
+    28:   <div class="actions">
+    29:     <%= f.submit %>
+  app/views/settings/_form.html.erb:26:in `block in _app_views_settings__form_html_erb__3827717123953503878_70132558089580'
+  app/views/settings/_form.html.erb:1:in `_app_views_settings__form_html_erb__3827717123953503878_70132558089580'
+  app/views/settings/edit.html.erb:3:in `_app_views_settings_edit_html_erb__3198204662291286913_70132556392980'
+  app/controllers/settings_controller.rb:13:in `edit'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.6ms)
+
+
+Started GET "/settings/1/edit" for 127.0.0.1 at 2013-09-07 21:26:08 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSettings Load (0.2ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered settings/_form.html.erb (50.8ms)
+  Rendered settings/edit.html.erb within layouts/application (69.7ms)
+Completed 200 OK in 83ms (Views: 81.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:08 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:08 -0600
+Served asset /courses.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:08 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:08 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:08 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:08 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:08 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:08 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:08 -0600
+Served asset /answers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:08 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:08 -0600
+Served asset /questions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:08 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:08 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/settings/1" for 127.0.0.1 at 2013-09-07 21:26:21 -0600
+Processing by SettingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSettings Load (0.2ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered settings/_display_settings.html.erb (5.2ms)
+  Rendered settings/show.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 21ms
+
+ActionView::Template::Error (undefined local variable or method `settings' for #<#<Class:0x007f9201107aa8>:0x007f9200966b50>):
+    1: <p><strong>Texts Per Day:</strong> <%= settings.texts_per_day %></p>
+    2: <p><strong>Start Time:</strong> <%= settings.start_time %>:00</p>
+    3: <p><strong>End Time:</strong> <%= settings.end_time %>:00</p>
+    4: <p><strong>Response Time:</strong> <%= settings.response_time %> minutes</p>
+  app/views/settings/_display_settings.html.erb:1:in `_app_views_settings__display_settings_html_erb___3195895990823022358_70132547277280'
+  app/views/settings/show.html.erb:1:in `_app_views_settings_show_html_erb___720801032141353124_70132525903020'
+  app/controllers/settings_controller.rb:5:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.9ms)
+
+
+Started GET "/settings/1" for 127.0.0.1 at 2013-09-07 21:26:40 -0600
+Processing by SettingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered settings/_display_settings.html.erb (0.1ms)
+  Rendered settings/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:40 -0600
+Served asset /answers.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:40 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:40 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:40 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:40 -0600
+Served asset /questions.css - 304 Not Modified (22ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:40 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:40 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:40 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:40 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:40 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:40 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:40 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:40 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/settings/1/edit" for 127.0.0.1 at 2013-09-07 21:26:57 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSettings Load (0.1ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered settings/_form.html.erb (1.6ms)
+  Rendered settings/edit.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:57 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:57 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:57 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:57 -0600
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:57 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 21:26:57 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:57 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:57 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:57 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:57 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:57 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:57 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 21:26:58 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-07 21:54:45 -0600
+Connecting to database specified by database.yml
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (14.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered courses/show.html.erb within layouts/application (99.5ms)
+Completed 500 Internal Server Error in 281ms
+
+ActionView::Template::Error (/Users/brennan/rails_projects/text_tests/app/models/settings.rb:31: syntax error, unexpected $end, expecting keyword_end):
+    1: <p id="notice"><%= notice %></p>
+    2: 
+    3: <h1><%= @course.description %></h1>
+    4: <%= render 'settings/display_settings', :settings => @course.settings %>
+    5: <%= link_to 'Edit Settings', edit_setting_path(@course.settings) %>
+    6: 
+    7: <h3>Questions</h3>
+  app/views/courses/show.html.erb:4:in `_app_views_courses_show_html_erb__436600660849895041_70114519464220'
+  app/controllers/courses_controller.rb:13:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (13.4ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (48.4ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-07 21:56:24 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered courses/show.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (/Users/brennan/rails_projects/text_tests/app/models/settings.rb:31: syntax error, unexpected $end, expecting keyword_end):
+    1: <p id="notice"><%= notice %></p>
+    2: 
+    3: <h1><%= @course.description %></h1>
+    4: <%= render 'settings/display_settings', :settings => @course.settings %>
+    5: <%= link_to 'Edit Settings', edit_setting_path(@course.settings) %>
+    6: 
+    7: <h3>Questions</h3>
+  app/views/courses/show.html.erb:4:in `_app_views_courses_show_html_erb__436600660849895041_70114519464220'
+  app/controllers/courses_controller.rb:13:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.2ms)
+
+
+Started GET "/setting/1" for 127.0.0.1 at 2013-09-07 21:58:06 -0600
+
+ActionController::RoutingError (No route matches [GET] "/setting/1"):
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/brennan/.rvm/rubies/ruby-1.9.3-p374/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/brennan/.rvm/rubies/ruby-1.9.3-p374/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/brennan/.rvm/rubies/ruby-1.9.3-p374/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/settings/1" for 127.0.0.1 at 2013-09-07 21:58:11 -0600
+Processing by SettingsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms
+
+SyntaxError (/Users/brennan/rails_projects/text_tests/app/models/settings.rb:31: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/settings_controller.rb:3:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.8ms)
+
+
+Started GET "/settings/1" for 127.0.0.1 at 2013-09-07 21:58:34 -0600
+Processing by SettingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSettings Load (33.0ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered settings/_display_settings.html.erb (0.6ms)
+  Rendered settings/show.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 521ms (Views: 459.7ms | ActiveRecord: 33.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 21:58:35 -0600
+Served asset /application.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 21:58:35 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 21:58:35 -0600
+Served asset /courses.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 21:58:35 -0600
+Served asset /questions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 21:58:35 -0600
+Served asset /answers.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-07 21:58:35 -0600
+Served asset /settings.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 21:58:35 -0600
+Served asset /jquery.js - 304 Not Modified (37ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 21:58:35 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 21:58:35 -0600
+Served asset /answers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 21:58:35 -0600
+Served asset /courses.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 21:58:35 -0600
+Served asset /questions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-07 21:58:35 -0600
+Served asset /settings.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 21:58:35 -0600
+Served asset /application.js - 304 Not Modified (10ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-07 21:58:39 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCourse Load (38.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mSettings Load (0.2ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 1 LIMIT 1[0m
+  Rendered settings/_display_settings.html.erb (0.1ms)
+  [1m[35mQuestion Load (15.2ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 1
+  Rendered courses/show.html.erb within layouts/application (126.0ms)
+Completed 200 OK in 179ms (Views: 119.0ms | ActiveRecord: 53.8ms)
+
+
+Started GET "/settings/1/edit" for 127.0.0.1 at 2013-09-07 21:58:42 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered settings/_form.html.erb (118.3ms)
+  Rendered settings/edit.html.erb within layouts/application (119.3ms)
+Completed 200 OK in 127ms (Views: 126.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 21:58:42 -0600
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 21:58:42 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 21:58:42 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 21:58:42 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-07 21:58:42 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 21:58:42 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 21:58:42 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 21:58:42 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 21:58:42 -0600
+Served asset /answers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 21:58:42 -0600
+Served asset /courses.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 21:58:42 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-07 21:58:42 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 21:58:42 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started PUT "/settings/1" for 127.0.0.1 at 2013-09-07 21:58:52 -0600
+
+ActionController::RoutingError (No route matches [PUT] "/settings/1"):
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/brennan/.rvm/rubies/ruby-1.9.3-p374/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/brennan/.rvm/rubies/ruby-1.9.3-p374/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/brennan/.rvm/rubies/ruby-1.9.3-p374/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/settings/1/edit" for 127.0.0.1 at 2013-09-07 22:21:23 -0600
+Connecting to database specified by database.yml
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSettings Load (0.3ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered settings/_form.html.erb (7.1ms)
+  Rendered settings/edit.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 352ms (Views: 297.3ms | ActiveRecord: 2.6ms)
+
+
+Started PUT "/settings/1" for 127.0.0.1 at 2013-09-07 22:21:30 -0600
+
+ActionController::RoutingError (No route matches [PUT] "/settings/1"):
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/brennan/.rvm/rubies/ruby-1.9.3-p374/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/brennan/.rvm/rubies/ruby-1.9.3-p374/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/brennan/.rvm/rubies/ruby-1.9.3-p374/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/settings/1/edit" for 127.0.0.1 at 2013-09-07 22:21:56 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSettings Load (0.2ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered settings/_form.html.erb (2.5ms)
+  Rendered settings/edit.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 46ms (Views: 15.4ms | ActiveRecord: 0.8ms)
+
+
+Started PUT "/settings/1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Processing by SettingsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "settings"=>{"texts_per_day"=>"5", "start_time"=>"-5", "end_time"=>"15", "response_time"=>"10", "paused_flag"=>"0"}, "commit"=>"Update Settings", "id"=>"1"}
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/settings/1
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/settings/1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Processing by SettingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSettings Load (0.1ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered settings/_display_settings.html.erb (0.6ms)
+  Rendered settings/show.html.erb within layouts/application (34.6ms)
+Completed 200 OK in 45ms (Views: 43.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Served asset /questions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Served asset /courses.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Served asset /settings.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Served asset /answers.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Served asset /courses.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Served asset /questions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Served asset /settings.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-07 22:22:01 -0600
+Served asset /application.js - 304 Not Modified (34ms)
+
+
+Started GET "/settings/1/edit" for 127.0.0.1 at 2013-09-07 22:24:11 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered settings/_form.html.erb (3.6ms)
+  Rendered settings/edit.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 29ms (Views: 28.3ms | ActiveRecord: 0.1ms)

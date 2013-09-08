@@ -1,0 +1,31 @@
+<%= form_for(@setting) do |f| %>
+  <% if @setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
+
+      <ul>
+      <% @setting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p><strong>Texts Per Day</strong> - How many questions do you want sent per day?</p>
+  <%= f.text_field :texts_per_day %>
+
+  <p><strong>Start Time</strong> - No text messages will be sent before this time.</p>
+  <%= f.text_field :start_time %>
+
+  <p><strong>End Time</strong> - No text messages will be sent after this time.</p>
+  <%= f.text_field :end_time %>
+
+  <p><strong>Response Time</strong> - How much time (in minutes) do you want to have to answer the question?</p>
+  <%= f.text_field :response_time %>
+
+  <p><strong>Paused</strong> - Do you want to pause texts for this class?</p>
+  <%= f.check_box :paused_flag %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

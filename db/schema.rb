@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130907154302) do
+ActiveRecord::Schema.define(:version => 20130907192120) do
 
   create_table "answers", :force => true do |t|
     t.text     "submitted_answer"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(:version => 20130907154302) do
     t.text     "correct_answer"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "settings", :force => true do |t|
+    t.integer  "course_id"
+    t.integer  "texts_per_day"
+    t.integer  "start_time"
+    t.integer  "end_time"
+    t.integer  "response_time"
+    t.binary   "paused_flag"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end

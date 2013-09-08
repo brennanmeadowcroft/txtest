@@ -1,11 +1,8 @@
 TextTests::Application.routes.draw do
   resources :courses
-
-
   resources :answers
-
-
   resources :questions
+  resources :settings, :only => [:show, :edit, :update]
 
 
   # The priority is based upon order of creation:
