@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130907192120) do
+ActiveRecord::Schema.define(:version => 20130908224141) do
 
   create_table "answers", :force => true do |t|
     t.text     "submitted_answer"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130907192120) do
     t.integer  "in_time"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.datetime "time_sent"
   end
 
   create_table "courses", :force => true do |t|

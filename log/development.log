@@ -2827,3 +2827,63 @@ Processing by SettingsController#edit as HTML
   Rendered settings/_form.html.erb (3.6ms)
   Rendered settings/edit.html.erb within layouts/application (10.0ms)
 Completed 200 OK in 29ms (Views: 28.3ms | ActiveRecord: 0.1ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+Migrating to CreateCourses (20130907153558)
+Migrating to RenameClassIdToCourseIdOnQuestions (20130907154302)
+Migrating to CreateSettings (20130907192120)
+Migrating to AddTimeSentToAnswers (20130908224141)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (19.5ms)[0m  ALTER TABLE "answers" ADD "time_sent" datetime
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130908224141')[0m
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36mCourse Load (1.6ms)[0m  [1mSELECT a.* FROM courses AS a INNER JOIN settings AS b ON(a.id = b.course_id) WHERE b.paused_flag = 0[0m
+  [1m[35mSettings Load (1.4ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 1 LIMIT 1
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (24.8ms)[0m  [1mINSERT INTO "answers" ("correct", "created_at", "in_time", "question_id", "submitted_answer", "time_answered", "time_sent", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["correct", nil], ["created_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00], ["in_time", nil], ["question_id", 1], ["submitted_answer", nil], ["time_answered", nil], ["time_sent", nil], ["updated_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "answers" ("correct", "created_at", "in_time", "question_id", "submitted_answer", "time_answered", "time_sent", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["correct", nil], ["created_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00], ["in_time", nil], ["question_id", 2], ["submitted_answer", nil], ["time_answered", nil], ["time_sent", nil], ["updated_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "answers" ("correct", "created_at", "in_time", "question_id", "submitted_answer", "time_answered", "time_sent", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["correct", nil], ["created_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00], ["in_time", nil], ["question_id", 2], ["submitted_answer", nil], ["time_answered", nil], ["time_sent", nil], ["updated_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "answers" ("correct", "created_at", "in_time", "question_id", "submitted_answer", "time_answered", "time_sent", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["correct", nil], ["created_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00], ["in_time", nil], ["question_id", 1], ["submitted_answer", nil], ["time_answered", nil], ["time_sent", nil], ["updated_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "answers" ("correct", "created_at", "in_time", "question_id", "submitted_answer", "time_answered", "time_sent", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["correct", nil], ["created_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00], ["in_time", nil], ["question_id", 2], ["submitted_answer", nil], ["time_answered", nil], ["time_sent", nil], ["updated_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00]]
+  [1m[35m (29.5ms)[0m  commit transaction
+  [1m[36mSettings Load (0.2ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 2 LIMIT 1[0m
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" 
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "answers" ("correct", "created_at", "in_time", "question_id", "submitted_answer", "time_answered", "time_sent", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["correct", nil], ["created_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00], ["in_time", nil], ["question_id", 1], ["submitted_answer", nil], ["time_answered", nil], ["time_sent", nil], ["updated_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00]]
+  [1m[36m (38.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" 
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "answers" ("correct", "created_at", "in_time", "question_id", "submitted_answer", "time_answered", "time_sent", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["correct", nil], ["created_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00], ["in_time", nil], ["question_id", 2], ["submitted_answer", nil], ["time_answered", nil], ["time_sent", nil], ["updated_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00]]
+  [1m[36m (23.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mQuestion Load (0.3ms)[0m  SELECT "questions".* FROM "questions" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "answers" ("correct", "created_at", "in_time", "question_id", "submitted_answer", "time_answered", "time_sent", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["correct", nil], ["created_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00], ["in_time", nil], ["question_id", 2], ["submitted_answer", nil], ["time_answered", nil], ["time_sent", nil], ["updated_at", Tue, 10 Sep 2013 03:10:19 UTC +00:00]]
+  [1m[36m (16.8ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml

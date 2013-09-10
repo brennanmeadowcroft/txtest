@@ -1,7 +1,12 @@
 class Answer < ActiveRecord::Base
-  attr_accessible :submitted_answer, :time_answered, :correct, :in_time, :question_id
+  attr_accessible :submitted_answer, :time_answered, :time_sent, :correct, :in_time, :question_id
 
   belongs_to :question
+  has_one :course, :through => :question
+
+  def self.next_unanswered_question
+    self.where(:time_sent => nil, :time_answered => nil).order(:created_at)
+  end
 
   def answer_question(answer)
   	self.submitted_answer = answer
