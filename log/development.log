@@ -2887,3 +2887,295 @@ Connecting to database specified by database.yml
   [1m[36m (16.8ms)[0m  [1mcommit transaction[0m
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 22:20'[0m
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 22:20'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 22:20'[0m
+  [1m[35mAnswer Load (0.1ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 22:20'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 22:20'[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.4ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 22:21'[0m
+  [1m[35mAnswer Load (0.1ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 22:21'
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 22:21'[0m
+  [1m[35mAnswer Load (0.1ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 22:21'
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" IS NULL[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" IS NULL
+  [1m[36mAnswer Load (0.2ms)[0m  [1mSELECT "answers".* FROM "answers" WHERE "answers"."time_sent" IS NULL[0m
+  [1m[35mAnswer Load (0.3ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."time_sent" IS NULL
+Connecting to database specified by database.yml
+  [1m[36m (1.3ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" IS NULL[0m
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."time_sent" IS NULL
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" IS NULL[0m
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."time_sent" IS NULL
+Connecting to database specified by database.yml
+  [1m[36m (1.5ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" IS NULL[0m
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."time_sent" IS NULL
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" IS NULL[0m
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."time_sent" IS NULL
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (39.6ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" IS NULL[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (16.4ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" IS NULL[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.0ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" IS NULL[0m
+  [1m[36m (2.0ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" IS NULL[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.4ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" IS NULL[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.2ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" IS NULL[0m
+  [1m[36m (2.2ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" IS NULL[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 23:25'[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.3ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 23:26'[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 23:28'[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.6ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 23:29'[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.3ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 23:30'[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.3ms)[0m  [1mSELECT COUNT(*) FROM "answers" WHERE "answers"."time_sent" = '2013-09-09 23:31'[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (19.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+Migrating to CreateCourses (20130907153558)
+Migrating to RenameClassIdToCourseIdOnQuestions (20130907154302)
+Migrating to CreateSettings (20130907192120)
+Migrating to AddTimeSentToAnswers (20130908224141)
+Migrating to CreateDelayedJobs (20130912021849)
+  [1m[35m (19.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "delayed_jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "attempts" integer DEFAULT 0 NOT NULL, "handler" text NOT NULL, "last_error" text, "run_at" datetime, "locked_at" datetime, "failed_at" datetime, "locked_by" varchar(255), "queue" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130912021849')
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36mCourse Load (1.9ms)[0m  [1mSELECT a.* FROM courses AS a INNER JOIN settings AS b ON(a.id = b.course_id) WHERE b.paused_flag = 0[0m
+  [1m[35mSettings Load (1.5ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 1 LIMIT 1
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (61.7ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-09-12 03:32:44.963784' AND (locked_at IS NULL OR locked_at < '2013-09-11 23:32:44.963800') OR locked_by = 'host:Brennans-MacBook-Pro.local pid:34322') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "delayed_jobs" SET "locked_by" = NULL, "locked_at" = NULL WHERE "delayed_jobs"."locked_by" = 'host:Brennans-MacBook-Pro.local pid:34322'
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (1.5ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."queue" IN ('questions') AND ((run_at <= '2013-09-12 03:52:30.386155' AND (locked_at IS NULL OR locked_at < '2013-09-11 23:52:30.386173') OR locked_by = 'host:Brennans-MacBook-Pro.local pid:34456') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."queue" IN ('questions') AND ((run_at <= '2013-09-12 03:52:35.398906' AND (locked_at IS NULL OR locked_at < '2013-09-11 23:52:35.398941') OR locked_by = 'host:Brennans-MacBook-Pro.local pid:34456') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."queue" IN ('questions') AND ((run_at <= '2013-09-12 03:52:40.401201' AND (locked_at IS NULL OR locked_at < '2013-09-11 23:52:40.401219') OR locked_by = 'host:Brennans-MacBook-Pro.local pid:34456') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."queue" IN ('questions') AND ((run_at <= '2013-09-12 03:52:45.403458' AND (locked_at IS NULL OR locked_at < '2013-09-11 23:52:45.403476') OR locked_by = 'host:Brennans-MacBook-Pro.local pid:34456') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 5
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "delayed_jobs" SET "locked_by" = NULL, "locked_at" = NULL WHERE "delayed_jobs"."locked_by" = 'host:Brennans-MacBook-Pro.local pid:34456'[0m
+Connecting to database specified by database.yml
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (1.6ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-09-12 03:52:59.347733' AND (locked_at IS NULL OR locked_at < '2013-09-11 23:52:59.347750') OR locked_by = 'host:Brennans-MacBook-Pro.local pid:34457') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 5[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "delayed_jobs" SET "locked_by" = NULL, "locked_at" = NULL WHERE "delayed_jobs"."locked_by" = 'host:Brennans-MacBook-Pro.local pid:34457'
+Connecting to database specified by database.yml
+  [1m[36mCourse Load (1.8ms)[0m  [1mSELECT a.* FROM courses AS a INNER JOIN settings AS b ON(a.id = b.course_id) WHERE b.paused_flag = 0[0m
+  [1m[35mSettings Load (1.8ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 1 LIMIT 1
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (4.0ms)[0m  [1mINSERT INTO "delayed_jobs" ("attempts", "created_at", "failed_at", "handler", "last_error", "locked_at", "locked_by", "priority", "queue", "run_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attempts", 0], ["created_at", Thu, 12 Sep 2013 03:54:21 UTC +00:00], ["failed_at", nil], ["handler", "--- !ruby/object:Delayed::PerformableMethod\nobject: !ruby/class 'Answer'\nmethod_name: :create\nargs:\n- :question_id: 2\n"], ["last_error", nil], ["locked_at", nil], ["locked_by", nil], ["priority", 0], ["queue", "questions"], ["run_at", Thu, 12 Sep 2013 15:00:00 UTC +00:00], ["updated_at", Thu, 12 Sep 2013 03:54:21 UTC +00:00]]
+  [1m[35m (4.9ms)[0m  commit transaction
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "delayed_jobs" ("attempts", "created_at", "failed_at", "handler", "last_error", "locked_at", "locked_by", "priority", "queue", "run_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attempts", 0], ["created_at", Thu, 12 Sep 2013 03:54:21 UTC +00:00], ["failed_at", nil], ["handler", "--- !ruby/object:Delayed::PerformableMethod\nobject: !ruby/class 'Answer'\nmethod_name: :create\nargs:\n- :question_id: 2\n"], ["last_error", nil], ["locked_at", nil], ["locked_by", nil], ["priority", 0], ["queue", "questions"], ["run_at", Thu, 12 Sep 2013 16:43:00 UTC +00:00], ["updated_at", Thu, 12 Sep 2013 03:54:21 UTC +00:00]]
+  [1m[35m (3.2ms)[0m  commit transaction
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "delayed_jobs" ("attempts", "created_at", "failed_at", "handler", "last_error", "locked_at", "locked_by", "priority", "queue", "run_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attempts", 0], ["created_at", Thu, 12 Sep 2013 03:54:21 UTC +00:00], ["failed_at", nil], ["handler", "--- !ruby/object:Delayed::PerformableMethod\nobject: !ruby/class 'Answer'\nmethod_name: :create\nargs:\n- :question_id: 1\n"], ["last_error", nil], ["locked_at", nil], ["locked_by", nil], ["priority", 0], ["queue", "questions"], ["run_at", Thu, 12 Sep 2013 17:09:00 UTC +00:00], ["updated_at", Thu, 12 Sep 2013 03:54:21 UTC +00:00]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "delayed_jobs" ("attempts", "created_at", "failed_at", "handler", "last_error", "locked_at", "locked_by", "priority", "queue", "run_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attempts", 0], ["created_at", Thu, 12 Sep 2013 03:54:21 UTC +00:00], ["failed_at", nil], ["handler", "--- !ruby/object:Delayed::PerformableMethod\nobject: !ruby/class 'Answer'\nmethod_name: :create\nargs:\n- :question_id: 1\n"], ["last_error", nil], ["locked_at", nil], ["locked_by", nil], ["priority", 0], ["queue", "questions"], ["run_at", Thu, 12 Sep 2013 17:49:00 UTC +00:00], ["updated_at", Thu, 12 Sep 2013 03:54:21 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "delayed_jobs" ("attempts", "created_at", "failed_at", "handler", "last_error", "locked_at", "locked_by", "priority", "queue", "run_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attempts", 0], ["created_at", Thu, 12 Sep 2013 03:54:21 UTC +00:00], ["failed_at", nil], ["handler", "--- !ruby/object:Delayed::PerformableMethod\nobject: !ruby/class 'Answer'\nmethod_name: :create\nargs:\n- :question_id: 1\n"], ["last_error", nil], ["locked_at", nil], ["locked_by", nil], ["priority", 0], ["queue", "questions"], ["run_at", Thu, 12 Sep 2013 18:10:00 UTC +00:00], ["updated_at", Thu, 12 Sep 2013 03:54:21 UTC +00:00]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 2 LIMIT 1[0m
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" 
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/questions" for 127.0.0.1 at 2013-09-12 18:34:35 -0600
+Processing by QuestionsController#index as HTML
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" [0m
+  Rendered questions/index.html.erb within layouts/application (47.4ms)
+Completed 200 OK in 726ms (Views: 704.7ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-12 18:34:36 -0600
+Served asset /courses.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:36 -0600
+Served asset /answers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-12 18:34:36 -0600
+Served asset /settings.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:36 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-12 18:34:36 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:36 -0600
+Served asset /questions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-12 18:34:36 -0600
+Served asset /application.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-12 18:34:36 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-12 18:34:36 -0600
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:36 -0600
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:36 -0600
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:36 -0600
+Served asset /courses.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:36 -0600
+Served asset /settings.js - 304 Not Modified (1ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mAnswer Load (0.1ms)[0m  [1mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 1[0m
+  Rendered questions/show.html.erb within layouts/application (113.1ms)
+Completed 200 OK in 154ms (Views: 151.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
+Served asset /application.js - 304 Not Modified (0ms)

@@ -23,7 +23,18 @@ class Course < ActiveRecord::Base
   		random_num = rand(questions.count)
   		random_question = questions[random_num]
 
-  		Answer.create(:question_id => random_question.id)
+      random_hour_mt = rand(self.settings.start_time..self.settings.end_time)
+      random_hour = random_hour_mt+6 # MST is 6 hours behind UTC... add 6 hours to correct for when it converts UTC -> MST
+
+      if random_hour == self.settings.end_time
+        random_minute = 0
+      else
+        random_minute = rand(0..60)
+      end
+
+      time_to_send = "%s %s:%02d" % [ Time.zone.now.strftime("%Y-%m-%d"), random_hour, random_minute ]
+
+  		Answer.delay(:run_at => time_to_send, :queue => 'questions').create(:question_id => random_question.id)
   	end
   end
 end

@@ -8,6 +8,15 @@ class Answer < ActiveRecord::Base
     self.where(:time_sent => nil, :time_answered => nil).order(:created_at)
   end
 
+  def self.to_send(time)
+    if time.is_a? Time
+      formatted_time = time.strftime('%Y-%m-%d %H:%M')
+    else
+      formatted_time = time
+    end
+    self.where(:time_sent => formatted_time)
+  end
+
   def answer_question(answer)
   	self.submitted_answer = answer
 
@@ -19,5 +28,9 @@ class Answer < ActiveRecord::Base
   	end
 
   	return self
+  end
+
+  def send_text
+
   end
 end
