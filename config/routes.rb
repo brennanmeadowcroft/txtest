@@ -10,6 +10,8 @@ TextTests::Application.routes.draw do
   match '/signout', to: 'sessions#destroy'
   match '/signup' => 'users#new', :as => :signup
 
+  match '/answers/:id/text_receipt' => 'answers#text_receipt', :via => :post
+
   root :to => 'courses#index'
 
   # The priority is based upon order of creation:

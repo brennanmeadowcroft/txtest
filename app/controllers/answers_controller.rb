@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_filter :signed_in_user
+  before_filter :signed_in_user, only: [:show, :new, :answer_question, :edit, :create, :update, :destroy]
   
   def show
     @answer = current_user.answers.find(params[:id])
@@ -69,6 +69,16 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to answers_url }
+    end
+  end
+
+  def text_receipt
+    answer = Answer.find(params[:id])
+
+    if answer.update_text_receipt
+      render nothing: true, status: :ok
+    else 
+      render nothing: true, status: :internal_server_error
     end
   end
 end
