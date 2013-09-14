@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
+  before_filter :signed_in_user
+  
   def index
-    @questions = Question.all
+    @questions = current_user.questions.all
 
     respond_to do |format|
       format.html
@@ -8,7 +10,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    @question = current_user.questions.find(params[:id])
 
     respond_to do |format|
       format.html
@@ -24,7 +26,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:id])
+    @question = current_user.questions.find(params[:id])
   end
 
   def create
@@ -40,7 +42,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
+    @question = current_user.questions.find(params[:id])
 
     respond_to do |format|
       if @question.update_attributes(params[:question])
@@ -52,7 +54,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
+    @question = current_user.questions.find(params[:id])
     @question.destroy
 
     respond_to do |format|

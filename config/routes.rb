@@ -1,9 +1,16 @@
 TextTests::Application.routes.draw do
+  resources :users
   resources :courses
   resources :answers
   resources :questions
   resources :settings, :only => [:show, :edit, :update]
+  resources :sessions, :only => [:new, :create, :destroy ]
 
+  match '/signin' => 'sessions#new', :as => :signin
+  match '/signout', to: 'sessions#destroy'
+  match '/signup' => 'users#new', :as => :signup
+
+  root :to => 'courses#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

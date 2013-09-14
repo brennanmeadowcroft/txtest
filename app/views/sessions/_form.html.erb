@@ -1,0 +1,5 @@
+<%= form_tag sessions_path do %>
+    <%= text_field_tag :email, params[:email], :required => true, :placeholder => "Email Address" %>
+    <%= password_field_tag :password, :required => true, :placeholder => "Password" %>
+	<%= submit_tag "Log in", :class => "signup_button" %>
+<% end %>

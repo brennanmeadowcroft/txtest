@@ -3179,3 +3179,3506 @@ Served asset /settings.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-12 18:34:40 -0600
 Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (18.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+Migrating to CreateCourses (20130907153558)
+Migrating to RenameClassIdToCourseIdOnQuestions (20130907154302)
+Migrating to CreateSettings (20130907192120)
+Migrating to AddTimeSentToAnswers (20130908224141)
+Migrating to CreateDelayedJobs (20130912021849)
+Migrating to CreateUsers (20130913015231)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+SQLite3::SQLException: no such table: main.users: CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (24.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+Migrating to CreateCourses (20130907153558)
+Migrating to RenameClassIdToCourseIdOnQuestions (20130907154302)
+Migrating to CreateSettings (20130907192120)
+Migrating to AddTimeSentToAnswers (20130908224141)
+Migrating to CreateDelayedJobs (20130912021849)
+Migrating to CreateUsers (20130913015231)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "email" varchar(255), "phone_number" varchar(255), "password_digest" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (16.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_phone_number" ON "users" ("phone_number")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130913015231')[0m
+  [1m[35m (59.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+Migrating to CreateCourses (20130907153558)
+Migrating to RenameClassIdToCourseIdOnQuestions (20130907154302)
+Migrating to CreateSettings (20130907192120)
+Migrating to AddTimeSentToAnswers (20130908224141)
+Migrating to CreateDelayedJobs (20130912021849)
+Migrating to CreateUsers (20130913015231)
+Migrating to AddRememberTokenToUsers (20130913055004)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (41.5ms)[0m  ALTER TABLE "users" ADD "remember_token" varchar(255)
+  [1m[36m (18.1ms)[0m  [1mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130913055004')
+  [1m[36m (10.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+Binary data inserted for `string` type on column `password_digest`
+Binary data inserted for `string` type on column `remember_token`
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-09-13 19:55:21 -0600
+Served asset /rails.png - 200 OK (73ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-13 19:55:40 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (15.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '057a91ec0f2dbc6c6281625bae6bc76c8d23ae87' LIMIT 1[0m
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 84ms (ActiveRecord: 18.4ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2013-09-13 19:55:40 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (2.7ms)
+  Rendered sessions/new.html.erb within layouts/application (70.1ms)
+Compiled sessions.css  (50ms)  (pid 46936)
+Compiled users.css  (1ms)  (pid 46936)
+Compiled application.css  (105ms)  (pid 46936)
+Compiled sessions.js  (530ms)  (pid 46936)
+Compiled users.js  (104ms)  (pid 46936)
+Compiled application.js  (698ms)  (pid 46936)
+Completed 200 OK in 1911ms (Views: 1910.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /application.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /sessions.css - 200 OK (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /courses.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /users.css - 200 OK (1ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /settings.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /sessions.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /users.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /answers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /courses.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /questions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /settings.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 19:55:42 -0600
+Served asset /application.js - 304 Not Modified (46ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2013-09-13 19:55:56 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "email"=>"brennan@brennanmeadowcroft.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (88.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'brennan@brennanmeadowcroft.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "remember_token" = 'e304b8e476e3ddaeeb1019b4a2328adfd852e8d6', "updated_at" = '2013-09-14 01:55:57.024571' WHERE "users"."id" = 1
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 240ms
+
+NameError (undefined local variable or method `admin_root_path' for #<SessionsController:0x007fe3034a18c8>):
+  app/controllers/sessions_controller.rb:9:in `create'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.7ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2013-09-13 19:56:41 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "email"=>"brennan@brennanmeadowcroft.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'brennan@brennanmeadowcroft.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad', "updated_at" = '2013-09-14 01:56:42.129197' WHERE "users"."id" = 1
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 150ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-13 19:56:42 -0600
+Processing by CoursesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1[0m
+  Rendered courses/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 114ms (Views: 46.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:42 -0600
+Served asset /application.css - 304 Not Modified (25ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:42 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:42 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:42 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:42 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:42 -0600
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:42 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:42 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:42 -0600
+Served asset /answers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:42 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:42 -0600
+Served asset /questions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:42 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:42 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-13 19:56:54 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSettings Load (0.1ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 1 LIMIT 1
+  Rendered settings/_display_settings.html.erb (0.9ms)
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 1[0m
+  Rendered courses/show.html.erb within layouts/application (74.4ms)
+Completed 200 OK in 116ms (Views: 112.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:54 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:54 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:54 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:54 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:54 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:54 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:54 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:54 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:54 -0600
+Served asset /answers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:54 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:54 -0600
+Served asset /questions.js - 304 Not Modified (26ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:54 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:54 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2013-09-13 19:56:57 -0600
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" INNER JOIN "courses" ON "questions"."course_id" = "courses"."id" WHERE "courses"."user_id" = 1 AND "questions"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAnswer Load (0.2ms)[0m  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = 1
+  Rendered questions/show.html.erb within layouts/application (35.6ms)
+Completed 200 OK in 139ms (Views: 105.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:57 -0600
+Served asset /application.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:57 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:57 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:57 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:57 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 19:56:58 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:58 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:58 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:58 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:58 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:58 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:58 -0600
+Served asset /settings.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 19:56:58 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/settings/1/edit" for 127.0.0.1 at 2013-09-13 19:57:10 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mSettings Load (0.2ms)[0m  SELECT "settings".* FROM "settings" INNER JOIN "courses" ON "settings"."course_id" = "courses"."id" WHERE "courses"."user_id" = 1 AND "settings"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered settings/_form.html.erb (130.2ms)
+  Rendered settings/edit.html.erb within layouts/application (134.3ms)
+Completed 200 OK in 164ms (Views: 159.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 19:57:11 -0600
+Served asset /answers.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 19:57:11 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 19:57:11 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 19:57:11 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 19:57:11 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 19:57:11 -0600
+Served asset /settings.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 19:57:11 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 19:57:11 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 19:57:11 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 19:57:11 -0600
+Served asset /courses.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 19:57:11 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 19:57:11 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 19:57:11 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2013-09-13 19:57:14 -0600
+Processing by CoursesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  Rendered courses/_form.html.erb (2.2ms)
+  Rendered courses/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 54ms (Views: 51.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 19:57:14 -0600
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 19:57:14 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 19:57:14 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 19:57:14 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 19:57:14 -0600
+Served asset /settings.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 19:57:14 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 19:57:14 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 19:57:14 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 19:57:14 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 19:57:14 -0600
+Served asset /courses.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 19:57:14 -0600
+Served asset /questions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 19:57:15 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 19:57:15 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2013-09-13 19:57:30 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"computer course"}, "commit"=>"Create Course"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "courses" ("created_at", "description", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", Sat, 14 Sep 2013 01:57:30 UTC +00:00], ["description", "computer course"], ["updated_at", Sat, 14 Sep 2013 01:57:30 UTC +00:00], ["user_id", 1]]
+  [1m[36m (16.4ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 23ms
+
+NoMethodError (undefined method `<' for nil:NilClass):
+  app/models/settings.rb:24:in `correct_start_time'
+  app/models/course.rb:16:in `create_settings'
+  app/controllers/courses_controller.rb:36:in `block in create'
+  app/controllers/courses_controller.rb:35:in `create'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (26.0ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.5ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Processing by CoursesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  Rendered courses/_form.html.erb (6.5ms)
+  Rendered courses/new.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 312ms (Views: 239.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /answers.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /application.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /courses.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /sessions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /settings.css - 304 Not Modified (25ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /users.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /answers.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /courses.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /questions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /sessions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /settings.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 20:06:47 -0600
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2013-09-13 20:06:52 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"text course"}, "commit"=>"Create Course"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (32.3ms)[0m  INSERT INTO "courses" ("created_at", "description", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", Sat, 14 Sep 2013 02:06:52 UTC +00:00], ["description", "text course"], ["updated_at", Sat, 14 Sep 2013 02:06:52 UTC +00:00], ["user_id", 1]]
+  [1m[36m (1.6ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 58ms
+
+NoMethodError (undefined method `>' for nil:NilClass):
+  app/models/settings.rb:36:in `start_before_end'
+  app/models/course.rb:16:in `create_settings'
+  app/controllers/courses_controller.rb:36:in `block in create'
+  app/controllers/courses_controller.rb:35:in `create'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2013-09-13 20:07:11 -0600
+Processing by CoursesController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  Rendered courses/_form.html.erb (1.8ms)
+  Rendered courses/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 39ms (Views: 11.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /courses.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /courses.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:12 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2013-09-13 20:07:16 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"texting course"}, "commit"=>"Create Course"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "courses" ("created_at", "description", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 14 Sep 2013 02:07:16 UTC +00:00], ["description", "texting course"], ["updated_at", Sat, 14 Sep 2013 02:07:16 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 26ms
+
+NameError (undefined local variable or method `start_before_end' for #<Settings:0x007febe5aebfe0>):
+  app/models/course.rb:16:in `create_settings'
+  app/controllers/courses_controller.rb:36:in `block in create'
+  app/controllers/courses_controller.rb:35:in `create'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.3ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2013-09-13 20:07:26 -0600
+Processing by CoursesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  Rendered courses/_form.html.erb (1.9ms)
+  Rendered courses/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 66ms (Views: 12.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /courses.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 20:07:27 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2013-09-13 20:07:32 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"texting course"}, "commit"=>"Create Course"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "courses" ("created_at", "description", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", Sat, 14 Sep 2013 02:07:32 UTC +00:00], ["description", "texting course"], ["updated_at", Sat, 14 Sep 2013 02:07:32 UTC +00:00], ["user_id", 1]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/courses/3
+Completed 302 Found in 24ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/courses/3" for 127.0.0.1 at 2013-09-13 20:07:32 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mSettings Load (0.2ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 3 LIMIT 1
+  Rendered settings/_display_settings.html.erb (21.6ms)
+  Rendered courses/show.html.erb within layouts/application (75.4ms)
+Completed 500 Internal Server Error in 79ms
+
+ActionView::Template::Error (undefined method `texts_per_day' for nil:NilClass):
+    1: <p><strong>Texts Per Day:</strong> <%= settings.texts_per_day %></p>
+    2: <p><strong>Start Time:</strong> <%= settings.start_time %>:00</p>
+    3: <p><strong>End Time:</strong> <%= settings.end_time %>:00</p>
+    4: <p><strong>Response Time:</strong> <%= settings.response_time %> minutes</p>
+  app/views/settings/_display_settings.html.erb:1:in `_app_views_settings__display_settings_html_erb___3773524074236484016_70325544276100'
+  app/views/courses/show.html.erb:4:in `_app_views_courses_show_html_erb___4477886687062388152_70325582376900'
+  app/controllers/courses_controller.rb:15:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.6ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-13 20:10:39 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1
+  Rendered courses/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 155ms (Views: 80.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Processing by CoursesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  Rendered courses/_form.html.erb (5.5ms)
+  Rendered courses/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 21ms (Views: 18.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /answers.css - 304 Not Modified (21ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /courses.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /sessions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /settings.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /users.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /answers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /courses.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /questions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /sessions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /users.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /settings.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 20:10:41 -0600
+Served asset /application.js - 304 Not Modified (12ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2013-09-13 20:10:45 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"texting course"}, "commit"=>"Create Course"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (6.0ms)[0m  INSERT INTO "courses" ("created_at", "description", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", Sat, 14 Sep 2013 02:10:45 UTC +00:00], ["description", "texting course"], ["updated_at", Sat, 14 Sep 2013 02:10:45 UTC +00:00], ["user_id", 1]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/courses/4
+Completed 302 Found in 53ms (ActiveRecord: 8.3ms)
+
+
+Started GET "/courses/4" for 127.0.0.1 at 2013-09-13 20:10:45 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  [1m[35mSettings Load (0.2ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 4 LIMIT 1
+  Rendered settings/_display_settings.html.erb (4.6ms)
+  Rendered courses/show.html.erb within layouts/application (10.4ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `texts_per_day' for nil:NilClass):
+    1: <p><strong>Texts Per Day:</strong> <%= settings.texts_per_day %></p>
+    2: <p><strong>Start Time:</strong> <%= settings.start_time %>:00</p>
+    3: <p><strong>End Time:</strong> <%= settings.end_time %>:00</p>
+    4: <p><strong>Response Time:</strong> <%= settings.response_time %> minutes</p>
+  app/views/settings/_display_settings.html.erb:1:in `_app_views_settings__display_settings_html_erb___4455635166652960004_70112027925140'
+  app/views/courses/show.html.erb:4:in `_app_views_courses_show_html_erb__799517544003494190_70112026287220'
+  app/controllers/courses_controller.rb:15:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.4ms)
+
+
+Started GET "/courses/4" for 127.0.0.1 at 2013-09-13 20:11:28 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "4"]]
+  [1m[36mSettings Load (0.2ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 4 LIMIT 1[0m
+  Rendered settings/_display_settings.html.erb (1.2ms)
+  Rendered courses/show.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (undefined method `texts_per_day' for nil:NilClass):
+    1: <p><strong>Texts Per Day:</strong> <%= settings.texts_per_day %></p>
+    2: <p><strong>Start Time:</strong> <%= settings.start_time %>:00</p>
+    3: <p><strong>End Time:</strong> <%= settings.end_time %>:00</p>
+    4: <p><strong>Response Time:</strong> <%= settings.response_time %> minutes</p>
+  app/views/settings/_display_settings.html.erb:1:in `_app_views_settings__display_settings_html_erb___4455635166652960004_70112027925140'
+  app/views/courses/show.html.erb:4:in `_app_views_courses_show_html_erb__799517544003494190_70112045627920'
+  app/controllers/courses_controller.rb:15:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-13 20:11:37 -0600
+Processing by CoursesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1[0m
+  Rendered courses/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses/4" for 127.0.0.1 at 2013-09-13 20:11:38 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  [1m[35mSettings Load (0.1ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 4 LIMIT 1
+  Rendered settings/_display_settings.html.erb (0.7ms)
+  Rendered courses/show.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (undefined method `texts_per_day' for nil:NilClass):
+    1: <p><strong>Texts Per Day:</strong> <%= settings.texts_per_day %></p>
+    2: <p><strong>Start Time:</strong> <%= settings.start_time %>:00</p>
+    3: <p><strong>End Time:</strong> <%= settings.end_time %>:00</p>
+    4: <p><strong>Response Time:</strong> <%= settings.response_time %> minutes</p>
+  app/views/settings/_display_settings.html.erb:1:in `_app_views_settings__display_settings_html_erb___4455635166652960004_70112027925140'
+  app/views/courses/show.html.erb:4:in `_app_views_courses_show_html_erb__799517544003494190_70112045627920'
+  app/controllers/courses_controller.rb:15:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.4ms)
+
+
+Started GET "/courses/4" for 127.0.0.1 at 2013-09-13 20:11:49 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "4"]]
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 4 LIMIT 1[0m
+  Rendered courses/show.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionController::RoutingError (No route matches {:action=>"edit", :controller=>"settings", :id=>nil}):
+  app/views/courses/show.html.erb:5:in `_app_views_courses_show_html_erb__799517544003494190_70112026988720'
+  app/controllers/courses_controller.rb:15:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/courses/4" for 127.0.0.1 at 2013-09-13 20:12:15 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  [1m[35mSettings Load (0.2ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 4 LIMIT 1
+  Rendered courses/show.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionController::RoutingError (No route matches {:action=>"edit", :controller=>"settings", :id=>nil}):
+  app/views/courses/show.html.erb:5:in `_app_views_courses_show_html_erb__799517544003494190_70112026988720'
+  app/controllers/courses_controller.rb:15:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (24.3ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/courses/4" for 127.0.0.1 at 2013-09-13 20:14:16 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "4"]]
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 4 LIMIT 1[0m
+  Rendered courses/show.html.erb within layouts/application (26.5ms)
+Completed 500 Internal Server Error in 162ms
+
+ActionView::Template::Error (undefined method `edit_settings_path' for #<#<Class:0x007fa16583f550>:0x007fa165cd8940>):
+    2: 
+    3: <h1><%= @course.description %></h1>
+    4: 
+    5: <%= link_to 'Edit Settings', edit_settings_path(@course.settings) %>
+    6: 
+    7: <h3>Questions</h3>
+    8: <ul>
+  app/views/courses/show.html.erb:5:in `_app_views_courses_show_html_erb__2432440445503277110_70165594360640'
+  app/controllers/courses_controller.rb:15:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (19.4ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (27.1ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.9ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.9ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/courses/4" for 127.0.0.1 at 2013-09-13 20:39:47 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "4"]]
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 4 LIMIT 1[0m
+  Rendered settings/_display_settings.html.erb (5.4ms)
+  Rendered courses/show.html.erb within layouts/application (72.1ms)
+Completed 500 Internal Server Error in 207ms
+
+ActionView::Template::Error (undefined method `texts_per_day' for nil:NilClass):
+    1: <p><strong>Texts Per Day:</strong> <%= settings.texts_per_day %></p>
+    2: <p><strong>Start Time:</strong> <%= settings.start_time %>:00</p>
+    3: <p><strong>End Time:</strong> <%= settings.end_time %>:00</p>
+    4: <p><strong>Response Time:</strong> <%= settings.response_time %> minutes</p>
+  app/views/settings/_display_settings.html.erb:1:in `_app_views_settings__display_settings_html_erb__3289151075692459446_70120552307080'
+  app/views/courses/show.html.erb:4:in `_app_views_courses_show_html_erb___429370952615140349_70120554091440'
+  app/controllers/courses_controller.rb:15:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (44.8ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-13 20:40:29 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1
+  Rendered courses/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 767ms (Views: 692.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-13 20:40:35 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 1 LIMIT 1[0m
+  Rendered settings/_display_settings.html.erb (1.1ms)
+  Rendered courses/show.html.erb within layouts/application (74.7ms)
+Completed 500 Internal Server Error in 79ms
+
+ActionView::Template::Error (undefined method `edit_settings_path' for #<#<Class:0x007fd4595ebea8>:0x007fd45b25ebf8>):
+    2: 
+    3: <h1><%= @course.description %></h1>
+    4: <%= render 'settings/display_settings', :settings => @course.settings %>
+    5: <%= link_to 'Edit Settings', edit_settings_path(@course.settings) %>
+    6: 
+    7: <h3>Questions</h3>
+    8: <ul>
+  app/views/courses/show.html.erb:5:in `_app_views_courses_show_html_erb__2938022587036774150_70275019497320'
+  app/controllers/courses_controller.rb:15:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSettings Load (0.1ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 1 LIMIT 1
+  Rendered settings/_display_settings.html.erb (0.1ms)
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 1[0m
+  Rendered courses/show.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 55ms (Views: 52.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /application.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /questions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /sessions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /courses.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /settings.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /users.css - 304 Not Modified (26ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /jquery.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /answers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /courses.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /questions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /sessions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /settings.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:49 -0600
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/settings/1/edit" for 127.0.0.1 at 2013-09-13 20:40:51 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mSettings Load (0.2ms)[0m  [1mSELECT "settings".* FROM "settings" INNER JOIN "courses" ON "settings"."course_id" = "courses"."id" WHERE "courses"."user_id" = 1 AND "settings"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered settings/_form.html.erb (31.5ms)
+  Rendered settings/edit.html.erb within layouts/application (40.7ms)
+Completed 200 OK in 113ms (Views: 62.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:51 -0600
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:51 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:51 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:51 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:51 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:51 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:51 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:51 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:51 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:52 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:52 -0600
+Served asset /answers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:52 -0600
+Served asset /courses.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:52 -0600
+Served asset /questions.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:52 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:52 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:52 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:52 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Processing by CoursesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  Rendered courses/_form.html.erb (3.2ms)
+  Rendered courses/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 57ms (Views: 55.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /answers.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /answers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /questions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 20:40:55 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2013-09-13 20:41:00 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"texting course"}, "commit"=>"Create Course"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (27.1ms)[0m  [1mINSERT INTO "courses" ("created_at", "description", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 14 Sep 2013 02:41:00 UTC +00:00], ["description", "texting course"], ["updated_at", Sat, 14 Sep 2013 02:41:00 UTC +00:00], ["user_id", 1]]
+  [1m[35m (1.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/courses/5
+Completed 302 Found in 41ms (ActiveRecord: 29.2ms)
+
+
+Started GET "/courses/5" for 127.0.0.1 at 2013-09-13 20:41:00 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "5"]]
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 5 LIMIT 1[0m
+  Rendered settings/_display_settings.html.erb (0.6ms)
+  Rendered courses/show.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (undefined method `texts_per_day' for nil:NilClass):
+    1: <p><strong>Texts Per Day:</strong> <%= settings.texts_per_day %></p>
+    2: <p><strong>Start Time:</strong> <%= settings.start_time %>:00</p>
+    3: <p><strong>End Time:</strong> <%= settings.end_time %>:00</p>
+    4: <p><strong>Response Time:</strong> <%= settings.response_time %> minutes</p>
+  app/views/settings/_display_settings.html.erb:1:in `_app_views_settings__display_settings_html_erb__41742412480322566_70275035757620'
+  app/views/courses/show.html.erb:4:in `_app_views_courses_show_html_erb__2938022587036774150_70275036605920'
+  app/controllers/courses_controller.rb:15:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.9ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2013-09-13 20:42:57 -0600
+Processing by CoursesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  Rendered courses/_form.html.erb (6.3ms)
+  Rendered courses/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 193ms (Views: 120.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /application.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /questions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /courses.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /sessions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /scaffolds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /settings.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /users.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /answers.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /courses.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /questions.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /sessions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /settings.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 20:42:58 -0600
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2013-09-13 20:43:02 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"texting course"}, "commit"=>"Create Course"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (6.1ms)[0m  INSERT INTO "courses" ("created_at", "description", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", Sat, 14 Sep 2013 02:43:02 UTC +00:00], ["description", "texting course"], ["updated_at", Sat, 14 Sep 2013 02:43:02 UTC +00:00], ["user_id", 1]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mSettings Load (0.1ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 6 LIMIT 1
+Completed 500 Internal Server Error in 26ms
+
+NoMethodError (undefined method `create' for nil:NilClass):
+  app/controllers/courses_controller.rb:37:in `block in create'
+  app/controllers/courses_controller.rb:35:in `create'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-13 20:43:52 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1
+  Rendered courses/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 41ms (Views: 13.5ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/courses/6" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Processing by CoursesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "6"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 6
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 6 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "courses" WHERE "courses"."id" = ?  [["id", 6]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 54ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Processing by CoursesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1[0m
+  Rendered courses/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /answers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /courses.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /questions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:56 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Processing by CoursesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  Rendered courses/_form.html.erb (1.1ms)
+  Rendered courses/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /answers.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 20:43:58 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2013-09-13 20:44:02 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"texting course"}, "commit"=>"Create Course"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "courses" ("created_at", "description", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 14 Sep 2013 02:44:02 UTC +00:00], ["description", "texting course"], ["updated_at", Sat, 14 Sep 2013 02:44:02 UTC +00:00], ["user_id", 1]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Completed 500 Internal Server Error in 40ms
+
+NoMethodError (undefined method `to_i' for #<Course:0x007f8a7ee34170>):
+  app/controllers/courses_controller.rb:37:in `block in create'
+  app/controllers/courses_controller.rb:35:in `create'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.1ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-13 20:44:27 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1
+  Rendered courses/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 39ms (Views: 11.5ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/courses/7" for 127.0.0.1 at 2013-09-13 20:44:29 -0600
+Processing by CoursesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "7"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 7
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 7 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "courses" WHERE "courses"."id" = ?  [["id", 7]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 53ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Processing by CoursesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1[0m
+  Rendered courses/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /application.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /courses.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /answers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /courses.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:30 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Processing by CoursesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  Rendered courses/_form.html.erb (1.1ms)
+  Rendered courses/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /answers.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /answers.js - 304 Not Modified (27ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-13 20:44:31 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2013-09-13 20:44:34 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"texting course"}, "commit"=>"Create Course"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "courses" ("created_at", "description", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 14 Sep 2013 02:44:34 UTC +00:00], ["description", "texting course"], ["updated_at", Sat, 14 Sep 2013 02:44:34 UTC +00:00], ["user_id", 1]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Redirected to http://localhost:3000/courses/8
+Completed 302 Found in 21ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/courses/8" for 127.0.0.1 at 2013-09-13 20:44:34 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "8"]]
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 8 LIMIT 1[0m
+  Rendered settings/_display_settings.html.erb (4.6ms)
+  Rendered courses/show.html.erb within layouts/application (6.9ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (undefined method `texts_per_day' for nil:NilClass):
+    1: <p><strong>Texts Per Day:</strong> <%= settings.texts_per_day %></p>
+    2: <p><strong>Start Time:</strong> <%= settings.start_time %>:00</p>
+    3: <p><strong>End Time:</strong> <%= settings.end_time %>:00</p>
+    4: <p><strong>Response Time:</strong> <%= settings.response_time %> minutes</p>
+  app/views/settings/_display_settings.html.erb:1:in `_app_views_settings__display_settings_html_erb___2157010818751903034_70116373172700'
+  app/views/courses/show.html.erb:4:in `_app_views_courses_show_html_erb___4461382114490147356_70116404848460'
+  app/controllers/courses_controller.rb:15:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.6ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.9ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-14 10:17:32 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (9.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (9.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1
+  Rendered courses/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 1021ms (Views: 779.1ms | ActiveRecord: 33.6ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-14 10:17:34 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1
+  Rendered courses/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-14 10:17:38 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1
+  Rendered courses/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 16ms (Views: 12.9ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/courses/8" for 127.0.0.1 at 2013-09-14 10:17:43 -0600
+Processing by CoursesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "8"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mQuestion Load (9.6ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 8
+  [1m[36mSettings Load (0.5ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 8 LIMIT 1[0m
+  [1m[35mSQL (35.4ms)[0m  DELETE FROM "courses" WHERE "courses"."id" = ?  [["id", 8]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 120ms (ActiveRecord: 48.2ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-14 10:17:43 -0600
+Processing by CoursesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1[0m
+  Rendered courses/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:43 -0600
+Served asset /application.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:43 -0600
+Served asset /courses.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:43 -0600
+Served asset /answers.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:43 -0600
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:43 -0600
+Served asset /questions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:43 -0600
+Served asset /sessions.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:43 -0600
+Served asset /settings.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:43 -0600
+Served asset /users.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:43 -0600
+Served asset /jquery.js - 304 Not Modified (28ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:44 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:44 -0600
+Served asset /answers.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:44 -0600
+Served asset /courses.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:44 -0600
+Served asset /questions.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:44 -0600
+Served asset /sessions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:44 -0600
+Served asset /settings.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:44 -0600
+Served asset /users.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:44 -0600
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Processing by CoursesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  Rendered courses/_form.html.erb (66.4ms)
+  Rendered courses/new.html.erb within layouts/application (87.5ms)
+Completed 200 OK in 134ms (Views: 131.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /courses.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:46 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"TEST COURSE"}, "commit"=>"Create Course"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (135.5ms)[0m  [1mINSERT INTO "courses" ("created_at", "description", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 14 Sep 2013 16:17:51 UTC +00:00], ["description", "TEST COURSE"], ["updated_at", Sat, 14 Sep 2013 16:17:51 UTC +00:00], ["user_id", 1]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "settings" ("course_id", "created_at", "end_time", "paused_flag", "response_time", "start_time", "texts_per_day", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["course_id", 9], ["created_at", Sat, 14 Sep 2013 16:17:51 UTC +00:00], ["end_time", 6], ["paused_flag", 0], ["response_time", 10], ["start_time", 9], ["texts_per_day", 5], ["updated_at", Sat, 14 Sep 2013 16:17:51 UTC +00:00]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/courses/9
+Completed 302 Found in 160ms (ActiveRecord: 140.2ms)
+
+
+Started GET "/courses/9" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1[0m  [["id", "9"]]
+  [1m[35mSettings Load (0.2ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 9 LIMIT 1
+  Rendered settings/_display_settings.html.erb (1.2ms)
+  [1m[36mQuestion Load (0.2ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 9[0m
+  Rendered courses/show.html.erb within layouts/application (40.5ms)
+Completed 200 OK in 85ms (Views: 80.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /questions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 10:17:51 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/settings/3/edit" for 127.0.0.1 at 2013-09-14 10:47:49 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (15.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mSettings Load (0.7ms)[0m  SELECT "settings".* FROM "settings" INNER JOIN "courses" ON "settings"."course_id" = "courses"."id" WHERE "courses"."user_id" = 1 AND "settings"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered settings/_form.html.erb (30.5ms)
+  Rendered settings/edit.html.erb within layouts/application (76.0ms)
+Completed 200 OK in 951ms (Views: 742.5ms | ActiveRecord: 30.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /application.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /answers.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /sessions.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /courses.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /settings.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /users.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /jquery.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /courses.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /answers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /questions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /sessions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /settings.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /users.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 10:47:51 -0600
+Served asset /application.js - 304 Not Modified (45ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/settings/3/edit" for 127.0.0.1 at 2013-09-14 11:03:13 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+Completed 500 Internal Server Error in 80ms
+
+NoMethodError (undefined method `start_time' for #<Class:0x007fc828ef4f00>):
+  app/models/settings.rb:9:in `<class:Settings>'
+  app/models/settings.rb:1:in `<top (required)>'
+  app/controllers/settings_controller.rb:13:in `edit'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.7ms)
+
+
+Started GET "/settings/3/edit" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mSettings Load (0.3ms)[0m  [1mSELECT "settings".* FROM "settings" INNER JOIN "courses" ON "settings"."course_id" = "courses"."id" WHERE "courses"."user_id" = 1 AND "settings"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  Rendered settings/_form.html.erb (27.4ms)
+  Rendered settings/edit.html.erb within layouts/application (30.8ms)
+Completed 200 OK in 156ms (Views: 76.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /application.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /courses.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /questions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /sessions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /settings.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /users.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /answers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /courses.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /questions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /sessions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:05 -0600
+Served asset /settings.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:06 -0600
+Served asset /users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:06 -0600
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started PUT "/settings/3" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Processing by SettingsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "settings"=>{"texts_per_day"=>"5", "start_time"=>"9", "end_time"=>"5", "response_time"=>"10", "paused_flag"=>"0"}, "commit"=>"Update Settings", "id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" INNER JOIN "courses" ON "settings"."course_id" = "courses"."id" WHERE "courses"."user_id" = 1 AND "settings"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  Rendered settings/_form.html.erb (2.2ms)
+  Rendered settings/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 62ms (Views: 12.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /application.css - 304 Not Modified (25ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /settings.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /courses.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:32 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started PUT "/settings/3" for 127.0.0.1 at 2013-09-14 11:04:40 -0600
+Processing by SettingsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "settings"=>{"texts_per_day"=>"5", "start_time"=>"9", "end_time"=>"18", "response_time"=>"10", "paused_flag"=>"0"}, "commit"=>"Update Settings", "id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" INNER JOIN "courses" ON "settings"."course_id" = "courses"."id" WHERE "courses"."user_id" = 1 AND "settings"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (14.7ms)[0m  [1mUPDATE "settings" SET "end_time" = 18, "paused_flag" = x'30', "updated_at" = '2013-09-14 17:04:40.931071' WHERE "settings"."id" = 3[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/settings/3
+Completed 302 Found in 95ms (ActiveRecord: 16.1ms)
+
+
+Started GET "/settings/3" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Processing by SettingsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mSettings Load (0.1ms)[0m  SELECT "settings".* FROM "settings" INNER JOIN "courses" ON "settings"."course_id" = "courses"."id" WHERE "courses"."user_id" = 1 AND "settings"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered settings/_display_settings.html.erb (0.8ms)
+  Rendered settings/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 36ms (Views: 32.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /questions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:41 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /courses.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /settings.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /questions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 11:04:43 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started PUT "/settings/3" for 127.0.0.1 at 2013-09-14 11:05:05 -0600
+Processing by SettingsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "settings"=>{"texts_per_day"=>"5", "start_time"=>"9", "end_time"=>"12", "response_time"=>"10", "paused_flag"=>"0"}, "commit"=>"Update Settings", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mSettings Load (0.2ms)[0m  SELECT "settings".* FROM "settings" INNER JOIN "courses" ON "settings"."course_id" = "courses"."id" WHERE "courses"."user_id" = 1 AND "settings"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "settings" SET "end_time" = 12, "updated_at" = '2013-09-14 17:05:05.722773' WHERE "settings"."id" = 3
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 9 LIMIT 1
+Redirected to http://localhost:3000/courses/9
+Completed 302 Found in 119ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/courses/9" for 127.0.0.1 at 2013-09-14 11:05:05 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "9"]]
+  [1m[36mSettings Load (0.2ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 9 LIMIT 1[0m
+  Rendered settings/_display_settings.html.erb (0.1ms)
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 9
+  Rendered courses/show.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 74ms (Views: 70.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:05 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:05 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:05 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:05 -0600
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:05 -0600
+Served asset /questions.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:06 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:06 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:06 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:06 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:06 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:06 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:06 -0600
+Served asset /courses.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:06 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:06 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:06 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:06 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:06 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0a30c84250f40169e9496fed2be26d1a0389f7ad' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1
+  Rendered courses/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 55ms (Views: 52.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /application.css - 304 Not Modified (29ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /answers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /questions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 11:05:58 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (2.1ms)
+  Rendered sessions/new.html.erb within layouts/application (36.2ms)
+Completed 200 OK in 90ms (Views: 89.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /questions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:03 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "email"=>"brennanmeadowcroft@gmail.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'brennanmeadowcroft@gmail.com' LIMIT 1
+  Rendered sessions/_form.html.erb (0.7ms)
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /courses.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /answers.css - 304 Not Modified (34ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /settings.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /courses.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /questions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 11:06:11 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2013-09-14 11:10:41 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "email"=>"brennan@brennanmeadowcroft.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'brennan@brennanmeadowcroft.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "users" SET "remember_token" = 'ff322af09fa2679c7576d391ceb5441646c5300e', "updated_at" = '2013-09-14 17:10:42.085040' WHERE "users"."id" = 1[0m
+  [1m[35m (2.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 88ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-14 11:10:42 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'ff322af09fa2679c7576d391ceb5441646c5300e' LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1
+  Rendered courses/index.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 57ms
+
+ActionView::Template::Error (undefined local variable or method `sign_out_path' for #<#<Class:0x007fc828ff18b8>:0x007fc82c2b3aa8>):
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+    9: <body>
+    10: <p>Welcome <%= current_user.first_name %>! (<%= link_to "Sign Out", sign_out_path %>)</p>
+    11: <%= yield %>
+    12: 
+    13: </body>
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__4051629839546798632_70248855554660'
+  app/controllers/courses_controller.rb:7:in `index'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.2ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /questions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /sessions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /courses.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /answers.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /settings.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /users.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /answers.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /courses.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /sessions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /questions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:14 -0600
+Served asset /settings.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:15 -0600
+Served asset /users.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:15 -0600
+Served asset /application.js - 304 Not Modified (10ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "email"=>"brennan@brennanmeadowcroft.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'brennan@brennanmeadowcroft.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.5ms)[0m  [1mUPDATE "users" SET "remember_token" = '8d3a4496b1a479183f9a05c7b4a3b7cdf26bbb29', "updated_at" = '2013-09-14 17:11:19.393188' WHERE "users"."id" = 1[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 149ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '8d3a4496b1a479183f9a05c7b4a3b7cdf26bbb29' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1
+  Rendered courses/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 101ms (Views: 80.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /courses.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /questions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 11:11:19 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2013-09-14 11:11:23 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-14 11:11:23 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2013-09-14 11:11:23 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (1.2ms)
+  Rendered sessions/new.html.erb within layouts/application (4.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+Completed 500 Internal Server Error in 128ms
+
+ActionView::Template::Error (undefined method `first_name' for nil:NilClass):
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+    9: <body>
+    10: <p>Welcome <%= current_user.first_name %>! (<%= link_to "Sign Out", signout_path %>)</p>
+    11: <%= yield %>
+    12: 
+    13: </body>
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__474689007840618396_70187597102680'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.1ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2013-09-14 11:11:53 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.7ms)
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `signed_in?' for nil:NilClass):
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+    9: <body>
+    10: <% if current_user.signed_in? %>
+    11: 	<p>Welcome <%= current_user.first_name %>! (<%= link_to "Sign Out", signout_path %>)</p>
+    12: <% end %>
+    13: <%= yield %>
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__474689007840618396_70187608546300'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-14 11:12:22 -0600
+Processing by CoursesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.9ms)
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /answers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /scaffolds.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /settings.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /answers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:24 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "email"=>"brennan@brennanmeadowcroft.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'brennan@brennanmeadowcroft.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "users" SET "remember_token" = '6d6349e2c602ba22e573e9a625e461ec9c6fc8f6', "updated_at" = '2013-09-14 17:12:32.299222' WHERE "users"."id" = 1[0m
+  [1m[35m (1.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 86ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '6d6349e2c602ba22e573e9a625e461ec9c6fc8f6' LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1
+  Rendered courses/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 14ms (Views: 11.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /answers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /courses.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /questions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:32 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.6ms)
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/answers.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /answers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /courses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/questions.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /questions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /settings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /courses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/answers.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /answers.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/questions.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /questions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 11:12:35 -0600
+Served asset /application.js - 304 Not Modified (0ms)

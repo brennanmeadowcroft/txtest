@@ -3,6 +3,7 @@ class Answer < ActiveRecord::Base
 
   belongs_to :question
   has_one :course, :through => :question
+  has_one :user, :through => :course
 
   def self.next_unanswered_question
     self.where(:time_sent => nil, :time_answered => nil).order(:created_at)

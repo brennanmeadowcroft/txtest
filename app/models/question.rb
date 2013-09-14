@@ -3,4 +3,6 @@ class Question < ActiveRecord::Base
 
   has_many :answers, dependent: :destroy
   belongs_to :course
+  has_one :user, :through => :course
+  has_one :settings, :through => :course
 end

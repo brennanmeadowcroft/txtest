@@ -1,17 +1,15 @@
 class AnswersController < ApplicationController
-  def index
-    @answers = Answer.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-    end
-  end
-
+  before_filter :signed_in_user
+  
   def show
-    @answer = Answer.find(params[:id])
+    @answer = current_user.answers.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      if @answer.question.user == current_user
+        format.html # show.html.erb
+      else
+        format.html { redirect_to courses_path }
+      end
     end
   end
 
@@ -24,7 +22,7 @@ class AnswersController < ApplicationController
   end
 
   def answer_question
-    @answer = Answer.find(params[:id])
+    @answer = current_user.answers.find(params[:id])
 
     @answer.answer_question(params[:answer])
 
@@ -38,7 +36,7 @@ class AnswersController < ApplicationController
   end
 
   def edit
-    @answer = Answer.find(params[:id])
+    @answer = current_user.answers.find(params[:id])
   end
 
   def create
@@ -54,7 +52,7 @@ class AnswersController < ApplicationController
   end
 
   def update
-    @answer = Answer.find(params[:id])
+    @answer = current_user.answers.find(params[:id])
 
     respond_to do |format|
       if @answer.update_attributes(params[:answer])
@@ -66,7 +64,7 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    @answer = Answer.find(params[:id])
+    @answer = current_user.answers.find(params[:id])
     @answer.destroy
 
     respond_to do |format|
