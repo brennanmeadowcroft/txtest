@@ -13,6 +13,7 @@ class Answer < ActiveRecord::Base
   end
 
   def self.to_send(time)
+    # Find all answers that have a time sent matching the submitted time
     if time.is_a? Time
       formatted_time = time.strftime('%Y-%m-%d %H:%M')
     else
@@ -26,28 +27,32 @@ class Answer < ActiveRecord::Base
   end
 
   def update_text_receipt
+    # Update the record when notified that a text was sent successfully
     self.text_receipt = 1
     self.receipt_date = Time.now
     self.save!
   end
 
-  def answer_question(answer)
-  	self.submitted_answer = answer
+  def submit_response(response_body)
+    # Process the body of the text and update the answer with the submitted response
+    response = response_body.gsub(/\s?Q\d+\s?/, "")
 
-  	self.submitted_answer == self.question.correct_answer ? self.correct = 1 : self.correct = 0
-  	if Time.now <= (self.created_at + 10.minutes)
-  		self.in_time = 1
-  	else 
-  		self.in_time = 0
-  	end
+    self.submitted_answer = response
+    Time.now <= (self.receipt_date + 10.minutes) ? self.in_time = 1 : self.in_time = 0
+    if self.submitted_answer.upcase == self.question.correct_answer.upcase
+      self.correct = 1
+    end
 
-  	return self
+    self.save!
   end
 
   def send_text
+    # Process the text and send it via Twilio
     @client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
+
+    text_body = "#{self.question.question} || Respond within 10 minutes and include the code QA#{self.id} to get credit. Good luck!"
      
-    message = @client.account.sms.messages.create(:body => self.question.question,
+    message = @client.account.sms.messages.create(:body => text_body,
         :to => "+17202487155",
         :from => TWILIO_CONFIG['from'],
         :status_callback => "https://testtexts.fwd.wf/answers/#{self.id}/text_receipt")

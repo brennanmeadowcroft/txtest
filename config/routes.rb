@@ -11,6 +11,7 @@ TextTests::Application.routes.draw do
   match '/signup' => 'users#new', :as => :signup
 
   match '/answers/:id/text_receipt' => 'answers#text_receipt', :via => :post
+  match '/sms/receive' => 'sms#receive', :via => :post
 
   root :to => 'courses#index'
 
