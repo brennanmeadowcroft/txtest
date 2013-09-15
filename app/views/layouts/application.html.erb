@@ -8,7 +8,7 @@
 </head>
 <body>
 <% if signed_in? %>
-	<p>Welcome <%= current_user.first_name %>! (<%= link_to "Sign Out", signout_path %>)</p>
+	<p>Welcome <%= current_user.first_name %>! (<%= link_to "Profile", user_path(current_user) %> | <%= link_to "Sign Out", signout_path %>)</p>
 <% end %>
 <%= yield %>
 

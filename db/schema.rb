@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130914183738) do
+ActiveRecord::Schema.define(:version => 20130915212400) do
 
   create_table "answers", :force => true do |t|
     t.text     "submitted_answer"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20130914183738) do
     t.integer  "start_time"
     t.integer  "end_time"
     t.integer  "response_time"
-    t.binary   "paused_flag"
+    t.integer  "paused_flag"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20130914183738) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "remember_token"
+    t.string   "text_code"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

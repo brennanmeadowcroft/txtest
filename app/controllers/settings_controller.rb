@@ -19,6 +19,7 @@ class SettingsController < ApplicationController
 
 	def update
 		@setting = current_user.settings.find(params[:id])
+		params[:settings][:paused_flag] ||= 0
 
 		respond_to do |format|
 			if @setting.update_attributes(params[:settings])
