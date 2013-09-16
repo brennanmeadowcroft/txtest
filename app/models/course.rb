@@ -14,22 +14,21 @@ class Course < ActiveRecord::Base
   	total_texts = self.settings.texts_per_day
 
   	total_texts.times do |text|
-  		questions = Question.all
+  		questions = self.questions.all
   		random_num = rand(questions.count)
   		random_question = questions[random_num]
 
-      random_hour_mt = rand(self.settings.start_time..self.settings.end_time)
-      random_hour = random_hour.to_i + 6 # MST is 6 hours behind UTC... add 6 hours to correct for when it converts UTC -> MST
+      random_hour = rand(self.settings.start_time..self.settings.end_time)
 
       if random_hour == self.settings.end_time
         random_minute = 0
       else
-        random_minute = rand(0..60)
+        random_minute = rand(0..59)
       end
 
-      time_to_send = "%s %s:%02d" % [ Time.zone.now.strftime("%Y-%m-%d"), random_hour, random_minute ]
+      time_to_send = "%s %s:%02d -06:00" % [ Time.zone.now.strftime("%Y-%m-%d"), random_hour, random_minute ]
       # time_to_send = "%s %s:%02d" % [ Time.zone.now.strftime("%Y-%m-%d"), 21, 10 ]
-      delay_time = ((Time.now.utc - time_to_send.to_datetime).to_i.abs)/60/60
+      delay_time = ((Time.now.utc - time_to_send.to_datetime).to_i.abs)/60
 
   		answer = Answer.create(:question_id => random_question.id, :time_sent => time_to_send)
       # answer.delay({:run_at => time_to_send, :queue => 'questions'}).send_text
