@@ -5,7 +5,6 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 #gem 'rufus-scheduler', '2.0.24'
 gem 'delayed_job_active_record', '4.0.0'
 gem 'twilio-ruby', '3.10.1'
@@ -22,6 +21,10 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :development do
+	gem 'sqlite3'
 end
 
 group :production do 
