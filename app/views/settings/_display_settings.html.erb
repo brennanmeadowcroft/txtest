@@ -1,6 +1,18 @@
-<p><strong>Texts Per Day:</strong> <%= settings.texts_per_day %></p>
-<p><strong>Start Time:</strong> <%= settings.start_time %>:00</p>
-<p><strong>End Time:</strong> <%= settings.end_time %>:00</p>
-<p><strong>Response Time:</strong> <%= settings.response_time %> minutes</p>
-<p><strong>Paused:</strong> <%= settings.paused_flag == 1 ? 'Yes' : 'No' %></p>
-
+<div class="settings-info">
+	<table>
+		<tr>
+			<th>Texts Per Day</th>
+			<th>Start Time</th>
+			<th>End Time</th>
+			<th>Response Time</th>
+			<th>Paused</th>
+		<tr>
+		<tr>
+			<td><%= settings.texts_per_day %></td>
+			<td><%= settings.start_time %>:00</td>
+			<td><%= settings.end_time %>:00</td>
+			<td><%= settings.response_time %> minutes</td>
+			<td><%= settings.paused_flag == 1 ? 'Yes' : 'No' %></td>
+		</tr>
+	</table>
+</div>

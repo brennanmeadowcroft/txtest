@@ -63,6 +63,19 @@ class AnswersController < ApplicationController
     end
   end
 
+  def mark_correct
+    answer = current_user.answers.find(params[:id])
+
+    answer.correct = 1
+    respond_to do |format|
+      if answer.save
+        format.html { redirect_to question_path(answer.question), notice: 'Answer marked as correct' }
+      else
+        format.html { redirect_to question_path(answer.question), notice: 'There was a problem changing the status' }
+      end
+    end
+  end
+
   def destroy
     @answer = current_user.answers.find(params[:id])
     @answer.destroy

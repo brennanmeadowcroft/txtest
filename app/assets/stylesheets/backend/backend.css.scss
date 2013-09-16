@@ -1,0 +1,85 @@
+@import "all/foundation_and_overrides";
+@import "all/overrides";
+
+body {
+	background-color: $tt-body-background;
+	color: $tt-body-text;
+}
+
+.side-menu {
+	@include grid-column(2);
+	background-color: $tt-menu-background;
+	padding: 0;
+	margin: 0;
+
+	.logo {
+		width: 100px;
+	}
+
+	.menu-options {
+		ul {
+			font-size: 1.5em;
+			line-height: 2em;
+			list-style-type: none;
+			padding-left: 10px;
+		}
+
+		.active-option {
+			background-color: $tt-body-background;
+		}
+
+		a {
+			color: $tt-menu-text;
+
+			&:hover, &:visited {
+				background-color: transparent;
+				color: $tt-menu-text-active;
+			}
+		}
+	}
+}
+
+.main-content {
+	@include grid-column(10);
+
+	h1 {
+		color: $tt-body-primary-accent;
+	}
+}
+
+.course-content {
+	@include grid-row();
+
+	.listing {
+		.info {
+			@include grid-column(8);
+		}
+		.options {
+			@include grid-column(4);
+		}
+	}
+
+	.settings-info {
+		table {
+			width: 100%;
+			border: none;
+			background: none;
+			text-align: center;
+		}
+		th {
+			border-bottom: 1px solid $tt-body-text;
+		}
+	}
+
+	.questions {
+		ul {
+			list-style-type: none;
+
+			li {
+				padding-left: 15px;
+				line-height: 2em;
+				border-left: 3px solid $tt-body-primary-accent;
+			}
+		}
+	}
+}

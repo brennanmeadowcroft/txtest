@@ -1,16 +1,41 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>TextTests</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<% if signed_in? %>
-	<p>Welcome <%= current_user.first_name %>! (<%= link_to "Profile", user_path(current_user) %> | <%= link_to "Sign Out", signout_path %>)</p>
-<% end %>
-<%= yield %>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+  	<meta charset="utf-8" />
 
-</body>
+  	<!-- Uncomment to make IE8 render like IE7 -->
+  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+
+  	<!-- Set the viewport width to device width for mobile -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %> | TextTests</title>
+
+  	<%= stylesheet_link_tag    "application-all" %>
+    <%= stylesheet_link_tag    "application-backend" %>
+  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="side-menu">
+      <img src="http://placekitten.com/100/100" class="logo" />
+      <div class="menu-options">
+        <ul>
+          <li class="active-option"><%= link_to 'Dashboard', root_path %></li>
+          <li><%= link_to 'Courses', courses_path %></li>
+          <li><%= link_to 'Account', user_path(current_user) %></li>
+          <li><%= link_to 'Sign Out', signout_path %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-content">
+      <%= yield %>
+    </div>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

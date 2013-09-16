@@ -8,12 +8,18 @@
 		<th>Your Answer</th>
 		<th>Correct?</th>
 		<th>In Time?</th>
+		<th>Question Sent</th>
+		<th>Question Answered</th>
+		<th>Options</th>
 	</tr>
 <% @question.answers.each do |answer| %>
 	<tr>
 		<td><%= answer.submitted_answer %></td>
 		<td><%= answer.correct == 1 ? 'Yes' : 'No' %></td>
 		<td><%= answer.in_time == 1 ? 'Yes' : 'No' %></td>
+		<td><%= answer.time_sent %></td>
+		<td><%= answer.receipt_date %></td>
+		<td><%= link_to "Mark as correct", mark_correct_path(answer) %></td>
 	</tr>
 <% end %>
 </table>
