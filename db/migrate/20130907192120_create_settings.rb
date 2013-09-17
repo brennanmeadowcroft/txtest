@@ -6,7 +6,7 @@ class CreateSettings < ActiveRecord::Migration
       t.integer :start_time
       t.integer :end_time
       t.integer :response_time
-      t.binary :paused_flag
+      t.integer :paused_flag
       t.timestamps
     end
   end
