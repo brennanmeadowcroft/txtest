@@ -24093,3 +24093,20 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-15 22:05:58
 Served asset /application.js - 304 Not Modified (0ms)
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started POST "/answers/88/text_receipt" for 54.211.85.219 at 2013-09-16 18:56:05 -0600
+Processing by AnswersController#text_receipt as HTML
+  Parameters: {"AccountSid"=>"AC799e9185d0d8677f0853e31e8df42525", "SmsStatus"=>"sent", "Body"=>"Sent from your Twilio trial account - What is the circumference of the earth? || Respond within 10 minutes and include the code Q88 to get credit. Good luck!", "SmsSid"=>"SM554452ec711a5912fd3cb4fb25fd9304", "To"=>"+17202487155", "From"=>"+17202550259", "ApiVersion"=>"2010-04-01", "id"=>"88"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mAnswer Load (16.7ms)[0m  [1mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT 1[0m  [["id", "88"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (10.5ms)[0m  [1mUPDATE "answers" SET "receipt_date" = '2013-09-17 00:56:06.880992', "updated_at" = '2013-09-17 00:56:06.926300' WHERE "answers"."id" = 88[0m
+  [1m[35m (3.8ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 221ms (Views: 86.3ms | ActiveRecord: 39.9ms)
+Connecting to database specified by database.yml

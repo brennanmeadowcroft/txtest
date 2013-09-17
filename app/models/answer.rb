@@ -48,13 +48,13 @@ class Answer < ActiveRecord::Base
 
   def send_text
     # Process the text and send it via Twilio
-    @client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
+    @client = Twilio::REST::Client.new(ENV['twilio_sid'], ENV['twilio_token'])
 
     text_body = "#{self.question.question} || Respond within 10 minutes and include the code Q#{self.id} to get credit. Good luck!"
      
     message = @client.account.sms.messages.create(:body => text_body,
         :to => self.user.phone_number,
-        :from => TWILIO_CONFIG['from'],
+        :from => ENV['twilio_from'],
         :status_callback => "https://testtexts.fwd.wf/answers/#{self.id}/text_receipt")
     puts message.from
   end

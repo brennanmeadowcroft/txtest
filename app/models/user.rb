@@ -27,13 +27,13 @@ class User < ActiveRecord::Base
 
   def send_phone_validation
     # Process the text and send it via Twilio
-    @client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
+    @client = Twilio::REST::Client.new(ENV['twilio_sid'], ENV['twilio_token'])
 
     text_body = "Validating your number. Please enter this code into the form: #{ self.text_code }"
      
     message = @client.account.sms.messages.create(:body => text_body,
         :to => self.phone_number,
-        :from => TWILIO_CONFIG['from'],
+        :from => ENV['twilio_from'],
         :status_callback => "https://testtexts.fwd.wf/sms/#{self.id}/text_validate")
     puts message.from
   end
