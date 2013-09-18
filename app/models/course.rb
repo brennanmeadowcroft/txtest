@@ -23,7 +23,9 @@ class Course < ActiveRecord::Base
       if random_hour == self.settings.end_time
         random_minute = 0
       else
-        random_minute = rand(0..59)
+        # Only send every five minutes
+        minute_factor = rand(0..11)
+        random_minute = minute_factor * 5
       end
 
       time_to_send = "%s %s:%02d -06:00" % [ Time.zone.now.strftime("%Y-%m-%d"), random_hour, random_minute ]

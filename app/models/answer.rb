@@ -12,14 +12,9 @@ class Answer < ActiveRecord::Base
     self.where(:time_sent => nil, :time_answered => nil).order(:created_at)
   end
 
-  def self.to_send(time)
-    # Find all answers that have a time sent matching the submitted time
-    if time.is_a? Time
-      formatted_time = time.strftime('%Y-%m-%d %H:%M')
-    else
-      formatted_time = time
-    end
-    self.where(:time_sent => formatted_time)
+  def self.to_send
+    current_time = Time.now.strftime("%-Y-%m-%d %h:%m")
+    find_by_sql("SELECT * FROM answers WHERE time_sent = '#{current_time}'")
   end
 
   def init

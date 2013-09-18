@@ -6,7 +6,7 @@ gem 'rails', '3.2.11'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'rufus-scheduler', '2.0.24'
-gem 'delayed_job_active_record', '4.0.0'
+#gem 'delayed_job_active_record', '4.0.0'
 gem 'twilio-ruby', '3.10.1'
 gem 'figaro', '0.7.0'
 

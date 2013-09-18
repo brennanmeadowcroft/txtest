@@ -31,11 +31,13 @@ class CoursesController < ApplicationController
 
   def create
     @course = current_user.courses.new(params[:course])
+    if @course.save!
+      setting = Settings.new(:course_id => @course.id)
+      setting.save!
+    end
 
     respond_to do |format|
-      if @course.save
-        Settings.create(:course_id => 9)
-
+      if !@course.nil? and !setting.nil?
         format.html { redirect_to @course, notice: 'Course was successfully created.' }
       else
         format.html { render action: "new" }
