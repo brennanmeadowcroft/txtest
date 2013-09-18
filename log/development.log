@@ -24214,3 +24214,2315 @@ Connecting to database specified by database.yml
   [1m[36mAnswer Load (2.8ms)[0m  [1mSELECT * FROM answers WHERE time_sent = '2013-09-17 Sep:09'[0m
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+Migrating to CreateCourses (20130907153558)
+Migrating to RenameClassIdToCourseIdOnQuestions (20130907154302)
+Migrating to CreateSettings (20130907192120)
+Migrating to AddTimeSentToAnswers (20130908224141)
+Migrating to CreateUsers (20130913015231)
+Migrating to AddRememberTokenToUsers (20130913055004)
+Migrating to AddTextReceiptToAnswers (20130914183738)
+Migrating to AddTextCodeToUsers (20130915182129)
+Migrating to RenameCourseIdOnSettings (20130918033932)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "altered_settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "paused_flag" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "settings"[0m
+  [1m[35m (33.8ms)[0m  DROP TABLE "settings"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "paused_flag" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_settings"
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "altered_settings"[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130918033932')
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+Migrating to CreateCourses (20130907153558)
+Migrating to RenameClassIdToCourseIdOnQuestions (20130907154302)
+Migrating to CreateSettings (20130907192120)
+Migrating to AddTimeSentToAnswers (20130908224141)
+Migrating to CreateUsers (20130913015231)
+Migrating to AddRememberTokenToUsers (20130913055004)
+Migrating to AddTextReceiptToAnswers (20130914183738)
+Migrating to AddTextCodeToUsers (20130915182129)
+Migrating to RenameCourseIdOnSettings (20130918033932)
+Migrating to RemovePausedFlagFromSettings (20130918034103)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "altered_settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "paused_flag" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "settings"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "settings"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_settings"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "altered_settings"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130918034103')
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+Migrating to AddPausedFlagToCourses (20130918034121)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (43.3ms)[0m  [1mALTER TABLE "settings" ADD "paused_flag" integer[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130918034121')
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.9ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "answers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "submitted_answer" text, "time_answered" datetime, "question_id" integer, "correct" integer, "in_time" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "time_sent" datetime, "text_receipt" integer, "receipt_date" datetime) 
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "delayed_jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "attempts" integer DEFAULT 0 NOT NULL, "handler" text NOT NULL, "last_error" text, "run_at" datetime, "locked_at" datetime, "failed_at" datetime, "locked_by" varchar(255), "queue" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mCREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "question" text, "correct_answer" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "paused_flag" integer) [0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "email" varchar(255), "phone_number" varchar(255), "password_digest" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "remember_token" varchar(255), "text_code" varchar(255)) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_phone_number" ON "users" ("phone_number")
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130918034121')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130905151719')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130905153519')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130905160003')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130907153558')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130907154302')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130907192120')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130908224141')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130913015231')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130913055004')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130914183738')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130915182129')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130918033932')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130918034103')
+  [1m[36m (1.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-09-17 22:11:28 -0600
+Connecting to database specified by database.yml
+Processing by UsersController#new as HTML
+  Rendered users/_new_user_form.html.erb (6.6ms)
+  Rendered users/new.html.erb within layouts/application (17.1ms)
+Compiled all/foundation_and_overrides.css  (2956ms)  (pid 13386)
+Compiled all/overrides.css  (40ms)  (pid 13386)
+Compiled application-all.css  (3058ms)  (pid 13386)
+Compiled backend/backend.css  (1145ms)  (pid 13386)
+Compiled application-backend.css  (1197ms)  (pid 13386)
+Compiled vendor/custom.modernizr.js  (0ms)  (pid 13386)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'd8cd746d5ebe3fd91b7553ae10168de14585c8ab' LIMIT 1[0m
+Compiled jquery.js  (2ms)  (pid 13386)
+Compiled jquery_ujs.js  (0ms)  (pid 13386)
+Compiled foundation/foundation.js  (0ms)  (pid 13386)
+Compiled foundation/foundation.alerts.js  (0ms)  (pid 13386)
+Compiled foundation/foundation.clearing.js  (0ms)  (pid 13386)
+Compiled foundation/foundation.cookie.js  (0ms)  (pid 13386)
+Compiled foundation/foundation.dropdown.js  (0ms)  (pid 13386)
+Compiled foundation/foundation.forms.js  (0ms)  (pid 13386)
+Compiled foundation/foundation.joyride.js  (0ms)  (pid 13386)
+Compiled foundation/foundation.magellan.js  (0ms)  (pid 13386)
+Compiled foundation/foundation.orbit.js  (0ms)  (pid 13386)
+Compiled foundation/foundation.placeholder.js  (0ms)  (pid 13386)
+Compiled foundation/foundation.reveal.js  (0ms)  (pid 13386)
+Compiled foundation/foundation.section.js  (0ms)  (pid 13386)
+Compiled foundation/foundation.tooltips.js  (0ms)  (pid 13386)
+Compiled foundation/foundation.topbar.js  (0ms)  (pid 13386)
+Compiled foundation/index.js  (258ms)  (pid 13386)
+Compiled application.js  (365ms)  (pid 13386)
+Completed 200 OK in 4924ms (Views: 4892.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /all/foundation_and_overrides.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /application-all.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /application-backend.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /backend/backend.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /all/overrides.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /vendor/custom.modernizr.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/foundation.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/foundation.alerts.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/foundation.clearing.js - 304 Not Modified (34ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/foundation.cookie.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/foundation.dropdown.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/foundation.forms.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/foundation.magellan.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/foundation.joyride.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/foundation.orbit.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/foundation.reveal.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/foundation.section.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/foundation.placeholder.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/foundation.tooltips.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/index.js - 304 Not Modified (20ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /foundation/foundation.topbar.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:34 -0600
+Served asset /application.js - 304 Not Modified (18ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "user"=>{"first_name"=>"Brennan", "email"=>"brennan@brennanmeadowcroft.com", "phone_number"=>"7202487155", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('brennan@brennanmeadowcroft.com') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+Binary data inserted for `string` type on column `remember_token`
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "phone_number", "remember_token", "text_code", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 18 Sep 2013 04:11:52 UTC +00:00], ["email", "brennan@brennanmeadowcroft.com"], ["first_name", "Brennan"], ["last_name", nil], ["password_digest", "$2a$10$Z4g8750lEM6vrZHL70FZmOt2H6x1ThEeVBGDKSqJUExF9/3YEXLYq"], ["phone_number", "+17202487155"], ["remember_token", "a41a25814dc74cc5269c85456efe35237a3ac4e3"], ["text_code", "PTxE7"], ["updated_at", Wed, 18 Sep 2013 04:11:52 UTC +00:00]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "settings" ("created_at", "end_time", "paused_flag", "response_time", "start_time", "texts_per_day", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 18 Sep 2013 04:11:52 UTC +00:00], ["end_time", 18], ["paused_flag", nil], ["response_time", 10], ["start_time", 9], ["texts_per_day", 5], ["updated_at", Wed, 18 Sep 2013 04:11:52 UTC +00:00], ["user_id", 1]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 160ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'd8cd746d5ebe3fd91b7553ae10168de14585c8ab' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :correct_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Processing by CoursesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'd8cd746d5ebe3fd91b7553ae10168de14585c8ab' LIMIT 1
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (1.2ms)
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'd8cd746d5ebe3fd91b7553ae10168de14585c8ab' LIMIT 1[0m
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /application-all.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /application-backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /all/foundation_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /backend/backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /vendor/custom.modernizr.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /all/overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/foundation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/foundation.alerts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/foundation.clearing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/foundation.cookie.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/foundation.dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/foundation.forms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/foundation.joyride.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/foundation.orbit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/foundation.placeholder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/foundation.magellan.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/foundation.reveal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/foundation.section.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/foundation.tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/foundation.topbar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /foundation/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:52 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "email"=>"brennan@brennanmeadowcroft.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'brennan@brennanmeadowcroft.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "remember_token" = 'e8c6439d1923d6c819cfb1db1c5bfa093321581d', "updated_at" = '2013-09-18 04:11:58.208288' WHERE "users"."id" = 1
+  [1m[36m (11.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 98ms (ActiveRecord: 11.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Processing by CoursesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'e8c6439d1923d6c819cfb1db1c5bfa093321581d' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1[0m
+  Rendered courses/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 26ms (Views: 17.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /application-all.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /vendor/custom.modernizr.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /application-backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /all/foundation_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /all/overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /backend/backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/foundation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/foundation.alerts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/foundation.clearing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/foundation.cookie.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/foundation.dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/foundation.forms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/foundation.joyride.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/foundation.orbit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/foundation.magellan.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/foundation.placeholder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/foundation.section.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/foundation.tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/foundation.reveal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/foundation.topbar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /foundation/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:11:58 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/settings/1" for 127.0.0.1 at 2013-09-17 22:12:04 -0600
+Processing by SettingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'e8c6439d1923d6c819cfb1db1c5bfa093321581d' LIMIT 1
+  [1m[36mSettings Load (0.1ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `find' for #<Settings:0x007fb7e8f14850>):
+  app/controllers/settings_controller.rb:5:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (29.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2013-09-17 22:37:35 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'e8c6439d1923d6c819cfb1db1c5bfa093321581d' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mSettings Load (0.2ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1[0m
+  Rendered settings/_display_settings.html.erb (0.9ms)
+  Rendered users/show.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 64ms (Views: 60.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /application-all.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /application-backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /all/overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /backend/backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /all/foundation_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /vendor/custom.modernizr.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/foundation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/foundation.alerts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/foundation.clearing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/foundation.cookie.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/foundation.dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/foundation.joyride.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/foundation.magellan.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/foundation.forms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/foundation.orbit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/foundation.reveal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/foundation.section.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/foundation.tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/foundation.placeholder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /foundation/foundation.topbar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:37:36 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Processing by CoursesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'e8c6439d1923d6c819cfb1db1c5bfa093321581d' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1[0m
+  Rendered courses/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /application-all.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /backend/backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /application-backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /all/overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /all/foundation_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /vendor/custom.modernizr.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/foundation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/foundation.alerts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/foundation.clearing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/foundation.cookie.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/foundation.dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/foundation.magellan.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/foundation.forms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/foundation.joyride.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/foundation.orbit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/foundation.placeholder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/foundation.section.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/foundation.reveal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/foundation.tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/foundation.topbar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /foundation/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:19 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Processing by CoursesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'e8c6439d1923d6c819cfb1db1c5bfa093321581d' LIMIT 1
+  Rendered courses/_form.html.erb (2.3ms)
+  Rendered courses/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 23ms (Views: 15.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /application-all.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /all/overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /backend/backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /application-backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /all/foundation_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /vendor/custom.modernizr.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/foundation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/foundation.cookie.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/foundation.clearing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/foundation.alerts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/foundation.dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/foundation.forms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/foundation.placeholder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/foundation.magellan.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/foundation.joyride.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/foundation.orbit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/foundation.reveal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/foundation.section.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/foundation.topbar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/foundation.tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /foundation/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:39:20 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2013-09-17 22:39:24 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"Test Course"}, "commit"=>"Create Course"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'e8c6439d1923d6c819cfb1db1c5bfa093321581d' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `paused_flag=' for #<Course:0x007fb7eb8a57a0>):
+  app/models/course.rb:16:in `init'
+  app/controllers/courses_controller.rb:36:in `block in create'
+  app/controllers/courses_controller.rb:35:in `create'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.6ms)
+Connecting to database specified by database.yml
+  [1m[36m (1.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+Migrating to CreateCourses (20130907153558)
+Migrating to RenameClassIdToCourseIdOnQuestions (20130907154302)
+Migrating to CreateSettings (20130907192120)
+Migrating to AddTimeSentToAnswers (20130908224141)
+Migrating to CreateUsers (20130913015231)
+Migrating to AddRememberTokenToUsers (20130913055004)
+Migrating to AddTextReceiptToAnswers (20130914183738)
+Migrating to AddTextCodeToUsers (20130915182129)
+Migrating to RenameCourseIdOnSettings (20130918033932)
+Migrating to RemovePausedFlagFromSettings (20130918034103)
+Migrating to AddPausedFlagToCourses (20130918034121)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (1.8ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateQuestions (20130905151719)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "class_id" integer, "question" text, "answer" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130905151719')[0m
+  [1m[35m (1.5ms)[0m  commit transaction
+Migrating to CreateAnswers (20130905153519)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "answers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "submitted_answer" text, "time_answered" datetime, "question_id" integer, "correct" integer, "in_time" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130905153519')[0m
+  [1m[35m (1.5ms)[0m  commit transaction
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "altered_questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "class_id" integer, "question" text, "correct_answer" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "questions"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "questions"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "class_id" integer, "question" text, "correct_answer" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_questions"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "altered_questions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130905160003')
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCourses (20130907153558)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130907153558')
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+Migrating to RenameClassIdToCourseIdOnQuestions (20130907154302)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "question" text, "correct_answer" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "questions"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "questions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "question" text, "correct_answer" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "altered_questions"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_questions"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130907154302')[0m
+  [1m[35m (1.2ms)[0m  commit transaction
+Migrating to CreateSettings (20130907192120)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "paused_flag" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130907192120')[0m
+  [1m[35m (1.7ms)[0m  commit transaction
+Migrating to AddTimeSentToAnswers (20130908224141)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "answers" ADD "time_sent" datetime
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130908224141')[0m
+  [1m[35m (1.5ms)[0m  commit transaction
+Migrating to CreateUsers (20130913015231)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "email" varchar(255), "phone_number" varchar(255), "password_digest" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_phone_number" ON "users" ("phone_number")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130913015231')[0m
+  [1m[35m (1.2ms)[0m  commit transaction
+Migrating to AddRememberTokenToUsers (20130913055004)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" ADD "remember_token" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130913055004')
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Migrating to AddTextReceiptToAnswers (20130914183738)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "answers" ADD "text_receipt" integer[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "answers" ADD "receipt_date" datetime
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130914183738')[0m
+  [1m[35m (1.4ms)[0m  commit transaction
+Migrating to AddTextCodeToUsers (20130915182129)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "text_code" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130915182129')[0m
+  [1m[35m (1.4ms)[0m  commit transaction
+Migrating to RenameCourseIdOnSettings (20130918033932)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE "altered_settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "paused_flag" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "settings"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "settings"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "paused_flag" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_settings"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "altered_settings"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130918033932')
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Migrating to RemovePausedFlagFromSettings (20130918034103)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "paused_flag" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "settings"
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "settings"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "altered_settings"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_settings"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130918034103')[0m
+  [1m[35m (1.6ms)[0m  commit transaction
+Migrating to AddPausedFlagToCourses (20130918034121)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "settings" ADD "paused_flag" integer
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130918034121')[0m
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-17 22:41:46 -0600
+Connecting to database specified by database.yml
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'e8c6439d1923d6c819cfb1db1c5bfa093321581d' LIMIT 1[0m
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 71ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2013-09-17 22:41:47 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (1.2ms)
+  Rendered sessions/new.html.erb within layouts/application (7.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'e8c6439d1923d6c819cfb1db1c5bfa093321581d' LIMIT 1
+Completed 200 OK in 299ms (Views: 298.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:41:47 -0600
+Served asset /all/overrides.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:47 -0600
+Served asset /vendor/custom.modernizr.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:41:47 -0600
+Served asset /application-all.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:41:47 -0600
+Served asset /application-backend.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:41:47 -0600
+Served asset /all/foundation_and_overrides.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:41:47 -0600
+Served asset /backend/backend.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:47 -0600
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:47 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:47 -0600
+Served asset /foundation/foundation.js - 304 Not Modified (35ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:47 -0600
+Served asset /foundation/foundation.alerts.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:48 -0600
+Served asset /foundation/foundation.clearing.js - 304 Not Modified (33ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:48 -0600
+Served asset /foundation/foundation.cookie.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:48 -0600
+Served asset /foundation/foundation.forms.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:48 -0600
+Served asset /foundation/foundation.dropdown.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:48 -0600
+Served asset /foundation/foundation.joyride.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:48 -0600
+Served asset /foundation/foundation.magellan.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:48 -0600
+Served asset /foundation/foundation.orbit.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:48 -0600
+Served asset /foundation/foundation.placeholder.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:48 -0600
+Served asset /foundation/foundation.reveal.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:48 -0600
+Served asset /foundation/foundation.section.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:48 -0600
+Served asset /foundation/foundation.tooltips.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:48 -0600
+Served asset /foundation/foundation.topbar.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:48 -0600
+Served asset /foundation/index.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:48 -0600
+Served asset /application.js - 304 Not Modified (18ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-09-17 22:41:53 -0600
+Processing by UsersController#new as HTML
+  Rendered users/_new_user_form.html.erb (6.6ms)
+  Rendered users/new.html.erb within layouts/application (8.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'e8c6439d1923d6c819cfb1db1c5bfa093321581d' LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 20.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /all/foundation_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /application-backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /vendor/custom.modernizr.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /application-all.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /all/overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /backend/backend.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/foundation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/foundation.alerts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/foundation.clearing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/foundation.cookie.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/foundation.dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/foundation.forms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/foundation.joyride.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/foundation.orbit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/foundation.magellan.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/foundation.placeholder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/foundation.reveal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/foundation.section.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/foundation.tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/foundation.topbar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /foundation/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:41:54 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "user"=>{"first_name"=>"Brennan", "email"=>"brennan@brennanmeadowcroft.com", "phone_number"=>"7202487155", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('brennan@brennanmeadowcroft.com') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+Binary data inserted for `string` type on column `remember_token`
+  [1m[35mSQL (60.7ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "phone_number", "remember_token", "text_code", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 18 Sep 2013 04:42:08 UTC +00:00], ["email", "brennan@brennanmeadowcroft.com"], ["first_name", "Brennan"], ["last_name", nil], ["password_digest", "$2a$10$hUq7GyNFO89T4KzFazttS.sNq5qyY60Vqe7yJeSvDn86i3rziY2UO"], ["phone_number", "+17202487155"], ["remember_token", "26b6a109e53601fc0c70912a3ff067c44c2d7c5a"], ["text_code", "HDrxM"], ["updated_at", Wed, 18 Sep 2013 04:42:08 UTC +00:00]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "settings" ("created_at", "end_time", "paused_flag", "response_time", "start_time", "texts_per_day", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 18 Sep 2013 04:42:08 UTC +00:00], ["end_time", 18], ["paused_flag", nil], ["response_time", 10], ["start_time", 9], ["texts_per_day", 5], ["updated_at", Wed, 18 Sep 2013 04:42:08 UTC +00:00], ["user_id", 1]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mSettings Load (0.2ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 218ms (ActiveRecord: 64.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'e8c6439d1923d6c819cfb1db1c5bfa093321581d' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :correct_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Processing by CoursesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'e8c6439d1923d6c819cfb1db1c5bfa093321581d' LIMIT 1
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.6ms)
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'e8c6439d1923d6c819cfb1db1c5bfa093321581d' LIMIT 1[0m
+Completed 200 OK in 17ms (Views: 16.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /backend/backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /all/foundation_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /application-all.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /application-backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /all/overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /vendor/custom.modernizr.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/foundation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/foundation.alerts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/foundation.clearing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/foundation.cookie.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/foundation.dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/foundation.joyride.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/foundation.magellan.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/foundation.forms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/foundation.orbit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/foundation.placeholder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/foundation.reveal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/foundation.section.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/foundation.tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/foundation.topbar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:08 -0600
+Served asset /foundation/index.js - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "email"=>"brennan@brennanmeadowcroft.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'brennan@brennanmeadowcroft.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a', "updated_at" = '2013-09-18 04:42:17.403920' WHERE "users"."id" = 1
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 88ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Processing by CoursesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1[0m
+  Rendered courses/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 47ms (Views: 38.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /application-all.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /all/overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /vendor/custom.modernizr.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /backend/backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /application-backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /all/foundation_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/foundation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/foundation.alerts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/foundation.clearing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/foundation.joyride.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/foundation.cookie.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/foundation.magellan.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/foundation.forms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/foundation.dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/foundation.orbit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/foundation.placeholder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/foundation.reveal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/foundation.section.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/foundation.topbar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/foundation.tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /foundation/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:17 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2013-09-17 22:42:18 -0600
+Processing by CoursesController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1
+  Rendered courses/_form.html.erb (2.9ms)
+  Rendered courses/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 27ms (Views: 19.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /application-backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /application-all.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /all/overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /all/foundation_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /vendor/custom.modernizr.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /backend/backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/foundation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/foundation.alerts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/foundation.clearing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/foundation.cookie.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/foundation.dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/foundation.joyride.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/foundation.forms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/foundation.orbit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/foundation.magellan.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/foundation.placeholder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/foundation.reveal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/foundation.tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/foundation.section.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/foundation.topbar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /foundation/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:19 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSettings Load (0.1ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1
+  Rendered settings/_display_settings.html.erb (0.4ms)
+  Rendered users/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /application-all.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /application-backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /all/overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /all/foundation_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /backend/backend.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /vendor/custom.modernizr.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/foundation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/foundation.alerts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/foundation.clearing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/foundation.cookie.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/foundation.dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/foundation.joyride.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/foundation.forms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/foundation.magellan.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/foundation.placeholder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/foundation.orbit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/foundation.reveal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/foundation.tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/foundation.topbar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/foundation.section.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /foundation/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:42:21 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2013-09-17 22:42:30 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"Test Course"}, "commit"=>"Create Course"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `paused_flag=' for #<Course:0x007f84b3c204e0>):
+  app/models/course.rb:16:in `init'
+  app/controllers/courses_controller.rb:36:in `block in create'
+  app/controllers/courses_controller.rb:35:in `create'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.8ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.7ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to AddPausedFlagToCourses (20130918034121)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "altered_settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "paused_flag" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "settings"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "altered_settings" ("id","user_id","texts_per_day","start_time","end_time","response_time","created_at","updated_at","paused_flag") VALUES (1, 1, 5, 9, 18, 10, '2013-09-18 04:42:08.522870', '2013-09-18 04:42:08.522870', NULL)[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "settings"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_settings"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "settings" ("id","user_id","texts_per_day","start_time","end_time","response_time","created_at","updated_at") VALUES (1, 1, 5, 9, 18, 10, '2013-09-18 04:42:08.522870', '2013-09-18 04:42:08.522870')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "altered_settings"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20130918034121'[0m
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (1.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to RemovePausedFlagFromSettings (20130918034103)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "settings" ADD "paused_flag" integer[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20130918034103'
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (1.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to RenameCourseIdOnSettings (20130918033932)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mCREATE TEMPORARY TABLE "altered_settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "paused_flag" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "settings"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "altered_settings" ("id","course_id","texts_per_day","start_time","end_time","response_time","created_at","updated_at","paused_flag") VALUES (1, 1, 5, 9, 18, 10, '2013-09-18 04:42:08.522870', '2013-09-18 04:42:08.522870', NULL)[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "settings"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "paused_flag" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_settings"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "settings" ("id","course_id","texts_per_day","start_time","end_time","response_time","created_at","updated_at","paused_flag") VALUES (1, 1, 5, 9, 18, 10, '2013-09-18 04:42:08.522870', '2013-09-18 04:42:08.522870', NULL)[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "altered_settings"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20130918033932'[0m
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (1.6ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateQuestions (20130905151719)
+Migrating to CreateAnswers (20130905153519)
+Migrating to RenameAnswerColumnOnQuestionsTable (20130905160003)
+Migrating to CreateCourses (20130907153558)
+Migrating to RenameClassIdToCourseIdOnQuestions (20130907154302)
+Migrating to CreateSettings (20130907192120)
+Migrating to AddTimeSentToAnswers (20130908224141)
+Migrating to CreateUsers (20130913015231)
+Migrating to AddRememberTokenToUsers (20130913055004)
+Migrating to AddTextReceiptToAnswers (20130914183738)
+Migrating to AddTextCodeToUsers (20130915182129)
+Migrating to RenameCourseIdOnSettings (20130918033932)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "altered_settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "paused_flag" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "settings"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "altered_settings" ("id","user_id","texts_per_day","start_time","end_time","response_time","created_at","updated_at","paused_flag") VALUES (1, 1, 5, 9, 18, 10, '2013-09-18 04:42:08.522870', '2013-09-18 04:42:08.522870', NULL)
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "settings"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "paused_flag" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_settings"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "settings" ("id","user_id","texts_per_day","start_time","end_time","response_time","created_at","updated_at","paused_flag") VALUES (1, 1, 5, 9, 18, 10, '2013-09-18 04:42:08.522870', '2013-09-18 04:42:08.522870', NULL)
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "altered_settings"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130918033932')
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+Migrating to RemovePausedFlagFromSettings (20130918034103)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "paused_flag" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "settings"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "altered_settings" ("id","user_id","texts_per_day","start_time","end_time","response_time","created_at","updated_at","paused_flag") VALUES (1, 1, 5, 9, 18, 10, '2013-09-18 04:42:08.522870', '2013-09-18 04:42:08.522870', NULL)[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "settings"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "settings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "texts_per_day" integer, "start_time" integer, "end_time" integer, "response_time" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_settings"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "settings" ("id","user_id","texts_per_day","start_time","end_time","response_time","created_at","updated_at") VALUES (1, 1, 5, 9, 18, 10, '2013-09-18 04:42:08.522870', '2013-09-18 04:42:08.522870')[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_settings"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130918034103')[0m
+  [1m[35m (2.5ms)[0m  commit transaction
+Migrating to AddPausedFlagToCourses (20130918034121)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "courses" ADD "paused_flag" integer
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130918034121')[0m
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+
+
+Started POST "/courses" for 127.0.0.1 at 2013-09-17 22:44:14 -0600
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"Test Course"}, "commit"=>"Create Course"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "courses" ("created_at", "description", "paused_flag", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 18 Sep 2013 04:44:14 UTC +00:00], ["description", "Test Course"], ["paused_flag", 0], ["updated_at", Wed, 18 Sep 2013 04:44:14 UTC +00:00], ["user_id", 1]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 59ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-17 22:44:14 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 1
+  [1m[36mSettings Load (0.2ms)[0m  [1mSELECT "settings".* FROM "settings" WHERE "settings"."course_id" = 1 LIMIT 1[0m
+SQLite3::SQLException: no such column: settings.course_id: SELECT  "settings".* FROM "settings"  WHERE "settings"."course_id" = 1 LIMIT 1
+  Rendered courses/show.html.erb within layouts/application (22.9ms)
+Completed 500 Internal Server Error in 27ms
+
+ActionView::Template::Error (SQLite3::SQLException: no such column: settings.course_id: SELECT  "settings".* FROM "settings"  WHERE "settings"."course_id" = 1 LIMIT 1):
+    13: 		</ul>
+    14: 	</div>
+    15: 	<%= link_to 'Edit Course', edit_course_path(@course) %> | 
+    16: 	<%= link_to 'Edit Settings', edit_setting_path(@course.settings) %> | 
+    17: 	<%= link_to "New Question", new_question_path %>
+    18: </div>
+  app/views/courses/show.html.erb:16:in `_app_views_courses_show_html_erb___4124311335460234024_70103945309860'
+  app/controllers/courses_controller.rb:15:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.2ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 1
+  Rendered courses/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /application-all.css - 200 OK (0ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /all/foundation_and_overrides.css - 200 OK (0ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /all/overrides.css - 200 OK (0ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /application-backend.css - 200 OK (1ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /backend/backend.css - 200 OK (1ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /vendor/custom.modernizr.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/foundation.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/foundation.cookie.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/foundation.clearing.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/foundation.alerts.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/foundation.dropdown.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/foundation.forms.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/foundation.joyride.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/foundation.magellan.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/foundation.orbit.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/foundation.placeholder.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/foundation.section.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/foundation.tooltips.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/foundation.reveal.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/foundation.topbar.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /foundation/index.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:44:55 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2013-09-17 22:44:58 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSettings Load (0.2ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1
+  Rendered settings/_display_settings.html.erb (0.1ms)
+  Rendered users/show.html.erb within layouts/application (10.1ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `settings' for nil:NilClass):
+    8: <%= render 'settings/display_settings', :settings => @user.settings %>
+    9: 
+    10: <%= link_to 'Edit', edit_user_path(@user) %> |
+    11: <%= link_to 'Edit Settings', edit_setting_path(@course.settings) %> | 
+    12: <%= link_to 'Back', users_path %>
+  app/views/users/show.html.erb:11:in `_app_views_users_show_html_erb___3239894017806279190_70103941545440'
+  app/controllers/users_controller.rb:22:in `show'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSettings Load (0.2ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1
+  Rendered settings/_display_settings.html.erb (0.1ms)
+  Rendered users/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /application-all.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /application-backend.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /all/overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /all/foundation_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /backend/backend.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /vendor/custom.modernizr.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/foundation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/foundation.clearing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/foundation.alerts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/foundation.dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/foundation.forms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/foundation.joyride.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/foundation.cookie.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/foundation.magellan.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/foundation.placeholder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/foundation.reveal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/foundation.section.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/foundation.orbit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/foundation.tooltips.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/foundation.topbar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:45:05 -0600
+Served asset /foundation/index.js - 304 Not Modified (0ms)
+
+
+Started GET "/settings/1/edit" for 127.0.0.1 at 2013-09-17 22:45:07 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1[0m
+  [1m[35mSettings Load (0.1ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `find' for #<Settings:0x007f84b14aacd0>):
+  app/controllers/settings_controller.rb:13:in `edit'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (36.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/settings/1/edit" for 127.0.0.1 at 2013-09-17 22:46:50 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1[0m
+  [1m[35mSettings Load (0.1ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1
+  Rendered settings/_form.html.erb (4.9ms)
+  Rendered settings/edit.html.erb within layouts/application (9.0ms)
+Completed 500 Internal Server Error in 101ms
+
+ActionView::Template::Error (undefined method `paused_flag' for #<Settings:0x007f84b1107ad8>):
+    23:   <%= f.text_field :response_time %>
+    24: 
+    25:   <p><strong>Paused</strong> - Do you want to pause texts for this class?</p>
+    26:   <%= f.check_box :paused_flag %>
+    27: 
+    28:   <div class="actions">
+    29:     <%= f.submit %>
+  app/views/settings/_form.html.erb:26:in `block in _app_views_settings__form_html_erb__4192074520033468229_70103948730520'
+  app/views/settings/_form.html.erb:1:in `_app_views_settings__form_html_erb__4192074520033468229_70103948730520'
+  app/views/settings/edit.html.erb:3:in `_app_views_settings_edit_html_erb__1683876711288186195_70103979054500'
+  app/controllers/settings_controller.rb:15:in `edit'
+
+
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/brennan/.rvm/gems/ruby-1.9.3-p374@rails32/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.6ms)
+
+
+Started GET "/settings/1/edit" for 127.0.0.1 at 2013-09-17 22:47:27 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1[0m
+  [1m[35mSettings Load (0.1ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1
+  Rendered settings/_form.html.erb (2.7ms)
+  Rendered settings/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 53ms (Views: 16.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application-all.css?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /application-all.css - 200 OK (1ms)
+
+
+Started GET "/assets/backend/backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /backend/backend.css - 200 OK (0ms)
+
+
+Started GET "/assets/all/overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /all/overrides.css - 200 OK (0ms)
+
+
+Started GET "/assets/all/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /all/foundation_and_overrides.css - 200 OK (0ms)
+
+
+Started GET "/assets/application-backend.css?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /application-backend.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/vendor/custom.modernizr.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /vendor/custom.modernizr.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/foundation.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/foundation.clearing.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.alerts.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/foundation.alerts.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.cookie.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/foundation.cookie.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.forms.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/foundation.forms.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/foundation.dropdown.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/foundation.joyride.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/foundation.magellan.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/foundation.orbit.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/foundation.reveal.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.placeholder.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/foundation.placeholder.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.tooltips.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/foundation.tooltips.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/foundation.topbar.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/foundation.section.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/foundation.section.js - 200 OK (0ms)
+
+
+Started GET "/assets/foundation/index.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /foundation/index.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-17 22:47:28 -0600
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-17 22:47:35 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1
+  Rendered courses/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 22ms (Views: 13.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses/1/edit" for 127.0.0.1 at 2013-09-17 22:47:38 -0600
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered courses/_form.html.erb (2.7ms)
+  Rendered courses/edit.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 50ms (Views: 47.7ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/courses/1" for 127.0.0.1 at 2013-09-17 22:47:42 -0600
+Processing by CoursesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"Test Course", "paused_flag"=>"1"}, "commit"=>"Update Course", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "courses" SET "paused_flag" = 1, "updated_at" = '2013-09-18 04:47:42.970607' WHERE "courses"."id" = 1
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 7ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-17 22:47:42 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 1
+  Rendered courses/show.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/1/edit" for 127.0.0.1 at 2013-09-17 22:47:45 -0600
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered courses/_form.html.erb (1.4ms)
+  Rendered courses/edit.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/courses/1" for 127.0.0.1 at 2013-09-17 22:47:46 -0600
+Processing by CoursesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+8zj5MqGrTGPH23WPCEHGLb7pPcpNFCR5azR/Leln3g=", "course"=>{"description"=>"Test Course", "paused_flag"=>"0"}, "commit"=>"Update Course", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "courses" SET "paused_flag" = 0, "updated_at" = '2013-09-18 04:47:46.955675' WHERE "courses"."id" = 1
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 5ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2013-09-17 22:47:46 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1 AND "courses"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mQuestion Load (0.1ms)[0m  SELECT "questions".* FROM "questions" WHERE "questions"."course_id" = 1
+  Rendered courses/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2013-09-17 22:47:49 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSettings Load (0.2ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1
+  Rendered settings/_display_settings.html.erb (0.1ms)
+  Rendered users/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 51ms (Views: 48.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/settings/1/edit" for 127.0.0.1 at 2013-09-17 22:47:54 -0600
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1[0m
+  [1m[35mSettings Load (0.1ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1
+  Rendered settings/_form.html.erb (1.5ms)
+  Rendered settings/edit.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-09-17 22:48:01 -0600
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '7ffdadf831e74ac5f2a070d70d62bc85e96cce6a' LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."user_id" = 1
+  Rendered courses/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 0.3ms)
+Connecting to database specified by database.yml
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT a.* FROM courses AS a INNER JOIN settings AS b ON(a.id = b.course_id) WHERE b.paused_flag = 0[0m
+SQLite3::SQLException: no such column: b.paused_flag: SELECT a.* FROM courses AS a INNER JOIN settings AS b ON(a.id = b.course_id) WHERE b.paused_flag = 0
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT * FROM users INNER JOIN courses ON(users.id = courses.user_id) WHERE courses.paused_flag = 0[0m
+  [1m[35mSettings Load (1.7ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT * FROM questions INNER JOIN courses ON questions.course_id = courses.id WHERE courses.paused_flag = 0[0m
+Connecting to database specified by database.yml
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT * FROM users INNER JOIN courses ON(users.id = courses.user_id) WHERE courses.paused_flag = 0[0m
+  [1m[35mSettings Load (1.7ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT * FROM questions INNER JOIN courses ON questions.course_id = courses.id WHERE courses.paused_flag = 0[0m
+Connecting to database specified by database.yml
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT * FROM users INNER JOIN courses ON(users.id = courses.user_id) WHERE courses.paused_flag = 0[0m
+  [1m[35mSettings Load (1.7ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT * FROM questions INNER JOIN courses ON questions.course_id = courses.id WHERE courses.paused_flag = 0[0m
+Connecting to database specified by database.yml
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT * FROM users INNER JOIN courses ON(users.id = courses.user_id) WHERE courses.paused_flag = 0[0m
+  [1m[35mSettings Load (2.2ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT * FROM questions INNER JOIN courses ON questions.course_id = courses.id WHERE courses.paused_flag = 0[0m
+Connecting to database specified by database.yml
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT * FROM users INNER JOIN courses ON(users.id = courses.user_id) WHERE courses.paused_flag = 0[0m
+  [1m[35mSettings Load (1.7ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT * FROM questions INNER JOIN courses ON questions.course_id = courses.id WHERE courses.paused_flag = 0[0m
+Connecting to database specified by database.yml
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT * FROM users INNER JOIN courses ON(users.id = courses.user_id) WHERE courses.paused_flag = 0[0m
+  [1m[35mSettings Load (2.5ms)[0m  SELECT "settings".* FROM "settings" WHERE "settings"."user_id" = 1 LIMIT 1
+  [1m[36mQuestion Load (0.1ms)[0m  [1mSELECT * FROM questions INNER JOIN courses ON questions.course_id = courses.id WHERE courses.paused_flag = 0[0m
+Connecting to database specified by database.yml
+  [1m[36mAnswer Load (1.8ms)[0m  [1mSELECT * FROM answers WHERE time_sent = '2013-09-17 Sep:09'[0m

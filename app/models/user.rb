@@ -2,10 +2,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :phone_number, :password, :password_confirmation, :remember_token, :user_key
   has_secure_password
 
+  has_one :settings
   has_many :courses
   has_many :questions, :through => :courses
   has_many :answers, :through => :courses
-  has_many :settings, :through => :courses
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, :presence => true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
 
   def User.encrypt(token)
   	Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def self.with_unpaused_courses
+    self.find_by_sql("SELECT * FROM users INNER JOIN courses ON(users.id = courses.user_id) WHERE courses.paused_flag = 0")
   end
 
   def send_phone_validation

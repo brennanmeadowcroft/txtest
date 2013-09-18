@@ -48,11 +48,14 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
+        if @user.create_settings
+          format.html { redirect_to @user, notice: 'User was successfully created.' }
+        else
+          @user.destroy
+          format.html { render action: "new", notice: 'Could not create user settings' }
+        end
       else
         format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end

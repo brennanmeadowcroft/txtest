@@ -2,7 +2,7 @@ class SettingsController < ApplicationController
 	before_filter :signed_in_user
 	
 	def show
-		@setting = current_user.settings.find(params[:id])
+		@setting = current_user.settings
 
 		respond_to do |format|
 			format.html
@@ -10,7 +10,7 @@ class SettingsController < ApplicationController
 	end
 
 	def edit
-		@setting = current_user.settings.find(params[:id])
+		@setting = current_user.settings
 
 		respond_to do |format|
 			format.html
@@ -18,8 +18,7 @@ class SettingsController < ApplicationController
 	end
 
 	def update
-		@setting = current_user.settings.find(params[:id])
-		params[:settings][:paused_flag] ||= 0
+		@setting = current_user.settings
 
 		respond_to do |format|
 			if @setting.update_attributes(params[:settings])

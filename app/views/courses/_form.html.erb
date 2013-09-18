@@ -12,6 +12,9 @@
   <% end %>
 
   <%= f.text_field :description %>
+  <p><strong>Paused</strong> - Do you want to pause texts for this class?</p>
+  <%= f.check_box :paused_flag %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

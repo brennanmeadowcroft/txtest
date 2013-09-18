@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130915212400) do
+ActiveRecord::Schema.define(:version => 20130918034121) do
 
   create_table "answers", :force => true do |t|
     t.text     "submitted_answer"
@@ -31,23 +31,8 @@ ActiveRecord::Schema.define(:version => 20130915212400) do
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "paused_flag"
   end
-
-  create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0, :null => false
-    t.integer  "attempts",   :default => 0, :null => false
-    t.text     "handler",                   :null => false
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "questions", :force => true do |t|
     t.integer  "course_id"
@@ -58,12 +43,11 @@ ActiveRecord::Schema.define(:version => 20130915212400) do
   end
 
   create_table "settings", :force => true do |t|
-    t.integer  "course_id"
+    t.integer  "user_id"
     t.integer  "texts_per_day"
     t.integer  "start_time"
     t.integer  "end_time"
     t.integer  "response_time"
-    t.integer  "paused_flag"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
