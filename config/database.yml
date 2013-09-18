@@ -19,10 +19,9 @@ test:
   timeout: 5000
 
 production:
-  adapter: postgres
-  encoding: unicode
-  database: text_tests_production
-  pool: 5
-  timeout: 5000
-  username: text_tests
-  password:
+  adapter: mysql2
+  encoding: utf8
+  database: txtestco_production
+  username: txtestco_admin
+  password: D6us8Kjl
+  hostname: localhost

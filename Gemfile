@@ -8,7 +8,7 @@ gem 'rails', '3.2.11'
 #gem 'rufus-scheduler', '2.0.24'
 gem 'delayed_job_active_record', '4.0.0'
 gem 'twilio-ruby', '3.10.1'
-gem 'figaro'
+gem 'figaro', '0.7.0'
 
 
 # Gems used only for assets and not required
@@ -26,11 +26,11 @@ end
 
 group :development do
 	gem 'sqlite3'
+	gem 'capistrano', '~> 2.15.5'
 end
 
-group :production do 
-	gem 'rails_12factor'
-	gem 'pg', '0.16.0'
+group :production do
+	gem 'mysql2', '0.3.13'
 end
 
 gem 'jquery-rails'
