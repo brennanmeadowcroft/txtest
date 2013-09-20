@@ -13,8 +13,18 @@ class Answer < ActiveRecord::Base
   end
 
   def self.to_send
-    current_time = Time.now.strftime("%-Y-%m-%d %h:%m")
-    find_by_sql("SELECT * FROM answers WHERE time_sent = '#{current_time}'")
+    # Get the current time from the server.  Time is stored in MySQL as UTC and will be converted by the
+    # DB for the sake of the query.  We want the current time to know when to send it.  The time needs to be 
+    # broken down because we don't want seconds... answers stored in DB have "00" as seconds.
+    current_time = Time.now #Time from the server where the application is located in, not UTC
+    # Deconstruct the time into individual components for the query
+    current_year = Time.now.strftime("%Y").to_i
+    current_month = Time.now.strftime("%m").to_i
+    current_day = Time.now.strftime("%d").to_i
+    current_hour = Time.now.strftime("%H").to_i
+    current_minute = current_time.strftime("%M").to_i
+    # Create a timestamp of the new date/time for the query.  Will be turned into UTC by the DB.
+    where(:time_sent => Time.new(current_year, current_month, current_day, current_hour, current_minute))
   end
 
   def init

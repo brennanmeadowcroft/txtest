@@ -5,7 +5,7 @@ set :repository,  "git@github.com:brennanmeadowcroft/text_tests.git"
 
 set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
-set :branch, :master
+set :branch, :staging
 
 
 role :web, "fanta.asmallorange.com"                          # Your HTTP server, Apache/etc
