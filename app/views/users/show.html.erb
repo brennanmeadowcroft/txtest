@@ -1,12 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-
-<h2><%= @user.first_name %> <%= @user.last_name %></h2>
-<p><%= @user.phone_number %></p>
-<p><%= @user.email %></p>
-
-<%= render 'settings/display_settings', :settings => @user.settings %>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Edit Settings', edit_setting_path(@user.settings) %> | 
-<%= link_to 'Back', users_path %>
+<%= render 'users/side_menu' %>
+<div class="user-content">
+	<div class="user-title">
+		<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+	</div>
+	<p><span class="icon-phone"></span> <%= @user.phone_number %></p>
+	<p><span class="icon-envelop"></span> <%= @user.email %></p>
+	<%= render 'settings/display_settings', :settings => @user.settings %>
+</div>

@@ -1,5 +1,8 @@
 <%= form_tag sessions_path do %>
     <%= text_field_tag :email, params[:email], :required => true, :placeholder => "Email Address" %>
-    <%= password_field_tag :password, :required => true, :placeholder => "Password" %>
-	<%= submit_tag "Log in", :class => "signup_button" %>
+    <%= password_field_tag :password, :required => true %>
+	<div class="actions">
+		<%= submit_tag "Log In", :class => "save-button" %>
+		<%= link_to "Cancel", root_path, :class => "cancel-button" %>
+	</div>
 <% end %>

@@ -43,7 +43,7 @@ class Answer < ActiveRecord::Base
     response = response_body.gsub(/\s?Q\d+\s?/, "")
 
     self.submitted_answer = response
-    Time.now <= (self.receipt_date + 10.minutes) ? self.in_time = 1 : self.in_time = 0
+    Time.now <= (Time.parse(self.time_sent.to_s) + 10*60) ? self.in_time = 1 : self.in_time = 0
     if self.submitted_answer.upcase == self.question.correct_answer.upcase
       self.correct = 1
     end
@@ -60,7 +60,7 @@ class Answer < ActiveRecord::Base
     message = @client.account.sms.messages.create(:body => text_body,
         :to => self.user.phone_number,
         :from => ENV['twilio_from'],
-        :status_callback => "https://testtexts.fwd.wf/answers/#{self.id}/text_receipt")
+        :status_callback =>"http://www.txtest.com/answers/#{self.id}/text_receipt")
     puts message.from
   end
 end

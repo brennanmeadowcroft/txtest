@@ -10,15 +10,19 @@
       </ul>
     </div>
   <% end %>
-  <p>Question</p>
+  <%= f.label :question %>
   <%= f.text_area :question %>
 
-  <p>Answer</p>
+  <%= f.label :correct_answer, "The Correct Answer" %>
   <%= f.text_area :correct_answer %>
 
-  <p>Course</p>
-  <%= f.collection_select :course_id, Course.all, :id, :description %>
+  <%= f.hidden_field :course, value: @course.id %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save", :class => "save-button" %>
+    <% if @course.id.nil? %>
+      <%= link_to "Cancel", courses_path, :class => "cancel-button" %>
+    <% else %>
+      <%= link_to "Cancel", course_path(@course), :class => "cancel-button" %>
+    <% end %>
   </div>
 <% end %>

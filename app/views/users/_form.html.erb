@@ -19,6 +19,7 @@
   <%= f.password_field :password_confirmation, :required => true, :placeholder => "Password Confirmation" %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save", :class => "save-button" %>
+    <%= link_to "Cancel", user_path(@user), :class => "cancel-button" %>
   </div>
 <% end %>

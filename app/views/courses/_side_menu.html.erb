@@ -1,0 +1,21 @@
+<div class="side-menu">
+	<div class="heading">
+		<p>
+			Courses
+			<span class="options">
+				<%= link_to new_course_path do %>
+					<span class="icon-plus"></span>
+				<% end %>
+			</span>
+		</p>
+	</div>
+	<ul>
+		<% @courses.each do |course| %>
+			<% if course.id == @course.id %>
+				<li class="active"><%= link_to course.description, course_path(course) %></li>
+			<% else %>
+				<li><%= link_to course.description, course_path(course) %></li>
+			<% end %>
+		<% end %>
+	</ul>
+</div>

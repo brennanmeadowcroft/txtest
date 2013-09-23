@@ -3,6 +3,7 @@ class CoursesController < ApplicationController
   
   def index
     @courses = current_user.courses.all
+    @course = @courses.first
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,6 +11,7 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @courses = current_user.courses.all
     @course = current_user.courses.find(params[:id])
 
     respond_to do |format|
@@ -19,6 +21,7 @@ class CoursesController < ApplicationController
 
   def new
     @course = current_user.courses.new
+    @courses = current_user.courses.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -26,7 +29,26 @@ class CoursesController < ApplicationController
   end
 
   def edit
+    @courses = current_user.courses.all
     @course = current_user.courses.find(params[:id])
+  end
+
+  def pause
+    @course = current_user.courses.find(params[:id])
+
+    @course.paused_flag == 1 ? new_status = 0 : new_status = 1
+    @course.paused_flag = new_status
+
+    respond_to do |format|
+      if @course.save
+        new_status == 1 ? status = 'Paused' : status = 'Unpaused'
+        flash[:success] = "#{ @course.description } has been #{ status }"
+      else
+        new_status == 1 ? status = 'Pausing' : status = 'Unpausing'
+        flash[:error] = "There was a problem #{ status } the course!"
+      end
+      format.html { redirect_to @course }
+    end
   end
 
   def create

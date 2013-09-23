@@ -1,6 +1,7 @@
-<h1>Editing course</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>
+<%= render 'courses/side_menu' %>
+<div class="course-content">
+  <div class="course-title">
+    <h1>Edit <%= @course.description %></h1>
+  </div>
+  <%= render 'form' %>
+</div>

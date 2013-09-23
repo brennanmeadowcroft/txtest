@@ -2,7 +2,7 @@ TextTests::Application.routes.draw do
   resources :users
   resources :courses
   resources :answers
-  resources :questions
+  resources :questions, :only => [:show, :edit, :new, :create, :update, :destroy]
   resources :settings, :only => [:show, :edit, :update]
   resources :sessions, :only => [:new, :create, :destroy ]
 
@@ -13,6 +13,7 @@ TextTests::Application.routes.draw do
   match '/answers/:id/mark_correct' => 'answers#mark_correct', :as => :mark_correct
   match '/answers/:id/text_receipt' => 'answers#text_receipt', :via => :post
   match '/sms/receive' => 'sms#receive', :via => :post
+  match '/courses/:id/pause' => 'courses#pause', :as => :pause_course
 
   root :to => 'courses#index'
 

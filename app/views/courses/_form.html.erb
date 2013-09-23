@@ -2,7 +2,6 @@
   <% if @course.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
-
       <ul>
       <% @course.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,11 +10,18 @@
     </div>
   <% end %>
 
-  <%= f.text_field :description %>
-  <p><strong>Paused</strong> - Do you want to pause texts for this class?</p>
-  <%= f.check_box :paused_flag %>
+  <%= f.text_field :description, :placeholder => "Course Description" %>
+  <p>
+    <%= f.check_box :paused_flag %> <strong>Pause Course</strong>
+    <span data-tooltip class="has-tip" title="When a course is paused, it will be excluded from receiving the randomly generated texts."><span class="icon-info"></span></span>
+  </p>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save", :class => "save-button" %>
+    <% if @course.id.nil? %>
+      <%= link_to "Cancel", courses_path, :class => "cancel-button" %>
+    <% else %>
+      <%= link_to "Cancel", course_path(@course), :class => "cancel-button" %>
+    <% end %>
   </div>
 <% end %>

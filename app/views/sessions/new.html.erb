@@ -1,9 +1,12 @@
 <% provide(:title, "Sign In") %>
 
-<a name="home"></a>
-<div class="signup_callout">
-	<div class="copy">
-		<h1>Sign In</h1>
+<div class="signin-content">
+	<div class="signin-image">
+		<%= image_tag "txtest-logo.png", :width => 200 %>
+		<h4>Text your way to an A!</h4>
+	</div>
+	<div class="signin-form">
+		<h1>Welcome Back!</h1>
 		<%= render 'sessions/form' %>
 	</div>
 </div>
