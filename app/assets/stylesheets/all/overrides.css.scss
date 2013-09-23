@@ -11,12 +11,12 @@ $tt-side-nav-background: #FFFFFF;
 $tt-side-nav-accent: rgba(149, 165, 166,1.0); /* concrete - light grey */
 
 @font-face {
-	font-family: 'icomoon-custom';
-	src:url('icomoon-custom.eot');
-	src:url('icomoon-custom.eot?#iefix') format('embedded-opentype'),
-		url('icomoon-custom.woff') format('woff'),
-		url('icomoon-custom.ttf') format('truetype'),
-		url('icomoon-custom.svg#icomoon-custom') format('svg');
+	font-family: '../all/icomoon-custom';
+	src:url('../all/icomoon-custom.eot');
+	src:url('../all/icomoon-custom.eot?#iefix') format('embedded-opentype'),
+		url('../all/icomoon-custom.woff') format('woff'),
+		url('../all/icomoon-custom.ttf') format('truetype'),
+		url('../all/icomoon-custom.svg#icomoon-custom') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
