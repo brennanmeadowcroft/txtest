@@ -1,37 +1,11 @@
 class AnswersController < ApplicationController
-  before_filter :signed_in_user, only: [:show, :new, :answer_question, :edit, :create, :update, :destroy]
-  
-  def show
-    @answer = current_user.answers.find(params[:id])
-
-    respond_to do |format|
-      if @answer.question.user == current_user
-        format.html # show.html.erb
-      else
-        format.html { redirect_to courses_path }
-      end
-    end
-  end
+  before_filter :signed_in_user, only: [:new, :answer_question, :edit, :create, :update, :destroy]
 
   def new
     @answer = Answer.new
 
     respond_to do |format|
       format.html # new.html.erb
-    end
-  end
-
-  def answer_question
-    @answer = current_user.answers.find(params[:id])
-
-    @answer.answer_question(params[:answer])
-
-    respond_to do |format|
-      if @answer.save
-        format.html { redirect_to @answer }
-      else
-        format.html { redirect_to @answer }
-      end
     end
   end
 
@@ -69,9 +43,11 @@ class AnswersController < ApplicationController
     answer.correct = 1
     respond_to do |format|
       if answer.save
-        format.html { redirect_to question_path(answer.question), notice: 'Answer marked as correct' }
+        flash[:success] = "The status of the answer has been marked as correct"
+        format.html { redirect_to question_path(answer.question) }
       else
-        format.html { redirect_to question_path(answer.question), notice: 'There was a problem changing the status' }
+        flash[:error] = "There was a problem updating the status of the answer"
+        format.html { redirect_to question_path(answer.question) }
       end
     end
   end

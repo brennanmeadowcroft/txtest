@@ -11,6 +11,15 @@ h1, h2, h3, h4, p {
 	font-family: 'Asap', sans-serif;
 }
 
+.alert-success, .alert-fail {
+	@include alert-base();
+	@include alert-style($tt-accent-success);
+}
+
+.alert-fail {
+	@include alert-style($tt-accent-fail);
+}
+
 .top-nav {
 	@extend .top-bar;
 	background: #FFFFFF;

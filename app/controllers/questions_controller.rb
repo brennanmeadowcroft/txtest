@@ -32,8 +32,10 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question.course, notice: 'Question was successfully created.' }
+        flash[:success] = "Question was successfully added"
+        format.html { redirect_to @question.course }
       else
+        flash[:fail] = "There was a problem creating the question"
         format.html { render action: "new" }
       end
     end
@@ -44,8 +46,10 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.update_attributes(params[:question])
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
+        flash[:success] = "Question was successfully updated"
+        format.html { redirect_to @question }
       else
+        flash[:fail] = "There was a problem updating the question"
         format.html { render action: "edit" }
       end
     end
@@ -56,6 +60,7 @@ class QuestionsController < ApplicationController
     @question.destroy
 
     respond_to do |format|
+      flash[:success] = "Question was successfully deleted"
       format.html { redirect_to questions_url }
       format.json { head :no_content }
     end

@@ -1,9 +1,9 @@
 TextTests::Application.routes.draw do
   resources :users
   resources :courses
-  resources :answers
+  resources :answers, :only => [:new, :edit, :create, :update, :destroy]
   resources :questions, :only => [:show, :edit, :new, :create, :update, :destroy]
-  resources :settings, :only => [:show, :edit, :update]
+  resources :settings, :only => [:edit, :update]
   resources :sessions, :only => [:new, :create, :destroy ]
 
   match '/signin' => 'sessions#new', :as => :signin

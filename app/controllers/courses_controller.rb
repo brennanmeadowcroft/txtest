@@ -45,7 +45,7 @@ class CoursesController < ApplicationController
         flash[:success] = "#{ @course.description } has been #{ status }"
       else
         new_status == 1 ? status = 'Pausing' : status = 'Unpausing'
-        flash[:error] = "There was a problem #{ status } the course!"
+        flash[:fail] = "There was a problem #{ status } the course!"
       end
       format.html { redirect_to @course }
     end
@@ -56,8 +56,10 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        flash[:success] = "#{@course.description} was successfully created"
+        format.html { redirect_to @course }
       else
+        flash[:fail] = "There was a problem creating the course"
         format.html { render action: "new" }
       end
     end
@@ -68,8 +70,10 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.update_attributes(params[:course])
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+        flash[:success] = "#{@course.description} was successfully updated"
+        format.html { redirect_to @course }
       else
+        flash[:fail] = "There was a problem updating #{@course.description}"
         format.html { render action: "edit" }
       end
     end
@@ -80,6 +84,7 @@ class CoursesController < ApplicationController
     @course.destroy
 
     respond_to do |format|
+      flash[:fail] = "Your course was successfully deleted"
       format.html { redirect_to courses_url }
     end
   end

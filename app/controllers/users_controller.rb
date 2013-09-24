@@ -49,12 +49,15 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         if @user.create_settings
+          flash[:success] = "Welcome to TxTest.com!"
           format.html { redirect_to @user, notice: 'User was successfully created.' }
         else
+          flash[:fail] = "We were unable to create the settings for your user"
           @user.destroy
           format.html { render action: "new", notice: 'Could not create user settings' }
         end
       else
+        flash[:fail] = "There was a problem creating your account"
         format.html { render action: "new" }
       end
     end
@@ -67,10 +70,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        flash[:success] = "Your profile was successfully updated"
+        format.html { redirect_to @user }
         format.json { head :no_content }
       else
+        flash[:error] = "There was a problem updating your account"
         format.html { render action: "edit" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -84,6 +88,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
+      flash[:success] = "The user has been successfully deleted"
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
