@@ -6,11 +6,21 @@ namespace :db do
 		run "cd #{shared_path}/config && tar -xzf database.tar.gz && rm database.tar.gz"
 		# x = Extract, z = Gzip, f = Next item is file name to be unzipped
 		run_locally "rm config/database.tar.gz"
+
+		run_locally "cd config && tar -czf application.tar.gz application.yml"
+		top.upload("config/application.tar.gz", "#{shared_path}/config", :via => :scp)
+		run "cd #{shared_path}/config && tar -xzf application.tar.gz && rm application.tar.gz"
+		# x = Extract, z = Gzip, f = Next item is file name to be unzipped
+		run_locally "rm config/application.tar.gz"
+
 	end
 
 	task :symlink_db_yml, :roles => [ :db ] do
 		run "cd #{shared_path}/config"
-		run "ls -sf ~/#{shared_path}/config/database.yml ~/#{current_path}/config/"
+		run "ln -sf ~/#{shared_path}/config/database.yml ~/#{current_path}/config/"
+
+		run "cd #{shared_path}/config"
+		run "ln -sf ~/#{shared_path}/config/application.yml ~/#{current_path}/config/"
 	end
 
 	task :load_schema, :roles => [ :db ] do

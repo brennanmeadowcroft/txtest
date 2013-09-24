@@ -16,7 +16,7 @@
   <%= f.label :correct_answer, "The Correct Answer" %>
   <%= f.text_area :correct_answer %>
 
-  <%= f.hidden_field :course, value: @course.id %>
+  <%= f.hidden_field :course_id, value: @course.id %>
   <div class="actions">
     <%= f.submit "Save", :class => "save-button" %>
     <% if @course.id.nil? %>
