@@ -12,7 +12,7 @@
 				<ul>
 					<li><%= link_to 'Dashboard', root_path %></li>
 					<li><%= link_to 'Courses', courses_path %></li>
-					<li class="has-dropdown"><a href="#">Account</a>
+					<li class="has-dropdown"><a href="#"><%= gravatar_for current_user, "menu-gravatar" %></a>
 						<ul class="dropdown">
 							<li><%= link_to 'View Profile', user_path(current_user) %></li>
 							<li><%= link_to 'Edit Settings', edit_setting_path(current_user.settings) %></li>
