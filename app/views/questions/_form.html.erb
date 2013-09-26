@@ -12,9 +12,27 @@
   <% end %>
   <%= f.label :question %>
   <%= f.text_area :question %>
+  <div class="character-count">
+    Characters left: 
+    <span id="question-count">
+      <%= 150-@question.question.to_s.length %>
+    </span>
+    <span data-tooltip class="has-tip" title="Your question should be less than 150 characters to ensure it arrives in one text. TXTest needs 10 characters to provide information on answering the question.">
+      <span class="icon-info"></span>
+    </span>
+  </div>
 
-  <%= f.label :correct_answer, "The Correct Answer" %>
+  <%= f.label :correct_answer, "The Correct Answer", :id => "answer" %>
   <%= f.text_area :correct_answer %>
+  <div class="character-count">
+    Characters left: 
+    <span id="answer-count">
+      <%= 150-@question.correct_answer.to_s.length %>
+    </span>
+    <span data-tooltip class="has-tip" title="Your answer should be less than 150 characters to ensure it arrives in one text.">
+      <span class="icon-info"></span>
+    </span>
+  </div>
 
   <%= f.hidden_field :course_id, value: @course.id %>
   <div class="actions">

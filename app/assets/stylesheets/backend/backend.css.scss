@@ -163,7 +163,6 @@ h1, h2, h3, h4, p {
 	}
 }
 
-
 .course-content, .question-content, .user-content {
 	@include grid-column(10);
 	padding-left: 2.5em;
@@ -248,6 +247,9 @@ form {
 		font-size: 1em;
 		color: $tt-body-text;
 	}
+	textarea {
+		margin-bottom: 0;
+	}
 	.save-button, .cancel-button {
 		@include button($bg:$tt-body-primary-accent);
 	}
@@ -263,5 +265,16 @@ form {
 			display: inline-block;
 			width: 4em;
 		}
+	}
+
+	.character-count {
+		margin-top: 0;
+		margin-bottom: 2em;
+		padding: 0;
+	}
+
+	.negative-count {
+		color: $tt-accent-fail;
+		font-weight: bold;
 	}
 }
