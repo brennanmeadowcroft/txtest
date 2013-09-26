@@ -3,7 +3,7 @@
 <%= render 'courses/side_menu' %>
 <div class="question-content">
 	<div class="question-title">
-		<h1><%= @question.question %></h1>
+		<h1>Question</h1>
 		<div class="question-options">
 			<%= link_to edit_question_path(@question) do %> 
 				<span class="icon-cog"></span>
@@ -13,6 +13,7 @@
 			<% end %>
 		</div>
 	</div>
+	<p><strong>Q: </strong><%= @question.question %></p>
 	<p><strong>A: </strong><%= @question.correct_answer %></p>
 	<div class="question-results">
 		<img src="http://placekitten.com/350/200" />

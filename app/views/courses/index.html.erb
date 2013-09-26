@@ -33,15 +33,17 @@
     <% else %>
       <% @course.questions.each do |question| %>
         <li>
-          <%= link_to question.question, question %>
-          <span class="settings right">
+          <div class="question-detail">
+            <%= link_to question.question, question %>
+          </div>
+          <div class="settings right">
             <%= link_to edit_question_path(question) do %> 
               <span aria-hidden="true" class="icon-cog"></span>
             <% end %> | 
             <%= link_to question_path(question) do %>
               <span aria-hidden="true" class="icon-stats"></span>
             <% end %>
-          </span>
+          </div>
         </li>
       <% end %>
     <% end %>

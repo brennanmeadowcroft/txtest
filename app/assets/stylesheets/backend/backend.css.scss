@@ -227,8 +227,14 @@ h1, h2, h3, h4, p {
 			}
 		}
 
+		.question-detail {
+			width: 88%;
+			display: inline-block;
+		}
 		.settings {
+			width: 10%;
 			padding-right: 1em;
+			text-align: right;
 		}
 	}
 }

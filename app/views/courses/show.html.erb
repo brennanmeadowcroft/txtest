@@ -2,6 +2,9 @@
 
 <%= render 'courses/side_menu' %>
 <div class="course-content">
+	<% if @course.paused_flag == 1 %>
+		<div class="alert-fail">This course is currently pause and will not have any questions asked! (<%= link_to "Unpause", pause_course_path(@course) %>)</div>
+	<% end %>
 	<div class="course-title">
 		<h1><%= @course.description %></h1>
 		<div class="course-options">
@@ -33,15 +36,17 @@
 		<% else %>
 			<% @course.questions.each do |question| %>
 				<li>
-					<%= link_to question.question, question %>
-					<span class="settings right">
+					<div class="question-detail">
+						<%= link_to question.question, question %>
+					</div>
+					<div class="settings right">
 						<%= link_to edit_question_path(question) do %> 
 							<span aria-hidden="true" class="icon-cog"></span>
 						<% end %> | 
 						<%= link_to question_path(question) do %>
 							<span aria-hidden="true" class="icon-stats"></span>
 						<% end %>
-					</span>
+					</div>
 				</li>
 			<% end %>
 		<% end %>
