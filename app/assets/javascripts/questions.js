@@ -5,7 +5,10 @@ $(document).ready(function() {
 		if (question_length < 0) {
 			var count_class = "negative-count"
 		}
-		$('#question-count').html(question_length).addClass(count_class);
+		else {
+			var count_class = "positive-count"
+		}
+		$('#question-count').html(question_length).removeClass().addClass(count_class);
 	});
 	$('#question_correct_answer').keyup(function() {
 		var answer_length = 150-($(this).val().length);
@@ -13,6 +16,9 @@ $(document).ready(function() {
 		if (answer_length < 0) {
 			var count_class = "negative-count"
 		}
-		$('#answer-count').html(answer_length).addClass(count_class);
+		else {
+			var count_class = "positive-count"
+		}
+		$('#answer-count').html(answer_length).removeClass().addClass(count_class);
 	});
 });

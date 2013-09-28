@@ -3,7 +3,6 @@ class Course < ActiveRecord::Base
 
   has_many :questions, dependent: :destroy
   has_many :answers, :through => :questions
-  has_one :settings, dependent: :destroy
   belongs_to :user
 
   before_create :init
@@ -13,6 +12,6 @@ class Course < ActiveRecord::Base
   end
 
   def init
-    self.paused_flag = 0 
+    self.paused_flag ||= 0 
   end
 end

@@ -41,14 +41,16 @@
 			</tr>
 		<% else %>
 			<% @question.answers.each do |answer| %>
-				<tr>
-					<td><%= answer.submitted_answer %></td>
-					<td><%= answer.correct == 1 ? 'Yes' : 'No' %></td>
-					<td><%= answer.in_time == 1 ? 'Yes' : 'No' %></td>
-					<td><%= answer.time_sent %></td>
-					<td><%= answer.receipt_date %></td>
-					<td><%= link_to "Mark as correct", mark_correct_path(answer) %></td>
-				</tr>
+				<% if answer.time_sent <= Time.now %>
+					<tr>
+						<td><%= answer.submitted_answer %></td>
+						<td><%= answer.correct == 1 ? 'Yes' : 'No' %></td>
+						<td><%= answer.in_time == 1 ? 'Yes' : 'No' %></td>
+						<td><%= answer.time_sent %></td>
+						<td><%= answer.receipt_date %></td>
+						<td><%= link_to "Mark as correct", mark_correct_path(answer) %></td>
+					</tr>
+				<% end %>
 			<% end %>
 		<% end %>
 	</table>
