@@ -1,0 +1,19 @@
+<div class="header sticky">
+	<nav class="top-nav">
+		<ul class="title-area">
+			<li class="name">
+				<%= link_to root_path, :class => 'smoothScroll' do %>
+					<%= image_tag "txtest-logo.png", :width => 50 %>
+				<% end %>
+			</li>
+		</ul>
+		<section class="top-bar-section right">
+			<ul>
+				<li><%= link_to 'Features', root_path(:anchor => 'features') %></li>
+				<li><%= link_to 'Plans and Pricing', pricing_path %></li>
+				<li><%= link_to 'Sign In', signin_path %></li>
+				<li><%= link_to 'Sign Up', new_user_path, :class=>"new_user" %></li>
+			</ul>
+		</section>
+	</nav>
+</div>

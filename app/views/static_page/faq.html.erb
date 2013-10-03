@@ -1,0 +1,47 @@
+<% provide(:title, "FAQ") %>
+
+<div class="pricing-masthead">
+	<h1>You have questions, we have answers.</h1>
+</div>
+<div class="faq-content">
+	<div class="question-toc">
+		<div class="toc-left">
+			<ul>
+				<li><a href="#cost">How much does it cost?</a></li>
+				<li><a href="#question_limit">Why are my questions limited to 140 characters?</a></li>
+				<li><a href="#code">Why do I need to include a code each time I answer a question?</a></li>
+			</ul>
+		</div>
+		<div class="toc-right">
+			<ul>
+				<li><a href="#time">How long do I have to answer a question?</a></li>
+				<li><a href="#morning">Will I receive texts at 2 a.m.?</a></li>
+				<li><a href="#phone">Why do you need my phone number?</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="question" id="cost">
+		<h4>How much does it cost?</h4>
+		<p>There are two plans to choose from.  You can view the pricing information on our <%= link_to "Pricing and Plans", pricing_path %> page.  Each plan comes with the first 30 days free.</p>
+	</div>
+	<div class="question" id="question_limit">
+		<h4>Why are my questions limited to 140 characters?</h4>
+		<p>TXTest includes some information about the question with each text.  This includes a notice of how long you have to respond and what code to include in your text.</p>
+	</div>
+	<div class="question" id="code">
+		<h4>Why do I need to include a code each time I answer my question?</h4>
+		<p>We need a way to connect your answer to the particular question.  The code allows us to do that.  Otherwise, texts would be flying all through the air with no rhyme or reason.</p>
+	</div>
+	<div class="question" id="time">
+		<h4>How long do I have to answer a question?</h4>
+		<p>The default is 10 minutes.  You have the ability to change this time to whatever you want but keep in mind, if it is too long, you lose the benefits of stress so make sure to keep it long enough that you'll be able to answer but not so short that you aren't accounting for things that occur during your day.</p>
+	</div>
+	<div class="question" id="morning">
+		<h4>Will I receive texts at 2 a.m.?</h4>
+		<p>Only if you want them.  You can choose the time that you want to receive texts.  Pick a start time and an end time and all your texts will be sent between those hours; no later and no earlier.</p>
+	</div>
+	<div class="question" id="phone">
+		<h4>Why do you need my phone number?</h4>
+		<p>We need a valid phone number to send you texts.</p>
+	</div>
+</div>

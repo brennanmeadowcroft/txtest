@@ -55,7 +55,7 @@ class Answer < ActiveRecord::Base
     # Process the text and send it via Twilio
     @client = Twilio::REST::Client.new(ENV['twilio_sid'], ENV['twilio_token'])
 
-    text_body = "#{self.question.question} || Respond within #{self.user.settings.response_time} minutes and include the code Q#{self.id} to get credit. Good luck!"
+    text_body = "#{self.question.question} | #{self.user.settings.response_time} min, code: Q#{self.id}"
      
     message = @client.account.sms.messages.create(:body => text_body,
         :to => self.user.phone_number,

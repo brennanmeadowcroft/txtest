@@ -1,0 +1,310 @@
+@import "all/foundation_and_overrides";
+@import "all/overrides";
+
+body {
+	background-color: $tt-body-background;
+	color: $tt-body-text;
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3, h4, p {
+	color: $tt-body-text;
+	font-family: 'Asap', sans-serif;
+}
+
+.top-nav {
+	@extend .top-bar;
+	background: #FFFFFF;
+	height: emCalc(75px);
+
+	section {
+		margin-top: 0.75em;
+		background: inherit;
+
+		.top-bar-section {
+			bakground: inherit;
+		}
+
+		ul.dropdown {
+			li {
+				&:hover {
+					background: $tt-top-nav-background;
+				}
+				a:hover {
+					background: $tt-top-nav-background;
+				}
+			}
+		}
+	}
+
+	img {
+		width: 70px;
+		margin: 10px;
+		margin-right: 30px;
+	}
+
+	.menu-gravatar {
+		@include radius(50%);
+		width: 55%;
+		border: 1px solid $tt-body-text;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+/*
+*	This changes the color and size of the top bar... don't try and move it.  It doesn't work!
+*/
+.top-bar-section li a:not(.button) {
+	background: $tt-top-nav-background;
+	font-size: 1.1em;
+	color: $tt-body-primary-accent;
+	font-family: 'Asap', sans-serif;
+}
+.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
+   border-left: solid 1px $tt-top-nav-background;
+   border-right: solid 1px $tt-top-nav-background;
+}
+.top-bar-section .has-form {
+}
+.top-bar-section li a:not(.button):hover {
+   // Potential fourth part of problem
+   color: $tt-body-text;
+   background: $tt-top-nav-background;
+}
+
+.call-to-action {
+	@include button();
+	margin-top: 2em;
+	padding-left: 2em;
+	padding-right: 2em;
+	background: $tt-body-primary-accent;
+	border: 1px solid $tt-body-primary-accent-border;
+
+	&:hover {
+		background: $tt-body-primary-accent-border;
+	}
+}
+
+.masthead, .pricing-masthead {
+	padding: 6em;
+	@include grid-row($behavior:nest);
+	text-align: center;
+	margin-top: -30px;
+
+	h1 {
+		margin-bottom: 0;
+		font-weight: normal;
+	}
+
+	.signup-button {
+		@extend .call-to-action;
+	}
+}
+
+.masthead {
+	background: url(<%= image_path("translucent-hands-raised-thin.jpg") %>) no-repeat center center;
+	padding: 10em;
+}
+
+.pricing-masthead {
+	background: url(<%= image_path("translucent-books-thin.jpg") %>) no-repeat center center;
+	margin-bottom: 4em;
+
+	h1 {
+		color: $tt-body-background;
+	}
+}
+
+.main-feature {
+	@include grid-row($behavior:nest);
+	padding: 5em;
+	border-bottom: 1px solid #D4D4D4;
+	
+	.content-left, .content-right, .image-left, .image-right {
+		@include grid-column(6);
+		display: inline-block;
+	}
+	.content-left, .content-right {
+		margin-top: 2em;
+		h2 {
+			font-size: 1.2em;
+		}
+	}
+	.content-right {
+		@extend .right;
+	}
+
+	.image-left, .image-right {
+		text-align: center;
+
+		img {
+			margin: auto;
+		}
+	}
+
+	.image-right {
+		@extend .right;
+	}
+}
+
+.pricing {
+	padding: 0;
+	.options {
+		@include grid-row();
+		@include grid-column(10, $center:true);
+		margin: auto;
+	
+		.option {
+			@include grid-column(6);
+			text-align: center;
+
+			ul {
+				list-style: none;
+			}
+
+			p {
+				margin: 0;
+			}
+
+			.cta-button {
+				@include button();
+				margin-top: 2em;
+				background-color: $tt-body-primary-accent;
+				border: 1px solid $tt-body-primary-accent-border;
+
+				&:hover {
+					background-color: $tt-body-primary-accent-border;
+				}
+			}
+		}
+	}
+
+	.pricing-faq {
+		@include grid-row();
+		margin-top: 70px;
+		margin-bottom: 20px;
+
+		.question {
+			@include grid-column(6);
+			padding: 40px;
+			text-align: block;
+			min-height: 15em;
+
+			&:nth-child(2n) {
+				border-left: solid 1px #D4D4D4;
+			}
+
+			&:nth-child(1), &:nth-child(2) {
+				border-bottom: 1px solid #D4D4D4;
+			}
+		}
+	}
+}
+
+.faq-content {
+	@include grid-row();
+
+	.toc-left, .toc-right {
+		@include grid-column(6);
+		border-bottom: 1px solid $tt-body-primary-accent-border;
+		margin-bottom: 2em;
+
+		ul {
+			list-style-type: none;
+		}
+	}
+
+	.question {
+		margin-bottom: 3em;
+
+		h4 {
+			margin: 0;
+		}
+	}
+}
+
+.legal {
+	@include grid-row();
+}
+
+.signup {
+	@include grid-column(6, $center: true);
+	margin-top: 8em;
+	margin-bottom: 8em;
+
+	p {
+		text-align: center;
+	}
+
+	.actions{
+		text-align: center;
+	}
+
+	.new-user-button {
+		@extend .call-to-action;
+		padding-left: 8em;
+		padding-right: 8em;
+	}
+}
+
+.footer {
+	padding: 3em;
+	padding-bottom: 1em;
+	background: $tt-top-nav-background;
+
+	ul {
+		list-style-type: none;
+	}
+
+	a {
+		color: $tt-body-text;
+
+		&:hover {
+			color: $tt-body-primary-accent;
+		}
+	}
+
+	.left-content {
+		@include grid-column(2);
+	}
+
+	.right-content {
+		@include grid-column(2);
+	}
+
+	.footer-image {
+		@include grid-column(2, $offset: 6);
+		@extend .right;
+		text-align: right;
+
+		img {
+			width: 100px;
+		}
+	}
+	.copyright {
+		@include grid-row($behavior:nest);
+		margin-top: 1.5em;
+		padding-top: 2em;
+		clear: both;
+		float: none;
+
+		p {
+			width: 33%;
+			display: inline-block;
+		}
+
+		ul {
+			@extend .right;
+			width: 65%;
+			list-style-type: none;
+			text-align: right;
+
+			li {
+				display: inline;
+				margin-left: 1em;
+			}
+		}
+	}
+}

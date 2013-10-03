@@ -15,7 +15,14 @@ TextTests::Application.routes.draw do
   match '/sms/receive' => 'sms#receive', :via => :post
   match '/courses/:id/pause' => 'courses#pause', :as => :pause_course
 
-  root :to => 'courses#index'
+  match '/' => 'static_page#index', :as => :public_root
+  match '/faq' => 'static_page#faq', :as => :faq
+  match '/privacy_policy' => 'static_page#privacy_policy', :as => :privacy_policy
+  match '/terms_of_service' => 'static_page#terms_of_service', :as => :terms_of_service
+  match '/pricing' => 'static_page#pricing', :as => :pricing
+  match '/courses' => 'courses#index', :as => :app_root
+
+  root :to => 'static_page#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

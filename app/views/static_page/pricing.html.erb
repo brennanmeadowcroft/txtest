@@ -1,0 +1,53 @@
+<% provide(:title, "Plans and Pricing") %>
+
+<div class="pricing-masthead">
+	<h1>Try out TXTest with a 30-day free trial</h1>
+</div>
+<div class="pricing">
+	<div class="options">
+		<div class="option">
+			<h4>Collegiate</h4>
+			<ul>
+				<li>Up to 3 texts per day</li>
+				<li>Unlimited Courses</li>
+				<li>Unlimted Questions</li>
+			</ul>
+			<div class="option-pricing">
+				<p class="monthly-billing">$5/month</p>
+				<p class="annual-billing">$45/year*</p>
+			</div>
+			<%= link_to "Use This Plan", new_user_path(:plan_id => "collegiate"), :class => "cta-button" %>
+		</div>
+		<div class="option">
+			<h4>Scholar</h4>
+			<ul>
+				<li>Unlimited texts per day</li>
+				<li>Unlimited courses</li>
+				<li>Unlimited questions</li>
+			</ul>
+			<div class="option-pricing">
+				<p class="monthly-billing">$7/month</p>
+				<p class="annual-billing">$63/year*</p>
+			</div>
+			<%= link_to "Use This Plan", new_user_path(:plan_id => "scholar"), :class => "cta-button" %>
+		</div>
+	</div>
+	<div class="pricing-faq">
+		<div class="question">
+			<h4>How does the 30 day trial work?</h4>
+			<p>You can sign up and use TXTest for 30 days without having to provide credit card information.  That's it... simple.</p>
+		</div>
+		<div class="question">
+			<h4>Do I Need A Credit Card to Sign Up?</h4>
+			<p>No, you do not need a credit card to sign up.  Once the 30 days have finished, you will be prompted to input payment information.</p>
+		</div>
+		<div class="question">
+			<h4>What happens when the 30 days is over?</h4>
+			<p>You will have full access to the TXTest for 30 days.  After the trial is up we will ask for you credit card information to continue to receive texts.</p>
+		</div>
+		<div class="question">
+			<h4>How does billing work?</h4>
+			<p>We will bill you on the same day each month (or year if you choose the annual plan) for your chosen plan.  You can switch to a different plan at any time.</p>
+		</div>
+	</div>
+</div>

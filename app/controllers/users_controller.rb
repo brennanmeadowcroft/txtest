@@ -31,8 +31,7 @@ class UsersController < ApplicationController
     @user = User.new
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @user }
+      format.html { render layout: 'public' }
     end
   end
 
