@@ -9,6 +9,7 @@ gem 'rails', '3.2.11'
 #gem 'delayed_job_active_record', '4.0.0'
 gem 'twilio-ruby', '3.10.1'
 gem 'figaro', '0.7.0'
+gem 'google_visualr', '2.1.6'
 
 
 # Gems used only for assets and not required

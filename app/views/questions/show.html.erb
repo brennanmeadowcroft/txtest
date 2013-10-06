@@ -16,8 +16,8 @@
 	<p><strong>Q: </strong><%= @question.question %></p>
 	<p><strong>A: </strong><%= @question.correct_answer %></p>
 	<div class="question-results">
-		<img src="http://placekitten.com/350/200" />
-		<img src="http://placekitten.com/350/200" />
+		<div id="response_time" class="chart-medium" style="width: 400px; display: inline-block;"></div>
+		<div id="total_correct" class="chart-medium" style="width: 400px; display: inline-block;"></div>
 	</div>
 
 	<h4>Your Submitted Answers</h4>
@@ -54,4 +54,6 @@
 			<% end %>
 		<% end %>
 	</table>
+	<%= render_chart(@response_time_chart, 'response_time') %>
+	<%= render_chart(@total_correct_chart, 'total_correct') %>
 </div>

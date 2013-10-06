@@ -21,8 +21,8 @@
 		</div>
 	</div>
 	<div class="course-results">
-		<img src="http://placekitten.com/350/200" />
-		<img src="http://placekitten.com/350/200" />
+		<div id="correct_time" class="chart-medium" style="width: 400px; display: inline-block;"></div>
+		<div id="total_correct" class="chart-medium" style="width: 400px; display: inline-block;"></div>
 	</div>
 
 	<div class="questions">
@@ -52,4 +52,6 @@
 		<% end %>
 		</ul>
 	</div>
+	<%= render_chart(@correct_time_chart, 'correct_time') %>
+	<%= render_chart(@total_correct_chart, 'total_correct') %>
 </div>

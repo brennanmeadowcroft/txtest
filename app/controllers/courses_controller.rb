@@ -4,15 +4,17 @@ class CoursesController < ApplicationController
   def index
     @courses = current_user.courses.all
     @course = @courses.first
+    course_dashboard(@course)
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render action: "show" }
     end
   end
 
   def show
     @courses = current_user.courses.all
     @course = current_user.courses.find(params[:id])
+    course_dashboard(@course)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -88,4 +90,35 @@ class CoursesController < ApplicationController
       format.html { redirect_to courses_url }
     end
   end
+
+  private
+    def course_dashboard(course)
+      correct_time = Course.correct_over_time(current_user, course.id)
+      correct_time_data = GoogleVisualr::DataTable.new   
+      correct_time_data.new_column('string', 'Date (mm-dd)' ) 
+      correct_time_data.new_column('number', 'Correct Percentage') 
+      # correct_time_data.new_column('number', 'Questions Asked')
+      correct_time_data.add_rows(correct_time)
+      correct_time_options = { title: 'Correct Over Time',
+            vAxis: {title: 'Tag',  titleTextStyle: {color: 'red'}},
+            hAxis: {showTextEvery: 1},
+            backgroundColor: '#ECF0F1',
+            legend: {position: 'none'},
+            height: 300 }
+      @correct_time_chart = GoogleVisualr::Interactive::ColumnChart.new(correct_time_data, correct_time_options)
+
+      total_correct = Course.answers_on_time(current_user, course.id)
+      total_correct_data = GoogleVisualr::DataTable.new   
+      total_correct_data.new_column('number', 'Correct & In Time' ) 
+      total_correct_data.new_column('number', 'Correct & Out of Time') 
+      total_correct_data.new_column('number', 'Incorrect & In Time') 
+      total_correct_data.new_column('number', 'Incorrect & Out of Time') 
+      total_correct_data.add_rows(total_correct)
+      total_correct_option = { title: 'Questions Correct Metrics',
+            vAxis: {title: 'Tag',  titleTextStyle: {color: 'red'}},
+            backgroundColor: '#ECF0F1',
+            legend: {position: 'none'},
+            height: 300 }
+      @total_correct_chart = GoogleVisualr::Interactive::ColumnChart.new(total_correct_data, total_correct_option)
+    end
 end
