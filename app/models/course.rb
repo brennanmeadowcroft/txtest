@@ -34,9 +34,21 @@ class Course < ActiveRecord::Base
 
   def self.correct_over_time(user_id, course_id)
     time_range = 1.month.ago..Time.now
-    data_array = self.joins(questions: :answers).group(:question_id).where('answers.time_sent' => time_range, 'courses.user_id' => user_id, 'courses.id' => course_id).select("strftime('%m-%d', answers.time_sent) AS date_sent, 
-                                                                                                            COUNT(answers.id) AS total_answers, 
-                                                                                                            SUM(CASE WHEN answers.correct = 1 AND answers.in_time = 1 THEN 1 ELSE 0 END) AS total_correct")
+    if !Rails.env.production?
+      data_array = self.joins(questions: :answers).
+                        group(:question_id).
+                        where('answers.time_sent' => time_range, 'courses.user_id' => user_id, 'courses.id' => course_id).
+                        select("strftime('%m-%d', answers.time_sent) AS date_sent, 
+                                          COUNT(answers.id) AS total_answers, 
+                                          SUM(CASE WHEN answers.correct = 1 AND answers.in_time = 1 THEN 1 ELSE 0 END) AS total_correct")
+    else
+      data_array = self.joins(questions: :answers).
+                        group(:question_id).
+                        where('answers.time_sent' => time_range, 'courses.user_id' => user_id, 'courses.id' => course_id).
+                        select("DATE_FORMAT(answers.time_sent, '%m-%d') AS date_sent, 
+                                          COUNT(answers.id) AS total_answers, 
+                                          SUM(CASE WHEN answers.correct = 1 AND answers.in_time = 1 THEN 1 ELSE 0 END) AS total_correct")
+    end
     correct_over_time = Array.new
     data_array.each do |value|
       temp_array = Array.new

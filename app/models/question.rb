@@ -31,17 +31,31 @@ class Question < ActiveRecord::Base
   end
 
   def average_response_time
-    data_array = Question.find_by_sql("SELECT time_sent, SUM(time_diff) AS total_time_diff, sum(answers) AS total_answers
-                              FROM (
-                                  SELECT strftime('%m-%d', time_sent) AS time_sent,
-                                          COUNT(*) AS answers,
-                                          SUM(time_answered-time_sent) AS time_diff
-                                  FROM answers
-                                  WHERE time_answered IS NOT NULL
-                                    AND question_id = #{self.id}
-                                  GROUP BY strftime('%m-%d', time_sent)
-                              )
-                              GROUP BY time_sent")
+    if !Rails.env.production?
+      data_array = Question.find_by_sql("SELECT time_sent, SUM(time_diff) AS total_time_diff, sum(answers) AS total_answers
+                                FROM (
+                                    SELECT strftime('%m-%d', time_sent) AS time_sent,
+                                            COUNT(*) AS answers,
+                                            SUM(time_answered-time_sent) AS time_diff
+                                    FROM answers
+                                    WHERE time_answered IS NOT NULL
+                                      AND question_id = #{self.id}
+                                    GROUP BY strftime('%m-%d', time_sent)
+                                )
+                                GROUP BY time_sent")
+    else
+      data_array = Question.find_by_sql("SELECT time_sent, SUM(time_diff) AS total_time_diff, sum(answers) AS total_answers
+                                FROM (
+                                    SELECT DATE_FORMAT(time_sent, '%m-%d') AS time_sent,
+                                            COUNT(*) AS answers,
+                                            SUM(time_answered-time_sent) AS time_diff
+                                    FROM answers
+                                    WHERE time_answered IS NOT NULL
+                                      AND question_id = #{self.id}
+                                    GROUP BY DATE_FORMAT(time_sent, '%m-%d')
+                                )
+                                GROUP BY time_sent")
+    end
     avg_response = Array.new
     data_array.each do |value|
       temp_array = Array.new
