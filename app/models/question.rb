@@ -41,7 +41,7 @@ class Question < ActiveRecord::Base
                                     WHERE time_answered IS NOT NULL
                                       AND question_id = #{self.id}
                                     GROUP BY strftime('%m-%d', time_sent)
-                                )
+                                ) AS a
                                 GROUP BY time_sent")
     else
       data_array = Question.find_by_sql("SELECT time_sent, SUM(time_diff) AS total_time_diff, sum(answers) AS total_answers
@@ -53,7 +53,7 @@ class Question < ActiveRecord::Base
                                     WHERE time_answered IS NOT NULL
                                       AND question_id = #{self.id}
                                     GROUP BY DATE_FORMAT(time_sent, '%m-%d')
-                                )
+                                ) AS a
                                 GROUP BY time_sent")
     end
     avg_response = Array.new
