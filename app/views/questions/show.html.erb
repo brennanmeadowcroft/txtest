@@ -41,7 +41,7 @@
 			</tr>
 		<% else %>
 			<% @question.answers.each do |answer| %>
-				<% if answer.time_sent <= Time.now %>
+				<% if !answer.time_sent.nil? and answer.time_sent <= Time.now %>
 					<tr>
 						<td><%= answer.submitted_answer %></td>
 						<td><%= answer.correct == 1 ? 'Yes' : 'No' %></td>
