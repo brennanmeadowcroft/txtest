@@ -1,0 +1,20 @@
+<%= form_for(@plan) do |f| %>
+  <% if @plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
+
+      <ul>
+      <% @plan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.text_field :name, :required => true, :placeholder => "Plan Name" %>
+
+  <div class="actions">
+    <%= f.submit "Save", :class => "save-button" %>
+    <%= link_to "Cancel", @plan, :class => "cancel-button" %>
+  </div>
+<% end %>

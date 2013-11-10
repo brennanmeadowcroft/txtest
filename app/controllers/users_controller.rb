@@ -1,16 +1,13 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :linked_in, :import]
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_filter :correct_user, only: [:edit, :update, :show]
   before_filter :admin_user, only: [:index, :destroy]
 
-  # GET /users
-  # GET /users.json
   def index
     @users = User.all
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
+      format.html { render layout: 'admin' }
     end
   end
 

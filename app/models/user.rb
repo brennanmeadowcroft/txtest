@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :first_name, :last_name, :phone_number, :password, :password_confirmation, :remember_token, :user_key
+  attr_accessible :admin, :email, :first_name, :last_name, :phone_number, :password, :password_confirmation, :remember_token, :user_key
   has_secure_password
 
   has_one :settings
+  has_one :account
+  has_one :plan, :through => :account
   has_many :courses
   has_many :questions, :through => :courses
   has_many :answers, :through => :courses
@@ -13,9 +15,11 @@ class User < ActiveRecord::Base
   validates :password, :presence => true, length: { minimum: 6 }
 
   before_save { self.email = email.downcase }
+  before_create { self.admin ||= 0 }
   before_create :create_remember_token
   before_create :text_verification_code
   before_save :phone_cleanup
+  after_create :new_account
 
   def User.new_remember_token
   	SecureRandom.urlsafe_base64
@@ -26,7 +30,8 @@ class User < ActiveRecord::Base
   end
 
   def self.with_unpaused_courses
-    self.find_by_sql("SELECT * FROM users INNER JOIN courses ON(users.id = courses.user_id) WHERE courses.paused_flag = 0")
+    #self.find_by_sql("SELECT * FROM users INNER JOIN courses ON(users.id = courses.user_id) WHERE courses.paused_flag = 0")
+    self.joins(:courses).where(courses: {paused_flag: 0})
   end
 
   def send_phone_validation
@@ -43,6 +48,10 @@ class User < ActiveRecord::Base
   end
 
   private
+    def set_admin
+      self.admin ||= 0
+    end
+
   	def create_remember_token
   		self.remember_token = User.encrypt(User.new_remember_token)
   	end
@@ -68,5 +77,9 @@ class User < ActiveRecord::Base
       key = (0..size).map{ charset.to_a[rand(charset.size) ] }.join
     
       return key
+    end
+
+    def new_account
+      self.create_account(:active => 1)
     end
 end

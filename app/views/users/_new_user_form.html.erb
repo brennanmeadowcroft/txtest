@@ -16,7 +16,6 @@
   <%= f.text_field :phone_number, :required => true, :placeholder => "Phone Number" %>
   <%= f.password_field :password, :required => true, :placeholder => "Password" %>
   <%= f.password_field :password_confirmation, :required => true, :placeholder => "Password Confirmation" %>
-  <%= f.hidden_field :plan_id, :value => params[:plan_id] %>
 
   <p>By clicking "Sign Up", I agree with the <%= link_to "Privacy Policy", privacy_policy_path %> and the <%= link_to "Terms of Service", terms_of_service_path %>.</p>
 

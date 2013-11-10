@@ -1,10 +1,17 @@
 TextTests::Application.routes.draw do
+  scope '/admin' do
+    resources :plans
+  end
+  resources :charges
   resources :users
   resources :courses
   resources :answers, :only => [:new, :edit, :create, :update, :destroy]
   resources :questions, :only => [:show, :edit, :new, :create, :update, :destroy]
   resources :settings, :only => [:edit, :update]
   resources :sessions, :only => [:new, :create, :destroy ]
+
+  match '/admin' => 'users#index', :as => :admin_root
+  match '/courses' => 'courses#index', :as => :user_root
 
   match '/signin' => 'sessions#new', :as => :signin
   match '/signout', to: 'sessions#destroy'
@@ -14,6 +21,7 @@ TextTests::Application.routes.draw do
   match '/answers/:id/text_receipt' => 'answers#text_receipt', :via => :post
   match '/sms/receive' => 'sms#receive', :via => :post
   match '/courses/:id/pause' => 'courses#pause', :as => :pause_course
+  match '/users/:id/account' => 'users#account', :as => :account
 
   match '/' => 'static_page#index', :as => :public_root
   match '/faq' => 'static_page#faq', :as => :faq

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130918034121) do
+ActiveRecord::Schema.define(:version => 20131029035411) do
+
+  create_table "accounts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "plan_id"
+    t.integer  "active"
+    t.string   "stripe_token"
+    t.integer  "last_cc_digits"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "answers", :force => true do |t|
     t.text     "submitted_answer"
@@ -32,6 +42,19 @@ ActiveRecord::Schema.define(:version => 20130918034121) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "paused_flag"
+  end
+
+  create_table "plans", :force => true do |t|
+    t.string   "name"
+    t.integer  "fee"
+    t.string   "interval"
+    t.integer  "trial_period_days"
+    t.integer  "max_texts"
+    t.integer  "max_courses"
+    t.integer  "max_questions"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "annual_plan"
   end
 
   create_table "questions", :force => true do |t|
@@ -62,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20130918034121) do
     t.datetime "updated_at",      :null => false
     t.string   "remember_token"
     t.string   "text_code"
+    t.integer  "admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

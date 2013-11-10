@@ -1,8 +1,11 @@
 <div class="side-menu">
-	<%= gravatar_for current_user %>
+	<%= link_to user_path(current_user) do %>
+		<%= gravatar_for current_user %>
+	<% end %>
 	<ul>
 		<li><%= link_to 'View Profile', user_path(current_user) %></li>
 		<li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
+		<li><%= link_to 'Account', account_path %></li>
 		<li><%= link_to 'Edit Settings', edit_setting_path(current_user.settings) %></li>
 		<li><%= link_to 'Change Gravatar', "http://gravatar.com/emails" %></li>
 	</ul>

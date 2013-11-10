@@ -1,0 +1,28 @@
+<%= form_for(@plan) do |f| %>
+  <% if @plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
+
+      <ul>
+      <% @plan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.text_field :name, :required => true, :placeholder => "Plan Name" %>
+  <%= f.text_field :fee, :required => true, :placeholder => "Monthly Fee (USD)" %>
+  <%= f.text_field :interval, :required => true, :placeholder => "Billing Interval" %>
+  <%= f.text_field :trial_period_days, :required => true, :placeholder => "Length of Trial Period (in days)" %>
+  <%= f.text_field :max_texts, :required => true, :placeholder => "Maximum texts per day" %>
+  <%= f.text_field :max_courses, :required => true, :placeholder => "Maximum number of Courses" %>
+  <%= f.text_field :max_questions, :required => true, :placeholder => "Maximum Number of Questions" %>
+  <%= f.hidden_field :annual_plan, :value => 0 %>
+  <%= check_box_tag 'plan[make_annual]', 1 %> Create an ANNUAL version of this plan
+
+  <div class="actions">
+    <%= f.submit "Save", :class => "save-button" %>
+    <%= link_to "Cancel", @plan, :class => "cancel-button" %>
+  </div>
+<% end %>

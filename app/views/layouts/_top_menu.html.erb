@@ -10,7 +10,10 @@
 		<% if signed_in? %>
 			<section class="top-bar-section right">
 				<ul>
-					<li><%= link_to 'Dashboard', root_path %></li>
+					<% if admin? %>
+						<li><%= link_to 'Admin', admin_root_path %></li>
+					<% end %>
+					<li><%= link_to 'Dashboard', user_root_path %></li>
 					<li><%= link_to 'Courses', courses_path %></li>
 					<li class="has-dropdown"><a href="#"><%= gravatar_for current_user, "menu-gravatar" %></a>
 						<ul class="dropdown">

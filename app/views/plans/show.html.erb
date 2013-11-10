@@ -1,0 +1,13 @@
+<% provide(:title, "Plan Detail") %>
+
+<div class="user-content">
+	<div class="user-title">
+		<h2><%= @plan.name %></h2>
+	</div>
+	<p><strong>Fee:</strong> $<%= @plan.fee %>.00 per <%= @plan.interval %></p>
+	<p><strong>Trial Period:</strong> <%= @plan.trial_period_days %> days</p>
+	<p><strong>Max Texts Per Day*:</strong> <%= @plan.max_texts == 999 ? 'Unlimited' : @plan.max_texts %></p>
+	<p><strong>Max Courses*:</strong> <%= @plan.max_courses == 999 ? 'Unlimited' : @plan.max_courses %></p>
+	<p><strong>Max Questions Per Course*:</strong> <%= @plan.max_questions == 999 ? 'Unlimited' : @plan.max_questions %></p>
+	<p>*Note: "Unlimited" represents a real value of 999</p>
+</div>

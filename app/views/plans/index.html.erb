@@ -1,0 +1,33 @@
+<div class="user-content">
+  <div class="user-title">
+    <div class="questions-heading">
+      <h4>Plans</h4>
+      <%= link_to 'New...', new_plan_path, :class=>"new-button right" %>
+    </div>
+  </div>
+  <table>
+    <tr>
+      <th>Plan Name</th>
+      <th>Fee</th>
+      <th>Billing Interval</th>
+      <th>Texts/Day</th>
+      <th>Annual Plan</th>
+      <th>User Count</th>
+      <th>Options</th>
+    </tr>
+
+  <% @plans.each do |plan| %>
+    <tr>
+      <td><%= link_to plan.name, plan %></td>
+      <td>$<%= plan.fee %>.00</td>
+      <td><%= plan.interval %></td>
+      <td><%= plan.max_texts == 999 ? 'Unlimited' : plan.max_texts %></td>
+      <td><%= plan.annual_plan == 0 ? 'No' : 'Yes' %></td>
+      <td><%= plan.users.count %></td>
+      <td><%= link_to 'Show', plan %> | 
+          <%= link_to 'Edit', edit_plan_path(plan) %> | 
+          <%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>

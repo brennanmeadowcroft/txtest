@@ -4,7 +4,9 @@ class CoursesController < ApplicationController
   def index
     @courses = current_user.courses.all
     @course = @courses.first
-    course_dashboard(@course)
+    if @courses.count > 0 
+      course_dashboard(@course)
+    end
 
     respond_to do |format|
       format.html { render action: "show" }

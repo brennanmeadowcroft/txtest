@@ -1,0 +1,9 @@
+<div class="questions-heading">
+  <h4>Account</h4>
+  <%= link_to 'Edit...', '#', :class=>"new-button right" %>
+</div>
+
+<p><strong>Current Plan:</strong> <%= @user.account.plan.name %></p>(<%= link_to 'Change', '#' %>)
+<%= link_to 'Change Payment Method', '#' %>
+
+<p>Your account is currently <%= @user.account.active == 1 ? 'Active' : 'Inactive' %>.</p>

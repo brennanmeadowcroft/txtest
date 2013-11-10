@@ -10,6 +10,7 @@ gem 'rails', '3.2.11'
 gem 'twilio-ruby', '3.10.1'
 gem 'figaro', '0.7.0'
 gem 'google_visualr', '2.1.6'
+gem 'stripe', '1.8.8'
 
 
 # Gems used only for assets and not required
