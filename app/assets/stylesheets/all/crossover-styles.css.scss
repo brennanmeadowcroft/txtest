@@ -1,0 +1,23 @@
+.card-form {
+	margin-bottom: 3em;
+	display: inline;
+	.card-number {
+		width: 45%;
+		display: inline;
+	}
+	.cvv {
+		width: 10%;
+		display: inline-block;
+	}
+	.note {
+		display: block;
+		clear: both;
+		font-style: italic;
+		text-align: center;
+	}
+}
+
+form.custom .custom.dropdown.small-select {
+	width: 20%;
+	display: inline-block;
+}

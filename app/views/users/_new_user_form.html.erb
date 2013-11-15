@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, :html => { :class => "custom" }) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -10,14 +10,41 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <h4>User Information</h4>
   <%= f.text_field :first_name, :required => true, :placeholder => "First Name" %>
   <%= f.text_field :email, :required => true, :placeholder => "Email Address" %>
   <%= f.text_field :phone_number, :required => true, :placeholder => "Phone Number" %>
   <%= f.password_field :password, :required => true, :placeholder => "Password" %>
   <%= f.password_field :password_confirmation, :required => true, :placeholder => "Password Confirmation" %>
+  <%= f.hidden_field :stripe_token %>
+  <%= f.hidden_field :last_4_digits %>
 
-  <p>By clicking "Sign Up", I agree with the <%= link_to "Privacy Policy", privacy_policy_path %> and the <%= link_to "Terms of Service", terms_of_service_path %>.</p>
+  <h4>Account Information</h4>
+  <%= f.select :plan_id, @plans.map { |plan| [plan.name, plan.id]} %>
+  <noscript>
+    <p>This form requires Javascript to use</p>
+  </noscript>
+
+  <div id="credit-card">
+    <div id="credit-card-errors" style="display:none">
+      <div id="stripe-error-message" class="alert-message block-message error">
+      </div>
+    </div>
+    <div class="card-form">
+      <!-- these fields are disabled before submission and are never transmitted back to rails -->
+      <%= text_field_tag :credit_card_number, params[:credit_card_number], :placeholder => "Credit Card Number", :class => "card-number", :disabled => true %>
+
+      <%= text_field_tag :cvv, params[:cvv], :class => "cvv", :placeholder => "CVV", :disabled => true %>
+      <%= date_select "", :expiry_date, {:discard_day => true, :order => [:month, :year], :use_month_numbers => true, :start_year => Date.today.year, :end_year => Date.today.year + 25, :disabled => true}, {:class => "small-select"} %>
+      <span class="note">
+        <p>Your credit card details will be sent directly to our payment processor</p>
+        <%= image_tag "solid-stripe.png" %>
+      </span>
+    </div>
+  </div>
+
+  <p>By clicking "Sign Up", you agree with the <%= link_to "Privacy Policy", privacy_policy_path %> and the <%= link_to "Terms of Service", terms_of_service_path %>.</p>
 
   <div class="actions">
     <%= submit_tag "Sign Up", :class => "new-user-button" %>

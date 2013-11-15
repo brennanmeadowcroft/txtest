@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
-  attr_accessible :admin, :email, :first_name, :last_name, :phone_number, :password, :password_confirmation, :remember_token, :user_key
+  attr_accessible :admin, :active, :email, :first_name, :last_name, :phone_number, :password, :password_confirmation, 
+                  :remember_token, :user_key, :stripe_token, :stripe_id, :last_4_digits, :expiration_date, :plan_id
   has_secure_password
 
   has_one :settings
-  has_one :account
-  has_one :plan, :through => :account
+  belongs_to :plan
   has_many :courses
   has_many :questions, :through => :courses
   has_many :answers, :through => :courses
@@ -12,14 +12,18 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, :presence => true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :first_name, :presence => true
-  validates :password, :presence => true, length: { minimum: 6 }
+  validates :password, :presence => true, length: { minimum: 6 }, :on => :create
+  validates :password_confirmation, :presence => true, :on => :create
 
   before_save { self.email = email.downcase }
   before_create { self.admin ||= 0 }
+  before_create { self.active = 1 }
   before_create :create_remember_token
   before_create :text_verification_code
   before_save :phone_cleanup
-  after_create :new_account
+  before_save :update_stripe
+  before_save :deactivate_account
+  before_destroy :close_stripe
 
   def User.new_remember_token
   	SecureRandom.urlsafe_base64
@@ -30,8 +34,9 @@ class User < ActiveRecord::Base
   end
 
   def self.with_unpaused_courses
+    # Find all active users with at least one unpaused course to create a schedule for the day
     #self.find_by_sql("SELECT * FROM users INNER JOIN courses ON(users.id = courses.user_id) WHERE courses.paused_flag = 0")
-    self.joins(:courses).where(courses: {paused_flag: 0})
+    self.joins(:courses).where(courses: {paused_flag: 0}, users: {active: 1})
   end
 
   def send_phone_validation
@@ -47,11 +52,24 @@ class User < ActiveRecord::Base
     puts message.from
   end
 
-  private
-    def set_admin
-      self.admin ||= 0
+  def toggle_admin
+    # Set the users account to admin and edit the account type
+    if self.admin == 1 
+      self.admin = 0
+      plan = Plan.where(:name => "Inactive Account")
+      self.plan_id = plan.first.id
+      self.active = 0
+    else
+      self.admin = 1
+      self.active = 1
+      plan = Plan.where(:name => "Admin")
+      self.plan_id = plan.first.id
     end
 
+    self.save!
+  end
+
+  private
   	def create_remember_token
   		self.remember_token = User.encrypt(User.new_remember_token)
   	end
@@ -71,6 +89,25 @@ class User < ActiveRecord::Base
       self.text_code = generate_verification_code
     end
 
+    def deactivate_account
+      plan = Plan.where(:name => "Inactive Account")
+      # Check whether the user account is inactive... if so, change subscription
+      if self.admin == 0 
+        if self.active == 0 
+          self.plan_id = plan.first.id
+        end
+      else 
+        self.active = 1
+      end
+
+      # Check whether account is anything other than "Inactive"... if so, make sure active account is checked
+      if self.plan_id != plan.first.id
+        self.active = 1
+      end
+
+      update_stripe
+    end
+
     def generate_verification_code
       size = 4
       charset = %w{ 2 3 4 6 7 9 a c d e f g h j k m n p q r t v w x y z A C D E F G H J K M N P Q R T V W X Y Z}
@@ -79,7 +116,50 @@ class User < ActiveRecord::Base
       return key
     end
 
-    def new_account
-      self.create_account(:active => 1)
+    def stripe_description
+      "#{ first_name } #{ last_name }: #{ email }"
+    end
+
+    def update_stripe
+      if stripe_token.present?
+        if stripe_id.nil?
+          customer = Stripe::Customer.create(
+              :email => email,
+              :description => stripe_description,
+              :card => stripe_token
+            )
+          customer.save
+          
+          self.last_4_digits = customer.cards.retrieve(customer.default_card).last4
+          customer.update_subscription({:plan => self.plan_id })
+        else 
+          customer = Stripe::Customer.retrieve(stripe_id)
+          customer.card = stripe_token
+          # Update just in case it has been changed
+          customer.email = self.email
+          customer.description = stripe_description
+          customer.update_subscription({:plan => self.plan_id})
+
+          customer.save
+
+          self.last_4_digits = customer.cards.retrieve(customer.default_card).last4
+        end
+      else
+          customer = Stripe::Customer.retrieve(stripe_id)
+          # Update just in case it has been changed
+          customer.email = self.email
+          customer.description = stripe_description
+          customer.update_subscription({:plan => self.plan_id})
+
+          customer.save
+      end
+
+      self.stripe_id = customer.id
+      self.stripe_token = nil
+    end
+
+    def close_stripe
+      customer = Stripe::Customer.retrieve(stripe_id)
+      customer.delete
     end
 end

@@ -1,0 +1,24 @@
+<%= f.hidden_field :stripe_token %>
+<%= f.hidden_field :last_4_digits %>
+
+<noscript>
+  <p>This form requires Javascript to use</p>
+</noscript>
+
+<div id="credit-card">
+  <div id="credit-card-errors" style="display:none">
+    <div id="stripe-error-message" class="alert-message block-message error">
+    </div>
+  </div>
+  <div class="card-form">
+    <!-- these fields are disabled before submission and are never transmitted back to rails -->
+    <%= text_field_tag :credit_card_number, params[:credit_card_number], :class => "card-number", :disabled => true, :placeholder => "Credit Card Number" %>
+
+    <%= text_field_tag :cvv, params[:cvv], :class => "cvv", :disabled => true, :placeholder => "CVV" %>
+      <%= date_select "", :expiry_date, {:discard_day => true, :order => [:month, :year], :use_month_numbers => true, :start_year => Date.today.year, :end_year => Date.today.year + 25, :disabled => true}, {:class => "small-select"} %>
+    <div class="note">
+      <p>Your credit card details will be sent directly to our payment processor</p>
+      <%= image_tag "solid-stripe.png" %>
+    </div>
+  </div>
+</div>

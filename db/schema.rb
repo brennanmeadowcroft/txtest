@@ -11,17 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131029035411) do
-
-  create_table "accounts", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "plan_id"
-    t.integer  "active"
-    t.string   "stripe_token"
-    t.integer  "last_cc_digits"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
+ActiveRecord::Schema.define(:version => 20131113025658) do
 
   create_table "answers", :force => true do |t|
     t.text     "submitted_answer"
@@ -55,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20131029035411) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.integer  "annual_plan"
+    t.integer  "private_plan"
   end
 
   create_table "questions", :force => true do |t|
@@ -86,6 +77,12 @@ ActiveRecord::Schema.define(:version => 20131029035411) do
     t.string   "remember_token"
     t.string   "text_code"
     t.integer  "admin"
+    t.string   "stripe_token"
+    t.string   "last_4_digits"
+    t.string   "expiration_date"
+    t.integer  "plan_id"
+    t.string   "stripe_id"
+    t.integer  "active"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

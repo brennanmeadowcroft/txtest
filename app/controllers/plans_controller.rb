@@ -1,4 +1,5 @@
 class PlansController < ApplicationController
+  before_filter :admin_user
   layout "admin"
   
   def index
@@ -30,12 +31,13 @@ class PlansController < ApplicationController
   end
 
   def create
-    params[:plan]['make_annual'] ||= 0
+    params['make_annual'] ||= 0
     @plan = Plan.new(params[:plan])
 
     respond_to do |format|
       if @plan.save
-        if params[:plan]['make_annual'] == 1
+        if params['make_annual'] = 1
+          flash[:success] = "Annual plan noticed!"
           Plan.create_annual_plan(@plan)
         end
         format.html { redirect_to @plan, notice: 'Account type was successfully created.' }

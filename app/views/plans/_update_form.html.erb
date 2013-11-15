@@ -12,6 +12,9 @@
   <% end %>
 
   <%= f.text_field :name, :required => true, :placeholder => "Plan Name" %>
+  <%= f.text_field :max_texts, :required => true, :placeholder => "Texts Per Day" %>
+  <%= f.text_field :max_courses, :required => true, :placeholder => "Maximum number of courses" %>
+  <%= f.text_field :max_questions, :required => true, :placeholder => "Maximum number of questions" %>
 
   <div class="actions">
     <%= f.submit "Save", :class => "save-button" %>

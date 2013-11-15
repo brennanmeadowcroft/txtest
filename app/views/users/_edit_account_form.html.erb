@@ -1,0 +1,48 @@
+<%= form_for(@user, :html => { :class => "" }) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="account-section">
+    <h4>Change Plans</h4>
+    <%= f.select :plan_id, @plans.map { |plan| [plan.name, plan.id]} %>
+    <%= f.check_box :active, :class=>"no-custom" %> Active Account (Your account is currently <strong><%= @user.active == 1 ? 'Active' : 'Inactive' %></strong>) <span data-tooltip class="has-tip" title="Change the status of your account. Inactive accounts are not charged and will not receive texts."><span class="icon-info"></span></span>
+  </div>
+
+  <div class="account-section">
+    <h4>Change Payment Method</h4>
+    <% if @user.last_4_digits %>
+        <div id="change-card" class="clearfix">
+          <div class="input">
+            <span>
+              Card ending with 
+              <%= @user.last_4_digits %> 
+              <%= link_to "(change)", "#" %>
+            </span>
+          </div>
+        </div>
+      <% end %>
+    <div id="edit-card">
+      <%= render 'users/cc_form' , :f => f %>
+    </div>
+  </div>
+
+  <div class="account-section">
+    <h4>Confirm your changes with your password</h4>
+    <%= f.password_field :password, :required => true, :placeholder => "Password" %>
+    <%= f.password_field :password_confirmation, :required => true, :placeholder => "Password Confirmation" %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Save", :class => "save-button" %>
+    <%= link_to "Cancel", user_path(@user), :class => "cancel-button" %>
+  </div>
+<% end %>

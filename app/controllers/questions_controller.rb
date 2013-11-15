@@ -30,9 +30,13 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(params[:question])
+    @course = @question.course
 
     respond_to do |format|
-      if @question.save
+      if @course.questions.count >= current_user.plan.max_questions
+        flash[:fail] = "You are limited to #{ current_user.plan.max_questions } questions per course. Creating this question would exceed your limit."
+        format.html { redirect_to @course }
+      elsif @question.save
         flash[:success] = "Question was successfully added"
         format.html { redirect_to @question.course }
       else

@@ -59,7 +59,10 @@ class CoursesController < ApplicationController
     @course = current_user.courses.new(params[:course])
 
     respond_to do |format|
-      if @course.save
+      if current_user.courses.count >= current_user.plan.max_courses
+        flash[:fail] = "You are limited to #{ current_user.plan.max_courses } courses. Creating this course would exceed your limit."
+        format.html { redirect_to courses_path }
+      elsif @course.save
         flash[:success] = "#{@course.description} was successfully created"
         format.html { redirect_to @course }
       else

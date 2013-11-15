@@ -19,7 +19,7 @@
   <%= f.text_field :max_courses, :required => true, :placeholder => "Maximum number of Courses" %>
   <%= f.text_field :max_questions, :required => true, :placeholder => "Maximum Number of Questions" %>
   <%= f.hidden_field :annual_plan, :value => 0 %>
-  <%= check_box_tag 'plan[make_annual]', 1 %> Create an ANNUAL version of this plan
+  <%= check_box_tag 'make_annual', 1 %> Create an ANNUAL version of this plan
 
   <div class="actions">
     <%= f.submit "Save", :class => "save-button" %>
