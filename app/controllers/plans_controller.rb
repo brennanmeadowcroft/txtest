@@ -31,15 +31,10 @@ class PlansController < ApplicationController
   end
 
   def create
-    params['make_annual'] ||= 0
     @plan = Plan.new(params[:plan])
 
     respond_to do |format|
       if @plan.save
-        if params['make_annual'] = 1
-          flash[:success] = "Annual plan noticed!"
-          Plan.create_annual_plan(@plan)
-        end
         format.html { redirect_to @plan, notice: 'Account type was successfully created.' }
       else
         format.html { render action: "new" }

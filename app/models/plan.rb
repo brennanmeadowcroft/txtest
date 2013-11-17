@@ -1,6 +1,5 @@
 class Plan < ActiveRecord::Base
 	attr_accessible :annual_plan, :name, :fee, :interval, :trial_period_days, :max_texts, :max_courses, :max_questions, :private_plan
-
 	has_many :users
 
 	before_create { self.private_plan ||= 0 }
