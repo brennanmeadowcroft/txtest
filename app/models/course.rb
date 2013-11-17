@@ -5,7 +5,7 @@ class Course < ActiveRecord::Base
   has_many :answers, :through => :questions
   belongs_to :user
 
-  before_create :init
+  before_save { self.paused_flag ||= 0 }
 
   def self.unpaused_courses
     self.where(:paused_flag => 0)
@@ -87,7 +87,24 @@ class Course < ActiveRecord::Base
     return answers_on_time
   end
 
-  def init
-    self.paused_flag ||= 0 
+  def self.enforce_plan_limits(max_courses)
+    # Get all the unpaused courses
+    unpaused_courses = self.where(:paused_flag => 0).order(id: :desc)
+
+    # If the number exceeds the max provided, pause the last courses added
+    if unpaused_courses.count > max_courses
+      number_to_pause = unpaused_courses.count-max_courses
+
+      number_to_pause.times do |i|
+        current_course = unpaused_courses[i] #i starts at 0
+        current_course.paused_flag = 1
+        current_course.save
+      end
+    end
+  end
+
+  def unpaused_questions
+    # Query unpaused questions from Course so that I can limit the results to a particular course rather than ALL unpaused questions
+    self.questions.unpaused_questions
   end
 end

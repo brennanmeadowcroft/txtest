@@ -9,17 +9,22 @@ class Settings < ActiveRecord::Base
   after_initialize :init
   before_save :check_account_limits
 
+  def enforce_plan_limits
+    self.check_account_limits
+    self.save!
+  end
+
+  def check_account_limits
+    if self.texts_per_day > self.user.plan.max_texts
+      self.texts_per_day = self.user.plan.max_texts
+    end
+  end
+
   private
     def init
       self.texts_per_day ||= 5
       self.response_time ||= 10
       self.start_time ||= 9
       self.end_time ||= 18
-    end
-
-    def check_account_limits
-      if self.texts_per_day > self.user.plan.max_texts
-        self.texts_per_day = self.user.plan.max_texts
-      end
     end
 end

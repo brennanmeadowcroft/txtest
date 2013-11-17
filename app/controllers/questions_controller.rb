@@ -30,12 +30,15 @@ class QuestionsController < ApplicationController
 
   def pause
     @question = current_user.questions.find(params[:id])
+    current_course = @question.course
 
     @question.paused_flag == 1 ? new_status = 0 : new_status = 1
     @question.paused_flag = new_status
 
     respond_to do |format|
-      if @question.save
+      if new_status = 0 and current_course.unpaused_questions.count >= current_user.plan.max_questions
+        flash[:fail] = "You are limited to #{ current_user.plan.max_questions } active questions per course. Unpausing this question would exceed your limit."
+      elsif @question.save
         new_status == 1 ? status = 'Paused' : status = 'Unpaused'
         flash[:success] = "Question has been #{ status }"
       else

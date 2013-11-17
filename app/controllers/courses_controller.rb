@@ -44,7 +44,9 @@ class CoursesController < ApplicationController
     @course.paused_flag = new_status
 
     respond_to do |format|
-      if @course.save
+      if new_status = 0 and current_user.courses.unpaused_courses.count >= current_user.plan.max_courses
+        flash[:fail] = "You are limited to #{ current_user.plan.max_courses } active courses. Unpausing this course would exceed your limit."
+      elsif @course.save
         new_status == 1 ? status = 'Paused' : status = 'Unpaused'
         flash[:success] = "#{ @course.description } has been #{ status }"
       else

@@ -8,12 +8,28 @@ class Question < ActiveRecord::Base
 
   before_save { self.paused_flag ||= 0 }
 
-  def self.unpaused_courses
+  def self.unpaused_questions
     self.where(:paused_flag => 0)
   end
 
   def self.from_unpaused_courses
   	self.joins(:course).where(courses: { :paused_flag => 0 }, questions: { :paused_flag => 0 })
+  end
+
+  def self.enforce_plan_limits(max_questions)
+    # Get all the unpaused questions
+    unpaused_questions = self.where(:paused_flag => 0).order(id: :desc)
+
+    # If the number exceeds the max provided, pause the last questions added
+    if unpaused_questions.count > max_questions
+      number_to_pause = unpaused_questions.count-max_questions
+
+      number_to_pause.times do |i|
+        current_question = unpaused_questions[i] #i starts at 0
+        current_question.paused_flag = 1
+        current_question.save
+      end
+    end
   end
 
   def answers_on_time
@@ -73,5 +89,4 @@ class Question < ActiveRecord::Base
 
     return avg_response
   end
-
 end

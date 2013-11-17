@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   before_save :phone_cleanup
   before_save :update_stripe
   before_save :deactivate_account
+  before_save :enforce_plan_limits
   before_destroy :close_stripe
 
   def User.new_remember_token
@@ -67,6 +68,16 @@ class User < ActiveRecord::Base
     end
 
     self.save!
+  end
+
+  def enforce_plan_limits
+    # Get the user plan information
+    plan = self.plan
+
+    # Check plan limits
+    self.settings.enforce_plan_limits
+    self.courses.enforce_plan_limits(plan.max_courses)
+    self.questions.enforce_plan_limits(plan.max_questions)
   end
 
   private
