@@ -28,6 +28,24 @@ class QuestionsController < ApplicationController
     @courses = current_user.courses.all
   end
 
+  def pause
+    @question = current_user.questions.find(params[:id])
+
+    @question.paused_flag == 1 ? new_status = 0 : new_status = 1
+    @question.paused_flag = new_status
+
+    respond_to do |format|
+      if @question.save
+        new_status == 1 ? status = 'Paused' : status = 'Unpaused'
+        flash[:success] = "Question has been #{ status }"
+      else
+        new_status == 1 ? status = 'Pausing' : status = 'Unpausing'
+        flash[:fail] = "There was a problem #{ status } the question!"
+      end
+      format.html { redirect_to @question }
+    end
+  end
+
   def create
     @question = Question.new(params[:question])
     @course = @question.course

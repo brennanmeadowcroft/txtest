@@ -2,6 +2,9 @@
 
 <%= render 'courses/side_menu' %>
 <div class="question-content">
+	<% if @question.paused_flag == 1 %>
+    	<div class="alert-fail">This question is currently paused and will not be asked! (<%= link_to "Unpause", pause_question_path(@question) %>)</div>
+  	<% end %>
 	<div class="question-title">
 		<h1>Question</h1>
 		<div class="question-options">
@@ -10,7 +13,11 @@
 			<% end %>| 
 			<%= link_to @question, method: :delete, data: { confirm: 'Are you sure?' } do %> 
 				<span class="icon-remove"></span>
-			<% end %>
+			<% end %>|
+			<%= link_to pause_question_path(@question) do %> 
+        		<span class="<%= @question.paused_flag == 1 ? 'icon-play' : 'icon-pause' %>"></span>
+      		<% end %>
+				<span data-tooltip class="has-tip" title="When a question is paused, it will not be considered when randomly picking questions."><span class="icon-info"></span></span>
 		</div>
 	</div>
 	<p><strong>Q: </strong><%= @question.question %></p>

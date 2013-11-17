@@ -21,6 +21,7 @@ TextTests::Application.routes.draw do
   match '/answers/:id/text_receipt' => 'answers#text_receipt', :via => :post
   match '/sms/receive' => 'sms#receive', :via => :post
   match '/courses/:id/pause' => 'courses#pause', :as => :pause_course
+  match '/questions/:id/pause' => 'questions#pause', :as => :pause_question
   match '/users/:id/account' => 'users#account', :as => :account
   match '/users/:id/account/edit' => 'users#edit_account', :as => :edit_account
   match '/users/:id/toggle_admin' => 'users#toggle_admin', :as => :toggle_admin

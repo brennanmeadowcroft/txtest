@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131113025658) do
+ActiveRecord::Schema.define(:version => 20131117172212) do
 
   create_table "answers", :force => true do |t|
     t.text     "submitted_answer"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20131113025658) do
     t.text     "correct_answer"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "paused_flag"
   end
 
   create_table "settings", :force => true do |t|

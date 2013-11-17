@@ -1,13 +1,19 @@
 class Question < ActiveRecord::Base
-  attr_accessible :correct_answer, :question, :course_id
+  attr_accessible :correct_answer, :question, :course_id, :paused_flag
 
   has_many :answers, dependent: :destroy
   belongs_to :course
   has_one :user, :through => :course
   has_one :settings, :through => :course
 
+  before_save { self.paused_flag ||= 0 }
+
+  def self.unpaused_courses
+    self.where(:paused_flag => 0)
+  end
+
   def self.from_unpaused_courses
-  	self.joins(:course).where(courses: { :paused_flag => 0 })
+  	self.joins(:course).where(courses: { :paused_flag => 0 }, questions: { :paused_flag => 0 })
   end
 
   def answers_on_time
