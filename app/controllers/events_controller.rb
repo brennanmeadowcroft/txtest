@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def index
     @events = Event.all
 
@@ -18,7 +20,7 @@ class EventsController < ApplicationController
 
 
   def create
-    event = params[:event]
+    event = params
     event_id = event.id
     @event = Event.create_from_stripe_id(event_id)
 

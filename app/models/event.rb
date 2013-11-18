@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :user_id, :stripe_event_id, :stripe_customer_id, :type, :sub_type, :action
+  attr_accessible :user_id, :stripe_event_id, :stripe_customer_id, :stripe_time, :type, :sub_type, :action
 
   belongs_to :user
 
@@ -9,6 +9,8 @@ class Event < ActiveRecord::Base
   	event_info = Stripe::Event.retrieve(event_id)
   	event_info.customer_id.present? ? customer_id = event_info.customer_id : customer_id = nil
   	type_array = event_info.type.split('.')
+    create_timestamp = event_info.created
+    event_date = '1/1/1970'.to_date + create_timestamp.seconds
 
   	if type_array.count == 3
   		event_type = type_array[0]
@@ -28,6 +30,7 @@ class Event < ActiveRecord::Base
   	event = Event.new(:user_id => user.id, 
   					:stripe_event_id => event_info.id, 
   					:stripe_customer_id => customer_id,
+            :stripe_time => event_date.to_date,
   					:type => event_type,
   					:sub_type => event_sub_type,
   					:action => event_action)
