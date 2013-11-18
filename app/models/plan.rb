@@ -4,8 +4,8 @@ class Plan < ActiveRecord::Base
 
 	before_create { self.private_plan ||= 0 }
 	after_create :add_plan
-#	after_update :update_plan
-#	before_destroy :destroy_stripe_plan
+	after_update :update_plan
+	before_destroy :destroy_stripe_plan
 
 	def self.public_plans
 		where(:private_plan => 0)

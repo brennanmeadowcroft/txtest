@@ -2,6 +2,9 @@
 
 <%= render 'users/side_menu' %>
 <div class="user-content">
+	<% if @user.card_problem_flag == 1 %>
+    	<div class="alert-fail">Your account has been marked as inactive due to a problem with your credit card. You can edit your payment information here: <%= link_to "Edit Account", edit_account_path(@user) %>)</div>
+  	<% end %>
 	<div class="user-title">
 		<h2><%= @user.first_name %> <%= @user.last_name %></h2>
 	</div>

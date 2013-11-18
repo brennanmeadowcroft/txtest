@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131117172212) do
+ActiveRecord::Schema.define(:version => 20131117235139) do
 
   create_table "answers", :force => true do |t|
     t.text     "submitted_answer"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(:version => 20131117172212) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "paused_flag"
+  end
+
+  create_table "events", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "stripe_event_id"
+    t.string   "stripe_customer_id"
+    t.string   "type"
+    t.string   "sub_type"
+    t.string   "action"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "plans", :force => true do |t|
@@ -73,8 +84,8 @@ ActiveRecord::Schema.define(:version => 20131117172212) do
     t.string   "email"
     t.string   "phone_number"
     t.string   "password_digest"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "remember_token"
     t.string   "text_code"
     t.integer  "admin"
@@ -84,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20131117172212) do
     t.integer  "plan_id"
     t.string   "stripe_id"
     t.integer  "active"
+    t.integer  "card_problem_flag"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

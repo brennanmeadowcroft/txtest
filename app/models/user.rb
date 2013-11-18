@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :admin, :active, :email, :first_name, :last_name, :phone_number, :password, :password_confirmation, 
-                  :remember_token, :user_key, :stripe_token, :stripe_id, :last_4_digits, :expiration_date, :plan_id
+                  :remember_token, :user_key, :stripe_token, :stripe_id, :last_4_digits, :expiration_date, :plan_id, :card_problem_flag
   has_secure_password
 
   has_one :settings
@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :courses
   has_many :questions, :through => :courses
   has_many :answers, :through => :courses
+  has_many :events
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, :presence => true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
@@ -16,8 +17,9 @@ class User < ActiveRecord::Base
   validates :password_confirmation, :presence => true, :on => :create
 
   before_save { self.email = email.downcase }
-  before_create { self.admin ||= 0 }
+  before_save { self.admin ||= 0 }
   before_create { self.active = 1 }
+  before_save { self.card_problem_flag ||= 0}
   before_create :create_remember_token
   before_create :text_verification_code
   before_save :phone_cleanup
@@ -38,6 +40,18 @@ class User < ActiveRecord::Base
     # Find all active users with at least one unpaused course to create a schedule for the day
     #self.find_by_sql("SELECT * FROM users INNER JOIN courses ON(users.id = courses.user_id) WHERE courses.paused_flag = 0")
     self.joins(:courses).where(courses: {paused_flag: 0}, users: {active: 1})
+  end
+
+  def problem_with_card
+    # Set the problem flag to 1 so the user can be notified
+    self.card_problem_flag = 1
+
+    # Set the user account to inactive to avoid extraneous charges
+    plan = Plan.where(:name => "Inactive Account").first
+    self.plan_id = plan.id
+    self.active = 1
+
+    self.save
   end
 
   def send_phone_validation
@@ -112,7 +126,7 @@ class User < ActiveRecord::Base
       end
 
       # Check whether account is anything other than "Inactive"... if so, make sure active account is checked
-      if self.plan_id != plan.first.id
+      if self.plan_id != plan.first.id and self.card_problem_flag != 1
         self.active = 1
       end
 
@@ -154,6 +168,7 @@ class User < ActiveRecord::Base
           customer.save
 
           self.last_4_digits = customer.cards.retrieve(customer.default_card).last4
+          self.card_problem_flag = 0
         end
       else
           customer = Stripe::Customer.retrieve(stripe_id)

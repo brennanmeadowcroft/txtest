@@ -1,6 +1,7 @@
 TextTests::Application.routes.draw do
   scope '/admin' do
     resources :plans
+    resources :events, :only => [:index, :show, :create]
   end
   resources :charges
   resources :users

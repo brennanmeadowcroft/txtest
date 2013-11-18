@@ -15,6 +15,8 @@
   <%= f.text_field :max_texts, :required => true, :placeholder => "Texts Per Day" %>
   <%= f.text_field :max_courses, :required => true, :placeholder => "Maximum number of courses" %>
   <%= f.text_field :max_questions, :required => true, :placeholder => "Maximum number of questions" %>
+  <%= f.check_box :private_plan %> This is a private plan <span data-tooltip class="has-tip" title="Private plans do not show up to users.  They have to be applied by an admin."><span class="icon-info"></span></span>
+
 
   <div class="actions">
     <%= f.submit "Save", :class => "save-button" %>
