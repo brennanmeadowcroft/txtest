@@ -1,0 +1,17 @@
+<% provide(:title, "Forgot Password") %>
+
+<div class="signin-content">
+	<div class="signin-image">
+		<%= image_tag "txtest-logo.png", :width => 200 %>
+		<h4>It happens to everyone</h4>
+	</div>
+	<div class="signin-form">
+		<h1>Reset Your Password</h1>
+		<%= form_tag password_resets_path, :method => :post do %>
+		    <%= text_field_tag :email, params[:email], :required => true, :placeholder => "Email Address" %>
+			<div class="actions">
+				<%= submit_tag "Reset Password", :class => "save-button" %>
+			</div>
+		<% end %>
+	</div>
+</div>

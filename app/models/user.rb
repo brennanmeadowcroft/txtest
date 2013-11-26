@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :admin, :active, :email, :first_name, :last_name, :phone_number, :password, :password_confirmation, 
-                  :remember_token, :user_key, :stripe_token, :stripe_id, :last_4_digits, :expiration_date, :plan_id, :card_problem_flag
+                  :remember_token, :user_key, :stripe_token, :stripe_id, :last_4_digits, :expiration_date, :plan_id, :card_problem_flag,
+                  :reset_token, :reset_sent_at
   has_secure_password
 
   has_one :settings
@@ -52,6 +53,13 @@ class User < ActiveRecord::Base
     self.active = 1
 
     self.save
+  end
+
+  def send_password_reset
+    generate_token(:reset_token)
+    self.reset_sent_at = Time.zone.now
+    save!
+    UserMailer.password_reset(self).deliver
   end
 
   def send_phone_validation
@@ -111,7 +119,7 @@ class User < ActiveRecord::Base
     end
 
     def text_verification_code
-      self.text_code = generate_verification_code
+      self.text_code = generate_verification_code(4)
     end
 
     def deactivate_account
@@ -133,12 +141,17 @@ class User < ActiveRecord::Base
       update_stripe
     end
 
-    def generate_verification_code
-      size = 4
+    def generate_verification_code(size)
       charset = %w{ 2 3 4 6 7 9 a c d e f g h j k m n p q r t v w x y z A C D E F G H J K M N P Q R T V W X Y Z}
       key = (0..size).map{ charset.to_a[rand(charset.size) ] }.join
     
       return key
+    end
+
+    def generate_token(column)
+      begin
+        self[column] = SecureRandom.urlsafe_base64
+      end while User.exists?(column => self[column])
     end
 
     def stripe_description

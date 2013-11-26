@@ -21,7 +21,7 @@ class EventsController < ApplicationController
 
   def create
     event = params
-    event_id = event.id
+    event_id = event[:id]
     @event = Event.create_from_stripe_id(event_id)
 
     respond_to do |format|

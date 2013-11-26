@@ -10,6 +10,7 @@ TextTests::Application.routes.draw do
   resources :questions, :only => [:show, :edit, :new, :create, :update, :destroy]
   resources :settings, :only => [:edit, :update]
   resources :sessions, :only => [:new, :create, :destroy ]
+  resources :password_resets, :only => [:new, :create, :edit, :update]
 
   match '/admin' => 'users#index', :as => :admin_root
   match '/courses' => 'courses#index', :as => :user_root

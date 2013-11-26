@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131118144551) do
+ActiveRecord::Schema.define(:version => 20131120043704) do
 
   create_table "answers", :force => true do |t|
     t.text     "submitted_answer"
@@ -97,6 +97,8 @@ ActiveRecord::Schema.define(:version => 20131118144551) do
     t.string   "stripe_id"
     t.integer  "active"
     t.integer  "card_problem_flag"
+    t.string   "reset_token"
+    t.datetime "reset_sent_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

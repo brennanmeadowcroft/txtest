@@ -1,6 +1,7 @@
 <%= form_tag sessions_path do %>
     <%= text_field_tag :email, params[:email], :required => true, :placeholder => "Email Address" %>
     <%= password_field_tag :password, :required => true %>
+    <p><%= link_to "Forgot Password?", new_password_reset_path %></p>
 	<div class="actions">
 		<%= submit_tag "Log In", :class => "save-button" %>
 		<%= link_to "Cancel", root_path, :class => "cancel-button" %>
