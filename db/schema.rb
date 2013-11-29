@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131120043704) do
+ActiveRecord::Schema.define(:version => 20131128002122) do
 
   create_table "answers", :force => true do |t|
     t.text     "submitted_answer"
@@ -85,8 +85,8 @@ ActiveRecord::Schema.define(:version => 20131120043704) do
     t.string   "email"
     t.string   "phone_number"
     t.string   "password_digest"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.string   "remember_token"
     t.string   "text_code"
     t.integer  "admin"
@@ -99,6 +99,10 @@ ActiveRecord::Schema.define(:version => 20131120043704) do
     t.integer  "card_problem_flag"
     t.string   "reset_token"
     t.datetime "reset_sent_at"
+    t.integer  "email_verified"
+    t.string   "email_verification_code"
+    t.integer  "phone_verified"
+    t.string   "phone_verification_code"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

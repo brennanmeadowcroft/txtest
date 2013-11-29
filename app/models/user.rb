@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :admin, :active, :email, :first_name, :last_name, :phone_number, :password, :password_confirmation, 
                   :remember_token, :user_key, :stripe_token, :stripe_id, :last_4_digits, :expiration_date, :plan_id, :card_problem_flag,
-                  :reset_token, :reset_sent_at
+                  :reset_token, :reset_sent_at, :email_verified, :email_verification_code, :phone_verified, :phone_verification_code
   has_secure_password
 
   has_one :settings
@@ -17,12 +17,9 @@ class User < ActiveRecord::Base
   validates :password, :presence => true, length: { minimum: 6 }, :on => :create
   validates :password_confirmation, :presence => true, :on => :create
 
-  before_save { self.email = email.downcase }
-  before_save { self.admin ||= 0 }
-  before_create { self.active = 1 }
-  before_save { self.card_problem_flag ||= 0}
   before_create :create_remember_token
-  before_create :text_verification_code
+  before_create :verify_contact_info
+  before_save :init
   before_save :phone_cleanup
   before_save :update_stripe
   before_save :deactivate_account
@@ -66,12 +63,11 @@ class User < ActiveRecord::Base
     # Process the text and send it via Twilio
     @client = Twilio::REST::Client.new(ENV['twilio_sid'], ENV['twilio_token'])
 
-    text_body = "Validating your number. Please enter this code into the form: #{ self.text_code }"
+    text_body = "Validate your phone by going to https://www.txtest.com/users/#{ self.id }/verify_phone and enter this code: #{ self.text_code }"
      
     message = @client.account.sms.messages.create(:body => text_body,
-        :to => self.phone_number,
-        :from => ENV['twilio_from'],
-        :status_callback => "https://testtexts.fwd.wf/sms/#{self.id}/text_validate")
+        :to => self.user.phone_number,
+        :from => ENV['twilio_from'])
     puts message.from
   end
 
@@ -103,6 +99,31 @@ class User < ActiveRecord::Base
   end
 
   private
+    def init
+      self.email = email.downcase
+      self.admin ||= 0
+      self.active ||= 1
+      self.card_problem_flag ||= 0
+      self.email_verified ||= 0
+      self.phone_verified ||= 0
+      verify_contact_info
+    end
+
+    def verify_contact_info
+      if self.email_changed?
+        # Send email verification
+        self.email_verified = 0
+        self.email_verification_code = generate_verification_code(6)
+        UserMailer.email_verification(self).deliver
+      end
+      if self.phone_number_changed?
+        # Send phone validation
+        self.phone_verified = 0
+        self.phone_verification_code = generate_verification_code(6)
+        send_phone_validation
+      end
+    end
+
   	def create_remember_token
   		self.remember_token = User.encrypt(User.new_remember_token)
   	end

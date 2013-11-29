@@ -44,6 +44,10 @@ class UsersController < ApplicationController
     @plans = Plan.public_plans
   end
 
+  def verify_phone
+    @user = User.find(params[:id])
+  end
+
   def create
     @user = User.new(params[:user])
 
@@ -108,6 +112,46 @@ class UsersController < ApplicationController
       else
         flash[:error] = "There was a problem toggling the admin"
         format.html { redirect_to users_path }
+      end
+    end
+  end
+
+  def update_phone_verification
+    @user = User.find(params[:id])
+
+    phone_code = params[:user][:phone_verification_code]
+
+    if phone_code == @user.phone_verification_code
+      @user.phone_verified = 1
+    end
+
+    respond_to do |format|
+      if @user.save!
+        flash[:success] = "Your phone has been verified"
+        format.html { redirect_to @user }
+      else
+        flash[:error] = "There was a problem verifying your phone"
+        format.html { redirect_to verify_phone_path }
+      end
+    end
+  end
+
+  def verify_email
+    @user = User.find(params[:id])
+
+    email_code = params[:code]
+
+    if email_code == @user.email_validation_code
+      @user.email_verified = 1
+    end
+
+    respond_to do |format|
+      if @user.save!
+        flash[:success] = "Your email has been verified"
+        format.html { redirect_to @user }
+      else 
+        flash[:success] = "There was a problem validating your email"
+        format.html { redirect_to @user }
       end
     end
   end

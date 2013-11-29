@@ -27,6 +27,9 @@ TextTests::Application.routes.draw do
   match '/users/:id/account' => 'users#account', :as => :account
   match '/users/:id/account/edit' => 'users#edit_account', :as => :edit_account
   match '/users/:id/toggle_admin' => 'users#toggle_admin', :as => :toggle_admin
+  match '/users/:id/verify_phone' => 'users#verify_phone', :as => :verify_phone
+  match '/users/:id/update_phone_verification' => 'users#update_phone_verification'
+  match '/users/:id/verify_email/:code' => 'users#verify_email', :as => :verify_email
 
   match '/' => 'static_page#index', :as => :public_root
   match '/faq' => 'static_page#faq', :as => :faq

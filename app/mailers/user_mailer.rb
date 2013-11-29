@@ -8,4 +8,9 @@ class UserMailer < ActionMailer::Base
   	@user = user
   	mail :to => user.email, :subject => "Reset Your Txtest.com Password"
   end
+
+  def email_verification(user)
+  	@user = user
+  	mail :to => user.email, :subject => "Verify Your Email Address"
+  end
 end
