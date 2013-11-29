@@ -90,7 +90,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user }
         format.json { head :no_content }
       else
-        flash[:error] = "There was a problem updating your account"
+        flash[:fail] = "There was a problem updating your account"
         format.html { render action: "edit" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -110,7 +110,7 @@ class UsersController < ApplicationController
         flash[:success] = "Admin toggled successfully"
         format.html { redirect_to users_path }
       else
-        flash[:error] = "There was a problem toggling the admin"
+        flash[:fail] = "There was a problem toggling the admin"
         format.html { redirect_to users_path }
       end
     end
@@ -130,7 +130,7 @@ class UsersController < ApplicationController
         flash[:success] = "Your phone has been verified"
         format.html { redirect_to @user }
       else
-        flash[:error] = "There was a problem verifying your phone"
+        flash[:fail] = "There was a problem verifying your phone"
         format.html { redirect_to verify_phone_path }
       end
     end
