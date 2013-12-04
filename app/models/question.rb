@@ -32,6 +32,20 @@ class Question < ActiveRecord::Base
     end
   end
 
+  def next
+    # Grab the users next question
+    next_question = Question.joins(:user).where("questions.id > ? AND users.id = ?", self.id, self.user.id).order(id: :asc).limit(1)
+
+    return next_question.first
+  end
+
+  def previous
+    # Grab the users previous question
+    previous_question = Question.joins(:user).where("questions.id < ? AND users.id = ?", self.id, self.user.id).order(id: :desc).limit(1)
+
+    return previous_question.first
+  end
+
   def answers_on_time
     data_array = self.answers.select('sum(CASE WHEN correct = 1 AND in_time = 1 THEN 1 ELSE 0 END) AS correct_in_time, 
                                                                   sum(CASE WHEN correct = 1 AND in_time = 0 THEN 1 ELSE 0 END) AS correct_out_time,

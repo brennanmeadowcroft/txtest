@@ -170,12 +170,12 @@ h1, h2, h3, h4, p {
 	.course-title, .question-title, .user-title {
 		@include grid-row();
 		
-		h1 {
+		h4 {
+			width: 80%;
 			display: inline-block;
 		}
 		.course-options, .question-options {
 			@extend .right;
-			margin-top: 1.5em;
 			padding: 0.5em;
 			display: inline-block;
 			a {
@@ -243,6 +243,15 @@ h1, h2, h3, h4, p {
 	table {
 		width: 100%;
 		text-align: center;
+	}
+	.previous-question, .next-question {
+		@include grid-column(2);
+		margin-bottom: 0.5em;
+		text-align: left;
+	}
+	.next-question {
+		@extend .right;
+		text-align: right;
 	}
 }
 

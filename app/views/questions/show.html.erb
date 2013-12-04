@@ -5,8 +5,22 @@
 	<% if @question.paused_flag == 1 %>
     	<div class="alert-fail">This question is currently paused and will not be asked! (<%= link_to "Unpause", pause_question_path(@question) %>)</div>
   	<% end %>
+  	<div class="previous-question">
+		<% if @question.previous.nil? %>
+			< Previous
+		<% else %>
+			<%= link_to "< Previous", question_path(@question.previous.id) %>
+		<% end %>
+	</div>
+	<div class="next-question">
+		<% if @question.next.nil? %>
+			Next >
+		<% else %>
+			<%= link_to "Next >", question_path(@question.next.id) %>
+		<% end %>
+	</div>
 	<div class="question-title">
-		<h1>Question</h1>
+		<h4><%= @question.question %></h4>
 		<div class="question-options">
 			<%= link_to edit_question_path(@question) do %> 
 				<span class="icon-cog"></span>
@@ -20,7 +34,6 @@
 				<span data-tooltip class="has-tip" title="When a question is paused, it will not be considered when randomly picking questions."><span class="icon-info"></span></span>
 		</div>
 	</div>
-	<p><strong>Q: </strong><%= @question.question %></p>
 	<p><strong>A: </strong><%= @question.correct_answer %></p>
 	<div class="question-results">
 		<div id="response_time" class="chart-medium" style="width: 400px; display: inline-block;"></div>
