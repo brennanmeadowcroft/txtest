@@ -59,7 +59,11 @@ class QuestionsController < ApplicationController
         format.html { redirect_to @course }
       elsif @question.save
         flash[:success] = "Question was successfully added"
-        format.html { redirect_to @question.course }
+        if params[:save_add] == "Save & Add Another"
+          format.html { redirect_to new_question_path(:course_id => @course.id) }
+        else
+          format.html { redirect_to @question }
+        end
       else
         flash[:fail] = "There was a problem creating the question"
         format.html { render action: "new" }
@@ -69,11 +73,16 @@ class QuestionsController < ApplicationController
 
   def update
     @question = current_user.questions.find(params[:id])
+    @course = @question.course
 
     respond_to do |format|
       if @question.update_attributes(params[:question])
         flash[:success] = "Question was successfully updated"
-        format.html { redirect_to @question }
+        if params[:save_add] == "Save & Add Another"
+          format.html { redirect_to new_question_path(:course_id => @course.id) }
+        else
+          format.html { redirect_to @question }
+        end
       else
         flash[:fail] = "There was a problem updating the question"
         format.html { render action: "edit" }
