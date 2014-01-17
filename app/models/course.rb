@@ -3,6 +3,7 @@ class Course < ActiveRecord::Base
 
   has_many :questions, dependent: :destroy
   has_many :answers, :through => :questions
+  has_many :exams
   belongs_to :user
 
   before_save { self.paused_flag ||= 0 }

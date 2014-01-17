@@ -1,0 +1,8 @@
+class AddTestFieldsToAnswer < ActiveRecord::Migration
+  def up
+  	add_column :answers, :test_answer, :integer
+  end
+  def down
+  	remove_column :answers, :test_answer
+  end
+end

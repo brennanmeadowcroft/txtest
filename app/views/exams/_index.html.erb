@@ -1,0 +1,39 @@
+<%= render 'courses/side_menu' %>
+<div class="course-content">
+  <div class="exams">
+    <div class="exams-heading">
+      <h4>Exams</h4>
+      <%= link_to 'New...', new_exam_path(:course_id => @course.id), :class=>"new-button right" %>
+    </div>
+    <ul>
+    <% if @course.exams.count == 0 %>
+      <li>You have no exams for this course!</li>
+    <% else %>
+      <table>
+        <tr>
+          <th>
+            Date Taken
+            <span data-tooltip class="has-tip" title="Pending indicates that a test has been created but not taken">
+          </th>
+          <th>Questions</th>
+          <th>Time Allowed</th>
+          <th>Time Taken</th>
+          <th>Score</th>
+        </tr>
+      <% @course.exams.each do |exam| %>
+        <tr>
+          <td>
+            <% if exam.time_taken.nil? %>
+              <%= link_to 'Pending', exam_path %>
+            <% else %>
+              <%= link_to exam.time_taken, exam_path %>
+            <% end %>
+          </td>
+          <td><%= exam.total_questions %></td>
+          <td><%= exam.time_taken %></td>
+          <td><%= exam.pct_corrrect %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </div>
+</div>

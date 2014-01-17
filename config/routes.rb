@@ -10,6 +10,7 @@ TextTests::Application.routes.draw do
   resources :questions, :only => [:show, :edit, :new, :create, :update, :destroy]
   resources :settings, :only => [:edit, :update]
   resources :sessions, :only => [:new, :create, :destroy ]
+  resources :exams
   resources :password_resets, :only => [:new, :create, :edit, :update]
 
   match '/admin' => 'users#index', :as => :admin_root
@@ -30,6 +31,9 @@ TextTests::Application.routes.draw do
   match '/users/:id/verify_phone' => 'users#verify_phone', :as => :verify_phone
   match '/users/:id/update_phone_verification' => 'users#update_phone_verification'
   match '/users/:id/verify_email/:code' => 'users#verify_email', :as => :verify_email
+  match '/exams/:id/take' => 'exams#take', :as => :take_exam
+  match '/exams/:id/submit_exam' => 'exams#submit_exam', :via => :post
+
 
   match '/' => 'static_page#index', :as => :public_root
   match '/faq' => 'static_page#faq', :as => :faq
