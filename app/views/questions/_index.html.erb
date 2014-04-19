@@ -1,0 +1,31 @@
+<div class="questions">
+  <div class="questions-heading">
+    <h4>Questions</h4>
+    <%= link_to 'New...', new_question_path(:course_id => @course.id), :class=>"new-button right" %>
+  </div>
+  <ul>
+  <% if @course.questions.count == 0 %>
+    <li>You have no questions for this course!</li>
+  <% else %>
+    <% @course.questions.each do |question| %>
+      <li>
+        <div class="question-detail">
+          <%= link_to question.question, question %>
+        </div>
+        <div class="settings right">
+          <%= link_to edit_question_path(question) do %> 
+            <span aria-hidden="true" class="icon-cog"></span>
+          <% end %> | 
+          <%= link_to question_path(question) do %>
+            <span aria-hidden="true" class="icon-stats"></span>
+          <% end %> |
+          <%= link_to pause_question_path(question) do %> 
+            <span class="<%= question.paused_flag == 1 ? 'icon-play' : 'icon-pause' %>"></span>
+          <% end %>
+          <span data-tooltip class="has-tip" title="When a course is paused, it will be excluded from receiving the randomly generated texts."><span class="icon-info"></span></span>
+        </div>
+      </li>
+    <% end %>
+  <% end %>
+  </ul>
+</div>

@@ -1,62 +1,29 @@
-
 <% provide(:title, "#{@course.description}") %>
 
 <%= render 'courses/side_menu' %>
 <div class="course-content">
-  <% if @course.paused_flag == 1 %>
-    <div class="alert-fail">This course is currently pause and will not have any questions asked! (<%= link_to "Unpause", pause_course_path(@course) %>)</div>
-  <% end %>
-  <div class="course-title">
-    <h1><%= @course.description %></h1>
-    <div class="course-options">
-      <%= link_to edit_course_path(@course) do %> 
-        <span class="icon-cog"></span>
-      <% end %>| 
-      <%= link_to @course, method: :delete, data: { confirm: 'Are you sure?' } do %> 
-        <span class="icon-remove"></span>
-      <% end %>| 
-      <%= link_to pause_course_path(@course) do %> 
-        <span class="<%= @course.paused_flag == 1 ? 'icon-play' : 'icon-pause' %>"></span>
-      <% end %>
-      <span data-tooltip class="has-tip" title="When a course is paused, it will be excluded from receiving the randomly generated texts."><span class="icon-info"></span></span>
-    </div>
-  </div>
-  <div class="course-results">
-    <div id="correct_time" class="chart-medium" style="width: 400px; display: inline-block;"></div>
-    <div id="total_correct" class="chart-medium" style="width: 400px; display: inline-block;"></div>
-  </div>
+  <%= render 'courses/course_header' %>
 
-  <div class="questions">
-    <div class="questions-heading">
-      <h4>Questions</h4>
-      <%= link_to 'New...', new_question_path(:course_id => @course.id), :class=>"new-button right" %>
+  <div class="section-container horizontal-nav" data-section>
+    <section class="active">
+      <p class="title" data-section-title><a href="#panel1">Questions</a></p>
+      <div class="content" data-section-content>
+
+      <div class="course-results">
+        <div id="correct_time" class="chart-medium" style="width: 40%; display: inline-block;"></div>
+        <div id="total_correct" class="chart-medium" style="width: 40%; display: inline-block;"></div>
+      </div>
+
+      <%= render 'questions/index' %>
+  </section>
+  <section>
+    <p class="title" data-section-title><a href="#panel2">Exams</a></p>
+    <div class="content" data-section-content>
+      <p>Content of section 2.</p>
     </div>
-    <ul>
-    <% if @course.questions.count == 0 %>
-      <li>You have no questions for this course!</li>
-    <% else %>
-      <% @course.questions.each do |question| %>
-        <li>
-          <div class="question-detail">
-            <%= link_to question.question, question %>
-          </div>
-          <div class="settings right">
-            <%= link_to edit_question_path(question) do %> 
-              <span aria-hidden="true" class="icon-cog"></span>
-            <% end %> | 
-            <%= link_to question_path(question) do %>
-              <span aria-hidden="true" class="icon-stats"></span>
-            <% end %> |
-            <%= link_to pause_question_path(question) do %> 
-              <span class="<%= question.paused_flag == 1 ? 'icon-play' : 'icon-pause' %>"></span>
-            <% end %>
-            <span data-tooltip class="has-tip" title="When a course is paused, it will be excluded from receiving the randomly generated texts."><span class="icon-info"></span></span>
-          </div>
-        </li>
-      <% end %>
-    <% end %>
-    </ul>
-  </div>
-  <%= render_chart(@correct_time_chart, 'correct_time') %>
-  <%= render_chart(@total_correct_chart, 'total_correct') %>
+  </section>
+</div>
+
+<%= render_chart(@correct_time_chart, 'correct_time') %>
+<%= render_chart(@total_correct_chart, 'total_correct') %>
 </div>

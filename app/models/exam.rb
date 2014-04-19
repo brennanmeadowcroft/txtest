@@ -40,7 +40,7 @@ class Exam < ActiveRecord::Base
   	question_count = all_questions.count
 
     # Check that we have enough questions... if not, don't go any further
-    if all_questions >= question_count
+    if question_count >= self.total_questions
 
     	# Set the necessary base elements
     	test_questions = []
@@ -51,21 +51,24 @@ class Exam < ActiveRecord::Base
     		random_num = rand(0..(question_count-1))
 
     		# Choose a random number the hasn't been selected yet
-    		if indices.include?(random_num)
+    		if !indices.include?(random_num)
     			indices << random_num
     		else
   	  		while indices.include?(random_num) do
   	  			random_num = rand(0..(question_count-1))
   	  		end
+          indices << random_num
   	  	end
 
-    		# Pull the selected question out of the 
-    		test_questions[i] = all_questions[random_num]
+    		# Pull the selected question out of the
+    		test_questions << all_questions[random_num]
     	end
 
     	# Create the questions in the database for the test
-    	for question in test_questions
-    		self.answers.create(:question_id => question.id, :exam_question_flag => 1)
+    	for q in test_questions
+        if !q.nil?
+          self.answers.create(:question_id => q.id)
+        end
     	end
     else
       return nil

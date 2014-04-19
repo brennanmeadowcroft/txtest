@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(:version => 20140113034054) do
     t.integer  "question_id"
     t.integer  "correct"
     t.integer  "in_time"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.datetime "time_sent"
     t.integer  "text_receipt"
     t.datetime "receipt_date"
-    t.integer  "exam_question_flag"
+    t.integer  "exam_id"
   end
 
   create_table "courses", :force => true do |t|

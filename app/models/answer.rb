@@ -1,8 +1,9 @@
 class Answer < ActiveRecord::Base
-  attr_accessible :submitted_answer, :time_answered, :time_sent, :correct, :in_time, :question_id, 
-                  :text_receipt, :receipt_date, :exam_question_flag
+  attr_accessible :submitted_answer, :time_answered, :time_sent, :correct, :in_time, :question_id,
+                  :text_receipt, :receipt_date, :exam_id
 
   belongs_to :question
+  belongs_to :exam
   has_one :course, :through => :question
   has_one :user, :through => :course
   has_many :exams
@@ -16,7 +17,7 @@ class Answer < ActiveRecord::Base
 
   def self.to_send
     # Get the current time from the server.  Time is stored in MySQL as UTC and will be converted by the
-    # DB for the sake of the query.  We want the current time to know when to send it.  The time needs to be 
+    # DB for the sake of the query.  We want the current time to know when to send it.  The time needs to be
     # broken down because we don't want seconds... answers stored in DB have "00" as seconds.
     current_time = Time.now #Time from the server where the application is located in, not UTC
     # Deconstruct the time into individual components for the query
@@ -31,7 +32,6 @@ class Answer < ActiveRecord::Base
 
   def init
     self.text_receipt = 0
-    self.exam_question_flag ||= 0
   end
 
   def update_text_receipt
@@ -59,7 +59,7 @@ class Answer < ActiveRecord::Base
     @client = Twilio::REST::Client.new(ENV['twilio_sid'], ENV['twilio_token'])
 
     text_body = "#{self.question.question} | #{self.user.settings.response_time} min, code: Q#{self.id}"
-     
+
     message = @client.account.sms.messages.create(:body => text_body,
         :to => self.user.phone_number,
         :from => ENV['twilio_from'],

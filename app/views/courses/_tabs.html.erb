@@ -1,0 +1,21 @@
+<dl class="tabs" data-tab>
+  <dd class="active"><a href="#panel2-1">Questions</a></dd>
+  <dd><a href="#panel2-2">Exams</a></dd>
+</dl>
+<div class="tabs-content">
+  <div class="content active" id="panel2-1">
+      <div class="course-results">
+	    <div id="correct_time" class="chart-medium" style="width: 400px; display: inline-block;"></div>
+	    <div id="total_correct" class="chart-medium" style="width: 400px; display: inline-block;"></div>
+	  </div>
+	  <%= render 'questions/index' %>
+  </div>
+  <div class="content" id="panel2-2">
+    <div class="exam-results">
+	</div>
+	<%= render 'exams/index' %>
+  </div>
+</div>
+
+<%= render_chart(@correct_time_chart, 'correct_time') %>
+<%= render_chart(@total_correct_chart, 'total_correct') %>
